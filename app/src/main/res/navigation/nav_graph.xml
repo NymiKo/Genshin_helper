@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigationContainerFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.easyprog.genshin.fragments.main.MainFragment"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" />
+    <fragment
+        android:id="@+id/heroesFragment"
+        android:name="com.easyprog.genshin.fragments.heroes.HeroesFragment"
+        android:label="heroes_fragment"
+        tools:layout="@layout/heroes_fragment" >
+        <action
+            android:id="@+id/action_heroesFragment_to_heroProfileFragment"
+            app:destination="@id/heroProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weaponFragment"
+        android:name="com.easyprog.genshin.fragments.weapon.WeaponFragment"
+        android:label="weapon_fragment"
+        tools:layout="@layout/weapon_fragment" />
+    <fragment
+        android:id="@+id/artifactsFragment"
+        android:name="com.easyprog.genshin.fragments.artifacts.ArtifactsFragment"
+        android:label="artifacts_fragment"
+        tools:layout="@layout/artifacts_fragment" />
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.easyprog.genshin.fragments.map.MapFragment"
+        android:label="map_fragment"
+        tools:layout="@layout/map_fragment" />
+    <fragment
+        android:id="@+id/heroProfileFragment"
+        android:name="com.easyprog.genshin.fragments.hero_profile.HeroProfileFragment"
+        android:label="fragment_hero_profile"
+        tools:layout="@layout/fragment_hero_profile" />
+    <fragment
+        android:id="@+id/navigationContainerFragment"
+        android:name="com.easyprog.genshin.fragments.NavigationContainerFragment"
+        android:label="fragment_navigation_container"
+        tools:layout="@layout/fragment_navigation_container" >
+        <action
+            android:id="@+id/action_navigationContainerFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_navigationContainerFragment_to_artifactsFragment"
+            app:destination="@id/artifactsFragment" />
+        <action
+            android:id="@+id/action_navigationContainerFragment_to_heroesFragment"
+            app:destination="@id/heroesFragment" />
+    </fragment>
+</navigation>

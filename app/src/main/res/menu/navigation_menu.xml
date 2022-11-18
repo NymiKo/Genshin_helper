@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/heroesFragment"
+        android:title="@string/navigation_item_heroes"
+        android:enabled="true"
+        android:icon="@drawable/navigation_item_heroes" />
+
+<!--    <item android:id="@+id/weaponFragment"-->
+<!--        android:title="@string/navigation_item_weapons"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/navigation_item_weapons"/>-->
+
+    <item android:id="@+id/mainFragment"
+        android:title="@string/navigation_item_main"
+        android:enabled="true"
+        android:icon="@drawable/navigation_item_main"/>
+
+    <item android:id="@+id/artifactsFragment"
+        android:title="@string/navigation_item_artifacts"
+        android:enabled="true"
+        android:icon="@drawable/navigation_item_artifacts"/>
+
+<!--    <item android:id="@+id/mapFragment"-->
+<!--        android:title="@string/navigation_item_map"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/navigation_item_map"/>-->
+
+</menu>

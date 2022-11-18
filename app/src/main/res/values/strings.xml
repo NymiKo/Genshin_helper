@@ -1,0 +1,15 @@
+<resources>
+
+    //app name
+    <string name="app_name">Genshin</string>
+
+    //navigation menu items
+    <string name="navigation_item_heroes">Персонажи</string>
+    <string name="navigation_item_weapons">Оружие</string>
+    <string name="navigation_item_main">Главная</string>
+    <string name="navigation_item_artifacts">Артефакты</string>
+    <string name="navigation_item_map">Карта</string>
+    <string name="hint_search_hero">Поиск</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
