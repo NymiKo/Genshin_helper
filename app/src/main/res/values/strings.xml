@@ -10,6 +10,12 @@
     <string name="navigation_item_artifacts">Артефакты</string>
     <string name="navigation_item_map">Карта</string>
     <string name="hint_search_hero">Поиск</string>
+    <string name="hero_setting">Настройки персонажа</string>
+    <!-- Preference Titles -->
+    <string name="hero_priority">Приоритеты персонажа</string>
+    <string name="elevation_priority">Приоритет возвышения</string>
+    <string name="talent_priority">Приоритет талантов</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="today">Сегодня</string>
 </resources>

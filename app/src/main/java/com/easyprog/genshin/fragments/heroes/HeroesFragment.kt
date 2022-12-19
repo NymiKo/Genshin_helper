@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import com.easyprog.genshin.R
-import com.easyprog.genshin.adapters.HeroesActionListener
-import com.easyprog.genshin.adapters.HeroesAdapter
+import com.easyprog.genshin.adapters.heroes.HeroesActionListener
+import com.easyprog.genshin.adapters.heroes.HeroesAdapter
 import com.easyprog.genshin.databinding.HeroesFragmentBinding
 import com.easyprog.genshin.utils.ZoomOutPageTransformer
 
@@ -37,7 +37,6 @@ class HeroesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getData()
         setupAdapter()
         setupView()
     }
@@ -54,7 +53,11 @@ class HeroesFragment : Fragment() {
     private fun setupAdapter() {
         mAdapter = HeroesAdapter(object : HeroesActionListener{
             override fun onHeroesProfile(idHero: Int) {
-                findNavController().navigate(R.id.action_heroesFragment_to_heroProfileFragment, bundleOf("ID_HERO" to idHero))
+                Navigation.findNavController(
+                    requireActivity(),
+                    R.id.nav_host_fragment
+                ).navigate(R.id.heroProfileFragment, bundleOf("ID_HERO" to idHero))
+                //findNavController().navigate(R.id.heroProfileFragment, bundleOf("ID_HERO" to idHero))
             }
         })
     }

@@ -11,7 +11,11 @@ class HeroesViewModel : ViewModel() {
     private val _heroesList = MutableLiveData<List<Heroes>>()
     val heroesList: LiveData<List<Heroes>> = _heroesList
 
-    fun getData() {
+    init {
+        getData()
+    }
+
+    private fun getData() {
         _heroesList.value = createHeroesData()
     }
 

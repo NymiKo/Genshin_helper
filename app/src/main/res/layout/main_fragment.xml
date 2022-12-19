@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:textSize="24sp"
-        android:text="Управление целями"
+        android:text="@string/today"
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold"
         android:textColor="@color/white" />
@@ -29,8 +29,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray"
-            >
+            android:background="@color/gray">
 
             <ImageView
                 android:id="@+id/image_emblem"

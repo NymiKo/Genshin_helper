@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.easyprog.genshin.R
@@ -30,6 +31,9 @@ class NavigationContainerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val nestedNavHostFragment = childFragmentManager.findFragmentById(R.id.bottom_nav_host_fragment) as NavHostFragment
+        val navController = nestedNavHostFragment.navController
+        binding.bottomNavView.setupWithNavController(navController)
         setupStyleBottomNavigationView(binding.bottomNavView)
     }
 

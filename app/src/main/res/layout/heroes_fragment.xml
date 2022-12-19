@@ -23,6 +23,7 @@
             android:layout_marginHorizontal="10dp"
             android:fontFamily="@font/genshin_impact"
             android:hint="@string/hint_search_hero"
+            android:textCursorDrawable="@drawable/cursor_edittext"
             android:lines="1"
             android:textColor="@color/white"
             android:textSize="14sp"
