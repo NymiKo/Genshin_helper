@@ -25,6 +25,7 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
+        viewModel.changeNumberEmblem()
         return binding.root
     }
 

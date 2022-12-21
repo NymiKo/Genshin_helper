@@ -2,7 +2,9 @@ package com.easyprog.genshin.di.modules
 
 import com.easyprog.data.storage.RoomDatabaseApp
 import com.easyprog.domain.repositories.HeroSettingsRepository
+import com.easyprog.domain.repositories.MainActivityRepository
 import com.easyprog.domain.repositories.implementations.HeroSettingsRepositoryImpl
+import com.easyprog.domain.repositories.implementations.MainActivityRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +19,12 @@ object RepositoryModule {
     @Provides
     fun provideHeroSettingsRepository(roomDatabaseApp: RoomDatabaseApp): HeroSettingsRepository {
         return HeroSettingsRepositoryImpl(localDataSource = roomDatabaseApp)
+    }
+
+    @Singleton
+    @Provides
+    fun provideMainActivityRepository(roomDatabaseApp: RoomDatabaseApp): MainActivityRepository {
+        return MainActivityRepositoryImpl(localDataSource = roomDatabaseApp)
     }
 
 }
