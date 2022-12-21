@@ -16,12 +16,18 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class HeroSettingsFragment : Fragment() {
 
+    companion object {
+        const val KEY_ID_HERO = "ID_HERO"
+    }
+
     private var _binding: FragmentHeroSettingsBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: HeroSettingsViewModel by viewModels()
+
     private var idHero: Int? = null
     private var idSettings: Int? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,12 +40,20 @@ class HeroSettingsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        idHero = arguments?.getInt("ID_HERO")
+        getArgumentsFromBundle()
         setupView()
         changeHeroSettings()
     }
 
+    private fun getArgumentsFromBundle() {
+        idHero = arguments?.getInt(KEY_ID_HERO)
+    }
+
     private fun setupView() {
+        getHeroSettings()
+    }
+
+    private fun getHeroSettings() {
         viewModel.getHeroSettings(idHero!!).observe(viewLifecycleOwner) {
             if (it == null) {
                 idSettings = 0
