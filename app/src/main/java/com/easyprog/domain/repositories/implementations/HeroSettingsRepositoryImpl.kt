@@ -14,21 +14,40 @@ class HeroSettingsRepositoryImpl @Inject constructor(val localDataSource: RoomDa
         return localDataSource.priorityHeroesDao().getPriorityHero(idHero)
     }
 
-    override fun insertSettingsHero(
+    override fun checkInsertORUpdateSetting(
+        idPriority: Int,
         elevationPriority: Boolean,
         talentPriority: Boolean,
         artifactPriority: Boolean,
         idHero: Int
     ) {
+        val priorityHeroEntity = PriorityHeroesEntity(
+            idPriority = idPriority,
+            elevationPriority = elevationPriority,
+            talentPriority = talentPriority,
+            artifactPriority = artifactPriority,
+            idHero = idHero
+        )
+        if (localDataSource.priorityHeroesDao().getPriorityHero(idHero).value != null) {
+            updateSettingsHero(priorityHeroEntity)
+        } else {
+            insertSettingsHero(priorityHeroEntity)
+        }
+    }
+
+    override fun insertSettingsHero(
+        priorityHeroesEntity: PriorityHeroesEntity
+    ) {
         CoroutineScope(Dispatchers.IO).launch {
-            val priorityHero = PriorityHeroesEntity(
-                elevationPriority = elevationPriority,
-                talentPriority = talentPriority,
-                artifactPriority = artifactPriority,
-                idHero = idHero
-            )
-            Log.e("CHECK_INSERT", priorityHero.toString())
-            localDataSource.priorityHeroesDao().insertPriorityHero(priorityHeroesEntity = priorityHero)
+            localDataSource.priorityHeroesDao().insertPriorityHero(priorityHeroesEntity = priorityHeroesEntity)
+        }
+    }
+
+    override fun updateSettingsHero(
+        priorityHeroesEntity: PriorityHeroesEntity
+    ) {
+        CoroutineScope(Dispatchers.IO).launch {
+            localDataSource.priorityHeroesDao().updatePriorityHero(priorityHeroesEntity = priorityHeroesEntity)
         }
     }
 

@@ -21,6 +21,7 @@ class HeroSettingsFragment : Fragment() {
 
     private val viewModel: HeroSettingsViewModel by viewModels()
     private var idHero: Int? = null
+    private var idSettings: Int? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,16 +41,22 @@ class HeroSettingsFragment : Fragment() {
 
     private fun setupView() {
         viewModel.getHeroSettings(idHero!!).observe(viewLifecycleOwner) {
-            binding.switchElevationPriority.isChecked = it.elevationPriority ?: false
-
-            binding.switchTalentPriority.isChecked = it.talentPriority ?: false
+            if (it == null) {
+                idSettings = 0
+                binding.switchElevationPriority.isChecked = false
+                binding.switchTalentPriority.isChecked = false
+            } else {
+                idSettings = it.idPriority
+                binding.switchElevationPriority.isChecked = it.elevationPriority
+                binding.switchTalentPriority.isChecked = it.talentPriority
+            }
         }
     }
 
     private fun changeHeroSettings() {
-
         binding.switchElevationPriority.setOnCheckedChangeListener { button, isChecked ->
             viewModel.insertHeroSettings(
+                idSettings!!,
                 isChecked,
                 binding.switchTalentPriority.isChecked,
                 false,
@@ -59,6 +66,7 @@ class HeroSettingsFragment : Fragment() {
 
         binding.switchTalentPriority.setOnCheckedChangeListener { button, isChecked ->
             viewModel.insertHeroSettings(
+                idSettings!!,
                 binding.switchElevationPriority.isChecked,
                 isChecked,
                 false,

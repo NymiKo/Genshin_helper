@@ -16,14 +16,14 @@ class HeroSettingsViewModel @Inject constructor(private val repositoryHeroSettin
 //    private var _heroSettings = MutableLiveData<PriorityHeroesEntity>()
 //    val heroSettings: LiveData<PriorityHeroesEntity> = _heroSettings
 
-
     fun insertHeroSettings(
+        idSettings: Int,
         elevationPriority: Boolean,
         talentPriority: Boolean,
         artifactPriority: Boolean,
         idHero: Int
     ) {
-        repositoryHeroSettings.insertSettingsHero(elevationPriority, talentPriority, artifactPriority, idHero)
+        repositoryHeroSettings.checkInsertORUpdateSetting(idSettings, elevationPriority, talentPriority, artifactPriority, idHero)
     }
 
     fun getHeroSettings(
