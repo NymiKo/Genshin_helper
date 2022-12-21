@@ -15,4 +15,9 @@
         <item name="android:fontFamily">@font/genshin_impact</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="SplashTheme" parent="Theme.Genshin">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+    </style>
+
 </resources>

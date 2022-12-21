@@ -30,4 +30,12 @@
         android:layout_marginHorizontal="16dp"
         android:textSize="14sp"/>
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_artifact_priority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/artifact_priority"
+        android:layout_marginHorizontal="16dp"
+        android:textSize="14sp"/>
+
 </LinearLayout>

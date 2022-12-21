@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Genshin">
         <activity android:name=".activity.MainActivity"
+            android:theme="@style/SplashTheme"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>

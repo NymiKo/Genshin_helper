@@ -55,38 +55,61 @@ class HeroSettingsFragment : Fragment() {
 
     private fun getHeroSettings() {
         viewModel.getHeroSettings(idHero!!).observe(viewLifecycleOwner) {
-            if (it == null) {
-                idSettings = 0
-                binding.switchElevationPriority.isChecked = false
-                binding.switchTalentPriority.isChecked = false
-            } else {
-                idSettings = it.idPriority
-                binding.switchElevationPriority.isChecked = it.elevationPriority
-                binding.switchTalentPriority.isChecked = it.talentPriority
+            with(binding) {
+                if (it == null) {
+                    idSettings = 0
+                    switchElevationPriority.isChecked = false
+                    switchTalentPriority.isChecked = false
+                    switchArtifactPriority.isChecked = false
+                } else {
+                    idSettings = it.idPriority
+                    switchElevationPriority.isChecked = it.elevationPriority
+                    switchTalentPriority.isChecked = it.talentPriority
+                    switchArtifactPriority.isChecked = it.artifactPriority
+                }
             }
         }
     }
 
     private fun changeHeroSettings() {
+
         binding.switchElevationPriority.setOnCheckedChangeListener { button, isChecked ->
-            viewModel.insertHeroSettings(
-                idSettings!!,
+            insertHeroSetting(
                 isChecked,
                 binding.switchTalentPriority.isChecked,
-                false,
-                idHero!!
+                binding.switchArtifactPriority.isChecked
             )
         }
 
         binding.switchTalentPriority.setOnCheckedChangeListener { button, isChecked ->
-            viewModel.insertHeroSettings(
-                idSettings!!,
+            insertHeroSetting(
                 binding.switchElevationPriority.isChecked,
                 isChecked,
-                false,
-                idHero!!
+                binding.switchArtifactPriority.isChecked
             )
         }
+
+        binding.switchArtifactPriority.setOnCheckedChangeListener { button, isChecked ->
+            insertHeroSetting(
+                binding.switchElevationPriority.isChecked,
+                binding.switchTalentPriority.isChecked,
+                isChecked
+            )
+        }
+    }
+
+    private fun insertHeroSetting(
+        elevationPriority: Boolean,
+        talentPriority: Boolean,
+        artifactPriority: Boolean
+    ) {
+        viewModel.insertHeroSettings(
+            idSettings!!,
+            elevationPriority,
+            talentPriority,
+            artifactPriority,
+            idHero!!
+        )
     }
 
     override fun onDestroyView() {
