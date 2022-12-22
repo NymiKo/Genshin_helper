@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.adapters.heroes.HeroesActionListener
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter
@@ -53,11 +54,10 @@ class HeroesFragment : Fragment() {
     private fun setupAdapter() {
         mAdapter = HeroesAdapter(object : HeroesActionListener{
             override fun onHeroesProfile(idHero: Int) {
-                Navigation.findNavController(
+                findNavController(
                     requireActivity(),
                     R.id.nav_host_fragment
                 ).navigate(R.id.heroProfileFragment, bundleOf("ID_HERO" to idHero))
-                //findNavController().navigate(R.id.heroProfileFragment, bundleOf("ID_HERO" to idHero))
             }
         })
     }

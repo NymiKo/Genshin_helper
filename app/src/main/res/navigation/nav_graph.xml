@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_navigationContainerFragment_to_bottom_nav_graph"
             app:destination="@id/bottom_nav_graph" />
+        <action
+            android:id="@+id/action_navigationContainerFragment_to_heroProfileFragment"
+            app:destination="@id/heroProfileFragment" />
+        <action
+            android:id="@+id/action_navigationContainerFragment_to_purposesFragment"
+            app:destination="@id/purposesFragment" />
     </fragment>
     <include app:graph="@navigation/bottom_nav_graph" />
     <fragment
@@ -29,4 +35,9 @@
         android:name="com.easyprog.genshin.fragments.hero_settings.HeroSettingsFragment"
         android:label="fragment_hero_settings"
         tools:layout="@layout/fragment_hero_settings" />
+    <fragment
+        android:id="@+id/purposesFragment"
+        android:name="com.easyprog.genshin.fragments.purposes.PurposesFragment"
+        android:label="fragment_purposes"
+        tools:layout="@layout/fragment_purposes" />
 </navigation>

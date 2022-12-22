@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.databinding.MainFragmentBinding
 import com.squareup.picasso.Picasso
@@ -39,6 +40,9 @@ class MainFragment : Fragment() {
         binding.imageEmblem.setOnClickListener {
             viewModel.changeNumberEmblem()
             setRandomImageEmblem()
+        }
+        binding.buttonFromMainToPurpose.setOnClickListener {
+            findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.purposesFragment)
         }
     }
 
