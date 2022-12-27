@@ -1,6 +1,7 @@
 package com.easyprog.genshin.fragments.heroes
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,9 @@ import com.easyprog.genshin.adapters.heroes.HeroesActionListener
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter
 import com.easyprog.genshin.databinding.HeroesFragmentBinding
 import com.easyprog.genshin.utils.ZoomOutPageTransformer
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HeroesFragment : Fragment() {
 
     companion object {
@@ -45,8 +48,9 @@ class HeroesFragment : Fragment() {
     private fun setupView() {
         binding.viewPagerHeroes.setPageTransformer(ZoomOutPageTransformer())
         binding.viewPagerHeroes.adapter = mAdapter.apply {
-            viewModel.heroesList.observe(viewLifecycleOwner) {
+            viewModel.getHeroes().observe(viewLifecycleOwner) {
                 mAdapter.mHeroesList = it
+                Log.e("HEROES", it.toString())
             }
         }
     }

@@ -19,4 +19,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="today">Сегодня</string>
     <string name="artifact_priority">Приоритет артефактов</string>
+    <string name="elevation_materials">• Материалы возвышения</string>
+    <string name="materials_for_talents">• Материалы для талантов</string>
+    <string name="farm_of_artifacts">• Фарм артефактов</string>
 </resources>

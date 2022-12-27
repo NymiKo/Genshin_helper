@@ -11,7 +11,7 @@ import javax.inject.Inject
 class HeroSettingsRepositoryImpl @Inject constructor(val localDataSource: RoomDatabaseApp) : HeroSettingsRepository {
 
     override fun getSettingsHeroAsync(idHero: Int): LiveData<PriorityHeroesEntity> {
-        return localDataSource.priorityHeroesDao().getPriorityHero(idHero)
+        return localDataSource.priorityHeroesDao().getPriorityHeroLiveData(idHero)
     }
 
     override fun checkInsertORUpdateSetting(
@@ -28,11 +28,7 @@ class HeroSettingsRepositoryImpl @Inject constructor(val localDataSource: RoomDa
             artifactPriority = artifactPriority,
             idHero = idHero
         )
-        if (localDataSource.priorityHeroesDao().getPriorityHero(idHero).value != null) {
-            updateSettingsHero(priorityHeroEntity)
-        } else {
-            insertSettingsHero(priorityHeroEntity)
-        }
+        insertSettingsHero(priorityHeroEntity)
     }
 
     override fun insertSettingsHero(

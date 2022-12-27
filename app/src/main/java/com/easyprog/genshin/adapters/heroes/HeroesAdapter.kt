@@ -6,6 +6,7 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter.HeroesViewHolder
 import com.easyprog.genshin.databinding.ItemHeroBinding
 import com.easyprog.genshin.model.Heroes
@@ -15,7 +16,7 @@ class HeroesAdapter(
     private val actionListener: HeroesActionListener
 ): RecyclerView.Adapter<HeroesViewHolder>(), OnClickListener {
 
-    var mHeroesList: List<Heroes> = emptyList()
+    var mHeroesList: List<HeroesEntity> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
         set(newValue) {
             field = newValue
@@ -34,7 +35,7 @@ class HeroesAdapter(
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         val hero = mHeroesList[position]
         with(holder.binding) {
-            Picasso.get().load(hero.image).resize(500, 750).centerCrop().into(imageHeroAvatar)
+            Picasso.get().load(hero.avatar).centerCrop().fit().into(imageHeroAvatar)
             textHeroName.text = hero.name
             cardHero.tag = hero
         }
@@ -46,8 +47,8 @@ class HeroesAdapter(
         RecyclerView.ViewHolder(binding.root)
 
     override fun onClick(view: View) {
-        val idHero = view.tag as Heroes
-        actionListener.onHeroesProfile(idHero.id)
+        val idHero = view.tag as HeroesEntity
+        actionListener.onHeroesProfile(idHero.idHero)
     }
 
 }

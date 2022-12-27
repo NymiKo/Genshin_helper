@@ -7,7 +7,7 @@ import com.easyprog.data.storage.contract.RoomContract
 @Entity(tableName = RoomContract.tableHeroes)
 data class HeroesEntity(
     @PrimaryKey(autoGenerate = true)
-    val idHero: Int = 0,
+    val idHero: Int,
     val name: String,
     val avatar: Int,
     val idTalentMaterial: Int

@@ -3,31 +3,25 @@ package com.easyprog.genshin.fragments.heroes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.easyprog.data.storage.model.HeroesEntity
+import com.easyprog.domain.repositories.HeroesRepository
 import com.easyprog.genshin.R
 import com.easyprog.genshin.model.Heroes
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HeroesViewModel : ViewModel() {
+@HiltViewModel
+class HeroesViewModel @Inject constructor(private val heroesRepository: HeroesRepository) : ViewModel() {
 
-    private val _heroesList = MutableLiveData<List<Heroes>>()
-    val heroesList: LiveData<List<Heroes>> = _heroesList
+    private var _heroesList = MutableLiveData<List<HeroesEntity>>()
+    val heroesList: LiveData<List<HeroesEntity>> = _heroesList
 
-    init {
-        getData()
-    }
+//    init {
+//        getHeroes()
+//    }
 
-    private fun getData() {
-        _heroesList.value = createHeroesData()
-    }
-
-    private fun createHeroesData(): List<Heroes> {
-        val mockData: MutableList<Heroes> = ArrayList()
-        mockData.add(Heroes(0, "Итто", R.drawable.itto))
-        mockData.add(Heroes(1, "Чжун Ли", R.drawable.zhongli))
-        mockData.add(Heroes(2, "Венти", R.drawable.venti))
-        mockData.add(Heroes(3, "Сяо", R.drawable.xiao))
-        mockData.add(Heroes(4, "Дилюк", R.drawable.diluc))
-
-        return mockData
+    fun getHeroes(): LiveData<List<HeroesEntity>> {
+        return heroesRepository.getHeroes()
     }
 
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="130dp"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="8dp"
     android:backgroundTint="@color/gray"
-    android:layout_margin="16dp"
     app:cardCornerRadius="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,13 +32,13 @@
 
         </androidx.cardview.widget.CardView>
 
-        <FrameLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical"
             android:layout_marginVertical="16dp"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="40dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/cardView"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -45,31 +46,43 @@
                 android:id="@+id/text_elevation_purpose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:layout_gravity="top"
+                android:text="@string/elevation_materials"
                 android:textColor="?attr/colorOnPrimary"
-                tools:text="&#8226; Материалы возвышения"/>
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/text_talents_purpose"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_talents_purpose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:layout_gravity="center"
+                android:text="@string/materials_for_talents"
                 android:textColor="?attr/colorOnPrimary"
-                tools:text="&#8226; Материалы для талантов"/>
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/text_artifacts_purpose"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_elevation_purpose" />
 
             <TextView
                 android:id="@+id/text_artifacts_purpose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
                 android:layout_gravity="bottom"
+                android:text="@string/farm_of_artifacts"
                 android:textColor="?attr/colorOnPrimary"
-                tools:text="&#8226; Фарм артефактов"/>
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_talents_purpose" />
 
-        </FrameLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
 </androidx.cardview.widget.CardView>

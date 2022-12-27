@@ -11,6 +11,9 @@ import com.easyprog.data.storage.model.HeroesEntity
 @Dao
 interface HeroesDao {
 
+    @Query("SELECT * FROM ${RoomContract.tableHeroes}")
+    fun getHeroes(): LiveData<List<HeroesEntity>>
+
     @Query("SELECT * FROM ${RoomContract.tableHeroes} WHERE idHero = :id")
     fun getHero(id: Int): LiveData<HeroesEntity>
 

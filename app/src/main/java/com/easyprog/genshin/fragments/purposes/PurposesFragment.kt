@@ -7,7 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.easyprog.data.storage.RoomDatabaseApp
 import com.easyprog.genshin.R
+import com.easyprog.genshin.adapters.purposes.PurposesAdapter
 import com.easyprog.genshin.databinding.FragmentPurposesBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,6 +21,7 @@ class PurposesFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: PurposesViewModel by viewModels()
+    private lateinit var mAdapter: PurposesAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +34,21 @@ class PurposesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getPurposesHeroes().observe(viewLifecycleOwner) {
-            Log.e("PRIORITY", it.toString())
+        setupAdapter()
+        setupRecyclerView()
+    }
+
+    private fun setupAdapter() {
+        mAdapter = PurposesAdapter()
+    }
+
+    private fun setupRecyclerView() {
+        binding.recyclerPurposes.layoutManager = LinearLayoutManager(requireActivity())
+        binding.recyclerPurposes.adapter = mAdapter.apply {
+            viewModel.getPurposesHeroes().observe(viewLifecycleOwner) {
+                mAdapter.mPurposesList = it
+                Log.e("CHECK", it.toString())
+            }
         }
     }
 
