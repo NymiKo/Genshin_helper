@@ -24,6 +24,7 @@
         android:layout_marginTop="40dp"
         android:layout_marginHorizontal="16dp"
         app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
 
@@ -41,10 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:textColor="?attr/colorOnPrimary"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/card_profile_hero_avatar"
         app:layout_constraintStart_toEndOf="@+id/card_profile_hero_avatar"
         app:layout_constraintTop_toTopOf="@+id/card_profile_hero_avatar"
-        tools:text="Имя: Аратаки Итто\n\nДата Рождения: 06.02.1999\n\nЭлемент: Гео\n\nРегион: Инадзума" />
+        tools:text="Имя: Аратаки Итто\n\nДата Рождения: 06.02\n\nЭлемент: Гео\n\nРегион: Инадзума" />
 
     <LinearLayout
         android:id="@+id/section_group_1"
@@ -62,6 +64,7 @@
             android:id="@+id/section_weapons"
             style="@style/card_view_sections"
             app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
             app:layout_constraintEnd_toStartOf="@id/section_skills"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -92,6 +95,7 @@
             android:id="@+id/section_skills"
             style="@style/card_view_sections"
             app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
             app:layout_constraintEnd_toStartOf="@id/section_constellations"
             app:layout_constraintStart_toEndOf="@id/section_weapons"
             app:layout_constraintTop_toTopOf="parent">
@@ -121,6 +125,7 @@
             android:id="@+id/section_constellations"
             style="@style/card_view_sections"
             app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/section_skills"
             app:layout_constraintTop_toTopOf="parent">
@@ -165,6 +170,7 @@
             android:id="@+id/section_artifacts"
             style="@style/card_view_sections"
             app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
             app:layout_constraintEnd_toStartOf="@id/section_skills"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -195,6 +201,7 @@
             android:id="@+id/section_groups"
             style="@style/card_view_sections"
             app:cardCornerRadius="10dp"
+            app:cardElevation="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/section_skills"
             app:layout_constraintTop_toTopOf="parent">
