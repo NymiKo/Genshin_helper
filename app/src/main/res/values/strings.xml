@@ -5,9 +5,9 @@
 
     //navigation menu items
     <string name="navigation_item_heroes">Персонажи</string>
-    <string name="navigation_item_weapons">Оружие</string>
+    <string name="weapon">Оружие</string>
     <string name="navigation_item_main">Главная</string>
-    <string name="navigation_item_artifacts">Артефакты</string>
+    <string name="artifacts">Артефакты</string>
     <string name="navigation_item_map">Карта</string>
     <string name="hint_search_hero">Поиск</string>
     <string name="hero_setting">Настройки персонажа</string>
@@ -22,4 +22,7 @@
     <string name="elevation_materials">• Материалы возвышения</string>
     <string name="materials_for_talents">• Материалы для талантов</string>
     <string name="farm_of_artifacts">• Фарм артефактов</string>
+    <string name="skills">Умения</string>
+    <string name="constellations">Созвездия</string>
+    <string name="groups">Группы</string>
 </resources>

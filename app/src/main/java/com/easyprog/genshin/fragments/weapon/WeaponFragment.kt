@@ -20,7 +20,7 @@ class WeaponFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.weapon_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_weapon, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

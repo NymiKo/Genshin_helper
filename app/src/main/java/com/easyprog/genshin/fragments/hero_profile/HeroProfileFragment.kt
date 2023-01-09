@@ -41,7 +41,7 @@ class HeroProfileFragment : Fragment() {
     }
 
     private fun setupView() {
-        binding.textId.text = LocalDate.now().dayOfWeek.value.toString()
+        //binding.textId.text = LocalDate.now().dayOfWeek.value.toString()
         //binding.textId.text = arguments?.getInt("ID_HERO").toString()
         goToSettings()
     }

@@ -13,7 +13,7 @@ import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.adapters.heroes.HeroesActionListener
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter
-import com.easyprog.genshin.databinding.HeroesFragmentBinding
+import com.easyprog.genshin.databinding.FragmentHeroesBinding
 import com.easyprog.genshin.utils.ZoomOutPageTransformer
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +24,7 @@ class HeroesFragment : Fragment() {
         fun newInstance() = HeroesFragment()
     }
 
-    private var _binding: HeroesFragmentBinding? = null
+    private var _binding: FragmentHeroesBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mAdapter: HeroesAdapter
@@ -35,7 +35,7 @@ class HeroesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = HeroesFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentHeroesBinding.inflate(inflater, container, false)
         return binding.root
     }
 

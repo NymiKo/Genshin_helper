@@ -10,8 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.easyprog.genshin.R
 import com.easyprog.genshin.adapters.artifacts.ArtifactsAdapter
-import com.easyprog.genshin.databinding.ArtifactsFragmentBinding
-import com.easyprog.genshin.databinding.FragmentHeroProfileBinding
+import com.easyprog.genshin.databinding.FragmentArtifactsBinding
 
 class ArtifactsFragment : Fragment() {
 
@@ -19,7 +18,7 @@ class ArtifactsFragment : Fragment() {
         fun newInstance() = ArtifactsFragment()
     }
 
-    private var _binding: ArtifactsFragmentBinding? = null
+    private var _binding: FragmentArtifactsBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var mAdapter: ArtifactsAdapter
@@ -30,7 +29,7 @@ class ArtifactsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = ArtifactsFragmentBinding.inflate(inflater, container, false)
+        _binding = FragmentArtifactsBinding.inflate(inflater, container, false)
         return binding.root
     }
 

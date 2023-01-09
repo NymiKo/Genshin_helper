@@ -17,7 +17,7 @@
         android:icon="@drawable/navigation_item_main"/>
 
     <item android:id="@+id/artifactsFragment"
-        android:title="@string/navigation_item_artifacts"
+        android:title="@string/artifacts"
         android:enabled="true"
         android:icon="@drawable/navigation_item_artifacts"/>
 
