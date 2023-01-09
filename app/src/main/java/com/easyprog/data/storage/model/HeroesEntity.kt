@@ -10,5 +10,8 @@ data class HeroesEntity(
     val idHero: Int,
     val name: String,
     val avatar: Int,
+    val birthday: String,
+    val element: String,
+    val region: String,
     val idTalentMaterial: Int
 )

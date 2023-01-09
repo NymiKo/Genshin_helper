@@ -25,4 +25,8 @@
     <string name="skills">Умения</string>
     <string name="constellations">Созвездия</string>
     <string name="groups">Группы</string>
+    <string name="name"><b>Имя:</b></string>
+    <string name="birthday"><b>День рождения:</b></string>
+    <string name="element"><b>Элемент:</b></string>
+    <string name="region"><b>Регион:</b></string>
 </resources>

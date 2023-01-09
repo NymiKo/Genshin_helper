@@ -1,14 +1,8 @@
 package com.easyprog.genshin.di.modules
 
 import com.easyprog.data.storage.RoomDatabaseApp
-import com.easyprog.domain.repositories.HeroSettingsRepository
-import com.easyprog.domain.repositories.HeroesRepository
-import com.easyprog.domain.repositories.MainActivityRepository
-import com.easyprog.domain.repositories.PurposeRepository
-import com.easyprog.domain.repositories.implementations.HeroSettingsRepositoryImpl
-import com.easyprog.domain.repositories.implementations.HeroesRepositoryImpl
-import com.easyprog.domain.repositories.implementations.MainActivityRepositoryImpl
-import com.easyprog.domain.repositories.implementations.PurposeRepositoryImpl
+import com.easyprog.domain.repositories.*
+import com.easyprog.domain.repositories.implementations.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -41,6 +35,12 @@ object RepositoryModule {
     @Provides
     fun provideHeroesRepository(roomDatabaseApp: RoomDatabaseApp): HeroesRepository {
         return HeroesRepositoryImpl(localDataSource = roomDatabaseApp)
+    }
+
+    @Singleton
+    @Provides
+    fun provideHeroProfileRepository(roomDatabaseApp: RoomDatabaseApp): HeroProfileRepository {
+        return HeroProfileRepositoryImpl(localDataSource = roomDatabaseApp)
     }
 
 }
