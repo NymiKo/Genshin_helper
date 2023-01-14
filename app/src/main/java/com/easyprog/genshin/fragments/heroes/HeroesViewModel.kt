@@ -14,14 +14,14 @@ import javax.inject.Inject
 class HeroesViewModel @Inject constructor(private val heroesRepository: HeroesRepository) : ViewModel() {
 
     private var _heroesList = MutableLiveData<List<HeroesEntity>>()
-    val heroesList: LiveData<List<HeroesEntity>> = _heroesList
+    var heroesList: LiveData<List<HeroesEntity>> = _heroesList
 
-//    init {
-//        getHeroes()
-//    }
+    init {
+        getHeroes()
+    }
 
-    fun getHeroes(): LiveData<List<HeroesEntity>> {
-        return heroesRepository.getHeroes()
+    private fun getHeroes() {
+        heroesList = heroesRepository.getHeroes()
     }
 
 }

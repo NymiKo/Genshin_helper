@@ -46,8 +46,8 @@ class PurposesFragment : Fragment() {
         binding.recyclerPurposes.layoutManager = LinearLayoutManager(requireActivity())
         binding.recyclerPurposes.adapter = mAdapter.apply {
             viewModel.getPurposesHeroes().observe(viewLifecycleOwner) {
-                mAdapter.mPurposesList = it
-                Log.e("CHECK", it.toString())
+                if (it.isEmpty()) binding.textViewNoGoals.visibility = View.VISIBLE
+                else mAdapter.mPurposesList = it
             }
         }
     }

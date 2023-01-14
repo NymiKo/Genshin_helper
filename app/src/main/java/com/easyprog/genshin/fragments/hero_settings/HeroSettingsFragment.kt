@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.easyprog.genshin.databinding.FragmentHeroSettingsBinding
@@ -13,7 +14,9 @@ import dagger.hilt.android.AndroidEntryPoint
 class HeroSettingsFragment : Fragment() {
 
     companion object {
-        const val KEY_ID_HERO = "ID_HERO"
+        private const val HERO_ID_KEY = "ID_HERO"
+
+        fun newArgument(idHero: Int) = bundleOf(HERO_ID_KEY to idHero)
     }
 
     private var _binding: FragmentHeroSettingsBinding? = null
@@ -21,7 +24,7 @@ class HeroSettingsFragment : Fragment() {
 
     private val viewModel: HeroSettingsViewModel by viewModels()
 
-    private var idHero: Int? = null
+    private val idHero get() = requireArguments().getInt(HERO_ID_KEY)
     private var idSettings: Int? = null
 
 
@@ -42,7 +45,7 @@ class HeroSettingsFragment : Fragment() {
     }
 
     private fun getArgumentsFromBundle() {
-        idHero = arguments?.getInt(KEY_ID_HERO)
+        //idHero = arguments?.getInt(HERO_ID_KEY)
     }
 
     private fun setupView() {

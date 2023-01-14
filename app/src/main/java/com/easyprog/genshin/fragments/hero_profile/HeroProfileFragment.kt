@@ -1,5 +1,6 @@
 package com.easyprog.genshin.fragments.hero_profile
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.databinding.FragmentHeroProfileBinding
+import com.easyprog.genshin.fragments.hero_settings.HeroSettingsFragment
+import com.easyprog.genshin.fragments.hero_settings.HeroSettingsViewModel
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,7 +20,11 @@ import dagger.hilt.android.AndroidEntryPoint
 class HeroProfileFragment : Fragment() {
 
     companion object {
-        fun newInstance() = HeroProfileFragment()
+        private const val HERO_ID_KEY = "ID_HERO"
+
+        fun newArgument(idHero: Int): Bundle {
+            return bundleOf(HERO_ID_KEY to idHero)
+        }
     }
 
     private var _binding: FragmentHeroProfileBinding? = null
@@ -25,7 +32,7 @@ class HeroProfileFragment : Fragment() {
 
     private val viewModel by viewModels<HeroProfileViewModel>()
 
-    private var idHero = 0
+    private val idHero get() = requireArguments().getInt(HERO_ID_KEY)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,11 +44,11 @@ class HeroProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        idHero = arguments?.getInt("ID_HERO")!!
         viewModel.getHero(idHero)
         setupView()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setupView() {
         viewModel.getHero(idHero).observe(viewLifecycleOwner) {
             with(binding) {
@@ -53,7 +60,6 @@ class HeroProfileFragment : Fragment() {
             }
         }
         //binding.textId.text = LocalDate.now().dayOfWeek.value.toString()
-        //binding.textId.text = arguments?.getInt("ID_HERO").toString()
         goToSettings()
     }
 
@@ -61,7 +67,7 @@ class HeroProfileFragment : Fragment() {
         binding.imageSettings.setOnClickListener {
             findNavController().navigate(
                 R.id.action_heroProfileFragment_to_heroSettingsFragment,
-                bundleOf("ID_HERO" to idHero)
+                HeroSettingsFragment.newArgument(idHero = idHero)
             )
         }
     }

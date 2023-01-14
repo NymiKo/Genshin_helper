@@ -56,7 +56,7 @@ class MainFragment : Fragment() {
             R.drawable.emblem_gidro,
             R.drawable.emblem_thunder
         )
-        Picasso.get().load(emblemsArray[viewModel.numberImageEmblem.value!!]).into(binding.imageEmblem)
+        Picasso.get().load(emblemsArray[viewModel.numberImageEmblem.value ?: 0]).into(binding.imageEmblem)
     }
 
     override fun onDestroyView() {

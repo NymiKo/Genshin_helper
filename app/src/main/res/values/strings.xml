@@ -29,4 +29,5 @@
     <string name="birthday"><b>День рождения:</b></string>
     <string name="element"><b>Элемент:</b></string>
     <string name="region"><b>Регион:</b></string>
+    <string name="no_goals_added">Цели не добавлены!</string>
 </resources>

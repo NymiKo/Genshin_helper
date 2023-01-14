@@ -1,19 +1,17 @@
 package com.easyprog.genshin.fragments.heroes
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.adapters.heroes.HeroesActionListener
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter
 import com.easyprog.genshin.databinding.FragmentHeroesBinding
+import com.easyprog.genshin.fragments.hero_profile.HeroProfileFragment
 import com.easyprog.genshin.utils.ZoomOutPageTransformer
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -41,27 +39,38 @@ class HeroesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupAdapter()
+        setupViewPagerAdapter()
         setupView()
     }
 
     private fun setupView() {
-        binding.viewPagerHeroes.setPageTransformer(ZoomOutPageTransformer())
-        binding.viewPagerHeroes.adapter = mAdapter.apply {
-            viewModel.getHeroes().observe(viewLifecycleOwner) {
-                mAdapter.mHeroesList = it
-                Log.e("HEROES", it.toString())
+        setupViewPager()
+    }
+
+    private fun setupViewPager() {
+
+        binding.viewPagerHeroes.apply {
+
+            setPageTransformer(ZoomOutPageTransformer())
+
+            adapter = mAdapter.apply {
+                viewModel.heroesList.observe(viewLifecycleOwner) { heroesEntity ->
+                    mAdapter.mHeroesList = heroesEntity.sortedBy { it.name }
+                }
             }
         }
     }
 
-    private fun setupAdapter() {
-        mAdapter = HeroesAdapter(object : HeroesActionListener{
+    private fun setupViewPagerAdapter() {
+        mAdapter = HeroesAdapter(object : HeroesActionListener {
             override fun onHeroesProfile(idHero: Int) {
                 findNavController(
                     requireActivity(),
                     R.id.nav_host_fragment
-                ).navigate(R.id.heroProfileFragment, bundleOf("ID_HERO" to idHero))
+                ).navigate(
+                    R.id.action_navigationContainerFragment_to_heroProfileFragment,
+                    HeroProfileFragment.newArgument(idHero = idHero)
+                )
             }
         })
     }
