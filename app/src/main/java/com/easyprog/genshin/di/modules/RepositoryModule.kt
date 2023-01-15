@@ -27,8 +27,8 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun providePurposeRepository(roomDatabaseApp: RoomDatabaseApp): PurposeRepository {
-        return PurposeRepositoryImpl(localDataSource = roomDatabaseApp)
+    fun providePurposeRepository(roomDatabaseApp: RoomDatabaseApp): GoalsRepository {
+        return GoalsRepositoryImpl(localDataSource = roomDatabaseApp)
     }
 
     @Singleton

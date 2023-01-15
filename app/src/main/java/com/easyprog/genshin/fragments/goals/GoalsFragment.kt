@@ -1,34 +1,31 @@
-package com.easyprog.genshin.fragments.purposes
+package com.easyprog.genshin.fragments.goals
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.easyprog.data.storage.RoomDatabaseApp
-import com.easyprog.genshin.R
-import com.easyprog.genshin.adapters.purposes.PurposesAdapter
-import com.easyprog.genshin.databinding.FragmentPurposesBinding
+import com.easyprog.genshin.adapters.goals.GoalsAdapter
+import com.easyprog.genshin.databinding.FragmentGoalsBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PurposesFragment : Fragment() {
+class GoalsFragment : Fragment() {
 
-    private var _binding: FragmentPurposesBinding? = null
+    private var _binding: FragmentGoalsBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: PurposesViewModel by viewModels()
-    private lateinit var mAdapter: PurposesAdapter
+    private val viewModel: GoalsViewModel by viewModels()
+    private lateinit var mAdapter: GoalsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentPurposesBinding.inflate(inflater, container, false)
+        _binding = FragmentGoalsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,15 +36,18 @@ class PurposesFragment : Fragment() {
     }
 
     private fun setupAdapter() {
-        mAdapter = PurposesAdapter()
+        mAdapter = GoalsAdapter()
     }
 
     private fun setupRecyclerView() {
-        binding.recyclerPurposes.layoutManager = LinearLayoutManager(requireActivity())
-        binding.recyclerPurposes.adapter = mAdapter.apply {
-            viewModel.getPurposesHeroes().observe(viewLifecycleOwner) {
-                if (it.isEmpty()) binding.textViewNoGoals.visibility = View.VISIBLE
-                else mAdapter.mPurposesList = it
+        binding.recyclerGoals.layoutManager = LinearLayoutManager(requireActivity())
+        binding.recyclerGoals.adapter = mAdapter.apply {
+            viewModel.getGoalsHeroes().observe(viewLifecycleOwner) {
+                if (it.isEmpty()) binding.textNoGoals.visibility = View.VISIBLE
+                else {
+                    mAdapter.mGoalsList = it
+                    binding.recyclerGoals.visibility = View.VISIBLE
+                }
             }
         }
     }

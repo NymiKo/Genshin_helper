@@ -30,4 +30,5 @@
     <string name="element"><b>Элемент:</b></string>
     <string name="region"><b>Регион:</b></string>
     <string name="no_goals_added">Цели не добавлены!</string>
+    <string name="view_goals">Посмотреть цели</string>
 </resources>

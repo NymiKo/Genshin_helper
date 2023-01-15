@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:id="@+id/image_purpose_avatar_hero"
+                android:id="@+id/image_goals_avatar_hero"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:src="@drawable/itto" />
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="@+id/cardView">
 
             <TextView
-                android:id="@+id/text_elevation_purpose"
+                android:id="@+id/text_elevation_goals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
@@ -51,12 +51,12 @@
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="14sp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/text_talents_purpose"
+                app:layout_constraintBottom_toTopOf="@id/text_talents_goals"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/text_talents_purpose"
+                android:id="@+id/text_talents_goals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -64,12 +64,12 @@
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="14sp"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@id/text_artifacts_purpose"
+                app:layout_constraintBottom_toTopOf="@id/text_artifacts_goals"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_elevation_purpose" />
+                app:layout_constraintTop_toBottomOf="@id/text_elevation_goals" />
 
             <TextView
-                android:id="@+id/text_artifacts_purpose"
+                android:id="@+id/text_artifacts_goals"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -79,7 +79,7 @@
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_talents_purpose" />
+                app:layout_constraintTop_toBottomOf="@id/text_talents_goals" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

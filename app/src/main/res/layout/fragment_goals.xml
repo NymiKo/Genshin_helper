@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorPrimaryVariant"
-    tools:context=".fragments.purposes.PurposesFragment">
+    tools:context=".fragments.goals.GoalsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_purposes"
+        android:id="@+id/recycler_goals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"/>
+        android:layout_margin="8dp"
+        android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/textView_no_goals"
+        android:id="@+id/text_no_goals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/no_goals_added"

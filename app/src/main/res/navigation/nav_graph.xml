@@ -37,7 +37,7 @@
         tools:layout="@layout/fragment_hero_settings" />
     <fragment
         android:id="@+id/purposesFragment"
-        android:name="com.easyprog.genshin.fragments.purposes.PurposesFragment"
+        android:name="com.easyprog.genshin.fragments.goals.GoalsFragment"
         android:label="fragment_purposes"
-        tools:layout="@layout/fragment_purposes" />
+        tools:layout="@layout/fragment_goals" />
 </navigation>

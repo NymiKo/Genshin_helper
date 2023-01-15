@@ -41,7 +41,7 @@ class MainFragment : Fragment() {
             viewModel.changeNumberEmblem()
             setRandomImageEmblem()
         }
-        binding.buttonFromMainToPurpose.setOnClickListener {
+        binding.buttonFromMainToGoals.setOnClickListener {
             findNavController(requireActivity(), R.id.nav_host_fragment).navigate(R.id.purposesFragment)
         }
     }
