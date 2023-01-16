@@ -1,34 +1,26 @@
 package com.easyprog.genshin.fragments.heroes
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.easyprog.genshin.activity.MainActivity
-import com.easyprog.genshin.base.navigationHeroesFragment
-import org.junit.Rule
+import com.easyprog.genshin.base.BaseTest
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class HeroesFragmentTest {
+class HeroesFragmentTest : BaseTest() {
 
-    @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    private val heroesFragmentView = HeroesFragmentView()
 
     @Test
     fun testOpenHeroesFragmentFromMainFragmentOnBottomNavigationView() {
-        navigationHeroesFragment {
-            clickHeroesButton()
-            checkHeroesViewPagerIsDisplayed()
+        heroesFragmentView.run {
+            heroesItemBottomNavigation.click()
+            viewPagerHeroes.check(viewIsDisplayed())
         }
     }
 
     @Test
     fun testOpenHeroesFragmentFromArtifactsFragmentOnBottomNavigationView() {
-        navigationHeroesFragment {
-            clickArtifactsButton()
-            clickHeroesButton()
-            checkHeroesViewPagerIsDisplayed()
+        heroesFragmentView.run {
+            artifactsItemBottomNavigation.click()
+            heroesItemBottomNavigation.click()
+            viewPagerHeroes.check(viewIsDisplayed())
         }
     }
-
 }

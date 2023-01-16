@@ -1,33 +1,26 @@
 package com.easyprog.genshin.fragments.artifacts
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.easyprog.genshin.activity.MainActivity
-import com.easyprog.genshin.base.navigationArtifactsFragment
-import org.junit.Rule
+import com.easyprog.genshin.base.BaseTest
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class ArtifactsFragmentTest {
+class ArtifactsFragmentTest : BaseTest() {
 
-    @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    private val artifactsFragmentView = ArtifactsFragmentView()
 
     @Test
-    fun testOpenArtifactsFragmentOnBottomNavigationView() {
-        navigationArtifactsFragment {
-            clickArtifactsButton()
-            checkArtifactsRecyclerViewIsDisplayed()
+    fun testOpenArtifactsFragmentFromMainFragmentOnBottomNavigationView() {
+        artifactsFragmentView.run {
+            artifactsItemBottomNavigation.click()
+            recyclerViewArtifacts.check(viewIsDisplayed())
         }
     }
 
     @Test
     fun testOpenArtifactsFragmentFromHeroesFragmentOnBottomNavigationView() {
-        navigationArtifactsFragment {
-            clickHeroesButton()
-            clickArtifactsButton()
-            checkArtifactsRecyclerViewIsDisplayed()
+        artifactsFragmentView.run {
+            heroesItemBottomNavigation.click()
+            artifactsItemBottomNavigation.click()
+            recyclerViewArtifacts.check(viewIsDisplayed())
         }
     }
 }

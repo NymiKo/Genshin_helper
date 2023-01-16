@@ -26,7 +26,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             viewModel.changeNumberEmblem()
             setRandomImageEmblem()
         }
-        binding.buttonFromMainToGoals.setOnClickListener {
+        binding.buttonOpenGoals.setOnClickListener {
             findNavController(
                 requireActivity(),
                 R.id.nav_host_fragment
