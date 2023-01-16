@@ -6,7 +6,9 @@ import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.domain.repositories.HeroesRepository
 import javax.inject.Inject
 
-class HeroesRepositoryImpl @Inject constructor(val localDataSource: RoomDatabaseApp): HeroesRepository {
+class HeroesRepositoryImpl @Inject constructor(
+    private val localDataSource: RoomDatabaseApp
+) : HeroesRepository {
 
     override fun getHeroes(): LiveData<List<HeroesEntity>> {
         return localDataSource.heroesDao().getHeroes()

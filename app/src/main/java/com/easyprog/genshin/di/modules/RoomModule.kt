@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import com.easyprog.data.storage.RoomDatabaseApp
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.genshin.di.App
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

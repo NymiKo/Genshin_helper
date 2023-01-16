@@ -1,14 +1,18 @@
 package com.easyprog.domain.repositories.implementations
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import com.easyprog.data.storage.RoomDatabaseApp
-import com.easyprog.domain.repositories.HeroSettingsRepository
 import com.easyprog.data.storage.model.PriorityHeroesEntity
-import kotlinx.coroutines.*
+import com.easyprog.domain.repositories.HeroSettingsRepository
+import com.easyprog.genshin.DispatchersList
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HeroSettingsRepositoryImpl @Inject constructor(val localDataSource: RoomDatabaseApp) : HeroSettingsRepository {
+class HeroSettingsRepositoryImpl @Inject constructor(
+    private val localDataSource: RoomDatabaseApp,
+    private val dispatchersList: DispatchersList
+) : HeroSettingsRepository {
 
     override fun getSettingsHeroAsync(idHero: Int): LiveData<PriorityHeroesEntity> {
         return localDataSource.priorityHeroesDao().getPriorityHeroLiveData(idHero)
@@ -34,18 +38,18 @@ class HeroSettingsRepositoryImpl @Inject constructor(val localDataSource: RoomDa
     override fun insertSettingsHero(
         priorityHeroesEntity: PriorityHeroesEntity
     ) {
-        CoroutineScope(Dispatchers.IO).launch {
-            localDataSource.priorityHeroesDao().insertPriorityHero(priorityHeroesEntity = priorityHeroesEntity)
+        CoroutineScope(dispatchersList.io()).launch {
+            localDataSource.priorityHeroesDao()
+                .insertPriorityHero(priorityHeroesEntity = priorityHeroesEntity)
         }
     }
 
     override fun updateSettingsHero(
         priorityHeroesEntity: PriorityHeroesEntity
     ) {
-        CoroutineScope(Dispatchers.IO).launch {
-            localDataSource.priorityHeroesDao().updatePriorityHero(priorityHeroesEntity = priorityHeroesEntity)
+        CoroutineScope(dispatchersList.io()).launch {
+            localDataSource.priorityHeroesDao()
+                .updatePriorityHero(priorityHeroesEntity = priorityHeroesEntity)
         }
     }
-
-
 }
