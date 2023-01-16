@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/navigationContainerFragment"
-        android:name="com.easyprog.genshin.fragments.NavigationContainerFragment"
+        android:name="com.easyprog.genshin.fragments.navigation_fragment.NavigationContainerFragment"
         android:label="fragment_navigation_container"
         tools:layout="@layout/fragment_navigation_container" >
         <action

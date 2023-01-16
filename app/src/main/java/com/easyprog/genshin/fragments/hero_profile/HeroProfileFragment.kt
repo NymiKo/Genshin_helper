@@ -2,22 +2,20 @@ package com.easyprog.genshin.fragments.hero_profile
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.databinding.FragmentHeroProfileBinding
+import com.easyprog.genshin.fragments.BaseFragment
 import com.easyprog.genshin.fragments.hero_settings.HeroSettingsFragment
-import com.easyprog.genshin.fragments.hero_settings.HeroSettingsViewModel
 import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HeroProfileFragment : Fragment() {
+class HeroProfileFragment :
+    BaseFragment<FragmentHeroProfileBinding>(FragmentHeroProfileBinding::inflate) {
 
     companion object {
         private const val HERO_ID_KEY = "ID_HERO"
@@ -27,20 +25,9 @@ class HeroProfileFragment : Fragment() {
         }
     }
 
-    private var _binding: FragmentHeroProfileBinding? = null
-    private val binding get() = _binding!!
-
     private val viewModel by viewModels<HeroProfileViewModel>()
 
     private val idHero get() = requireArguments().getInt(HERO_ID_KEY)
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentHeroProfileBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,10 +57,5 @@ class HeroProfileFragment : Fragment() {
                 HeroSettingsFragment.newArgument(idHero = idHero)
             )
         }
-    }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
     }
 }

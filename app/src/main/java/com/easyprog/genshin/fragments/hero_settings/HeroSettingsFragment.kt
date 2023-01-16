@@ -1,17 +1,16 @@
 package com.easyprog.genshin.fragments.hero_settings
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.easyprog.genshin.databinding.FragmentHeroSettingsBinding
+import com.easyprog.genshin.fragments.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HeroSettingsFragment : Fragment() {
+class HeroSettingsFragment :
+    BaseFragment<FragmentHeroSettingsBinding>(FragmentHeroSettingsBinding::inflate) {
 
     companion object {
         private const val HERO_ID_KEY = "ID_HERO"
@@ -19,23 +18,10 @@ class HeroSettingsFragment : Fragment() {
         fun newArgument(idHero: Int) = bundleOf(HERO_ID_KEY to idHero)
     }
 
-    private var _binding: FragmentHeroSettingsBinding? = null
-    private val binding get() = _binding!!
-
     private val viewModel: HeroSettingsViewModel by viewModels()
 
     private val idHero get() = requireArguments().getInt(HERO_ID_KEY)
     private var idSettings: Int? = null
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentHeroSettingsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,7 +39,7 @@ class HeroSettingsFragment : Fragment() {
     }
 
     private fun getHeroSettings() {
-        viewModel.getHeroSettings(idHero!!).observe(viewLifecycleOwner) {
+        viewModel.getHeroSettings(idHero).observe(viewLifecycleOwner) {
             with(binding) {
                 if (it == null) {
                     idSettings = 0
@@ -107,12 +93,7 @@ class HeroSettingsFragment : Fragment() {
             elevationPriority,
             talentPriority,
             artifactPriority,
-            idHero!!
+            idHero
         )
-    }
-
-    override fun onDestroyView() {
-        _binding = null
-        super.onDestroyView()
     }
 }

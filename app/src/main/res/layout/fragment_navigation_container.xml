@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".fragments.NavigationContainerFragment">
+    tools:context=".fragments.navigation_fragment.NavigationContainerFragment">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/bottom_nav_host_fragment"

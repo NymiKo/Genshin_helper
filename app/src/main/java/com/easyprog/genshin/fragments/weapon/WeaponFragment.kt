@@ -1,14 +1,15 @@
 package com.easyprog.genshin.fragments.weapon
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.easyprog.genshin.R
+import com.easyprog.genshin.databinding.FragmentWeaponBinding
+import com.easyprog.genshin.fragments.BaseFragment
 
-class WeaponFragment : Fragment() {
+class WeaponFragment : BaseFragment<FragmentWeaponBinding>(FragmentWeaponBinding::inflate) {
 
     companion object {
         fun newInstance() = WeaponFragment()
