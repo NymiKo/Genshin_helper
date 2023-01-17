@@ -21,12 +21,12 @@
         android:id="@+id/card_profile_hero_avatar"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:layout_marginTop="40dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="40dp"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/image_profile_hero_avatar"
@@ -52,10 +52,10 @@
         android:id="@+id/section_group_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal"
         android:weightSum="9"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card_profile_hero_avatar">
@@ -105,6 +105,7 @@
                 <ImageView
                     android:id="@+id/imageView_skills"
                     style="@style/image_view_sections"
+                    android:src="@drawable/section_skills"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -135,6 +136,7 @@
                 <ImageView
                     android:id="@+id/imageView_constellations"
                     style="@style/image_view_sections"
+                    android:src="@drawable/section_constellations"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -157,11 +159,11 @@
         android:id="@+id/section_group_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
         android:orientation="horizontal"
         android:weightSum="9"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/section_group_1">
@@ -211,6 +213,7 @@
                 <ImageView
                     android:id="@+id/imageView_groups"
                     style="@style/image_view_sections"
+                    android:src="@drawable/section_team"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
