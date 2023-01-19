@@ -52,8 +52,8 @@ class HeroesFragment : BaseFragment<FragmentHeroesBinding>(FragmentHeroesBinding
     }
 
     private fun setupViewPagerAdapter() {
-        mAdapter = HeroesAdapter(object : HeroesActionListener {
-            override fun onHeroesProfile(idHero: Int) {
+        mAdapter = HeroesAdapter(object : HeroesActionListener<Int> {
+            override fun onHeroClick(idHero: Int) {
                 findNavController(
                     requireActivity(),
                     R.id.nav_host_fragment

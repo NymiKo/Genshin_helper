@@ -5,7 +5,7 @@ import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
 import com.easyprog.genshin.databinding.FragmentMainBinding
 import com.easyprog.genshin.fragments.BaseFragment
-import com.squareup.picasso.Picasso
+import com.easyprog.genshin.utils.load
 
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
@@ -44,7 +44,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             R.drawable.emblem_gidro,
             R.drawable.emblem_thunder
         )
-        Picasso.get().load(emblemsArray[viewModel.numberImageEmblem.value ?: 0])
-            .into(binding.imageEmblem)
+        binding.imageEmblem.load(emblemsArray[viewModel.numberImageEmblem.value ?: 0])
     }
 }

@@ -13,8 +13,8 @@
         android:layout_height="50dp"
         android:backgroundTint="@color/gray"
         app:cardCornerRadius="7dp"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp">
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_medium">
 
         <EditText
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
         android:id="@+id/recycler_view_artifacts_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
+        android:layout_margin="@dimen/margin_small"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
 
 </LinearLayout>

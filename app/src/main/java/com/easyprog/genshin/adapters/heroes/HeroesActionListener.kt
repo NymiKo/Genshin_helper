@@ -1,7 +1,7 @@
 package com.easyprog.genshin.adapters.heroes
 
-interface HeroesActionListener {
+interface HeroesActionListener<T> {
 
-    fun onHeroesProfile(idHero: Int)
+    fun onHeroClick(idHero: T)
 
 }

@@ -8,7 +8,8 @@ import com.easyprog.data.storage.contract.RoomContract
 data class WeaponsEntity(
     @PrimaryKey
     val idWeapon: Int,
-    val imageWeapon: String,
+    val name: String,
+    val imageWeapon: Int,
     val mainStat: String,
     val idWeaponMaterials: Int
 )

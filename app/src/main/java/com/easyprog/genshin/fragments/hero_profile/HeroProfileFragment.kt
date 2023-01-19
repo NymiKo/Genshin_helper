@@ -10,7 +10,7 @@ import com.easyprog.genshin.R
 import com.easyprog.genshin.databinding.FragmentHeroProfileBinding
 import com.easyprog.genshin.fragments.BaseFragment
 import com.easyprog.genshin.fragments.hero_settings.HeroSettingsFragment
-import com.squareup.picasso.Picasso
+import com.easyprog.genshin.utils.load
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,7 +39,7 @@ class HeroProfileFragment :
     private fun setupView() {
         viewModel.getHero(idHero).observe(viewLifecycleOwner) {
             with(binding) {
-                Picasso.get().load(it.avatar).fit().centerCrop().into(imageProfileHeroAvatar)
+                imageProfileHeroAvatar.load(it.avatar)
                 textHeroInfo.text =
                     "${getString(R.string.name)} ${it.name}\n\n${getString(R.string.birthday)} ${it.birthday}\n\n${
                         getString(R.string.element)

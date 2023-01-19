@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         android:textSize="24sp"
         android:text="@string/today"
         android:fontFamily="sans-serif-medium"
@@ -20,7 +20,7 @@
         android:textColor="@color/white" />
 
     <androidx.cardview.widget.CardView
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/margin_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="15dp"
@@ -36,8 +36,8 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

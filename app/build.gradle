@@ -55,9 +55,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
-    //Picasso
-    def picasso_version = '2.71828'
-    implementation "com.squareup.picasso:picasso:$picasso_version"
+    //Glide
+    def glide_version = '4.14.2'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
     // Room
     def roomVersion = '2.4.3'

@@ -9,7 +9,7 @@ import com.easyprog.data.storage.additional_models.PriorityWithHero
 import com.easyprog.genshin.R
 import com.easyprog.genshin.adapters.goals.GoalsAdapter.*
 import com.easyprog.genshin.databinding.ItemGoalsHeroBinding
-import com.squareup.picasso.Picasso
+import com.easyprog.genshin.utils.load
 
 class GoalsAdapter : RecyclerView.Adapter<PurposesViewHolder>() {
 
@@ -33,13 +33,15 @@ class GoalsAdapter : RecyclerView.Adapter<PurposesViewHolder>() {
             if (purpose.priority.elevationPriority) textElevationGoals.visibility = View.VISIBLE
             if (purpose.priority.talentPriority) textTalentsGoals.visibility = View.VISIBLE
             if (purpose.priority.artifactPriority) textArtifactsGoals.visibility = View.VISIBLE
-            val avatar = purpose.heroAvatar?.avatar ?: R.drawable.ic_baseline_sentiment_very_dissatisfied
-            Picasso.get().load(avatar).centerCrop().fit().into(imageGoalsAvatarHero)
+            val avatar =
+                purpose.heroAvatar?.avatar ?: R.drawable.ic_baseline_sentiment_very_dissatisfied
+            imageGoalsAvatarHero.load(avatar)
         }
     }
 
     override fun getItemCount() = mGoalsList.size
 
-    class PurposesViewHolder(val binding: ItemGoalsHeroBinding): RecyclerView.ViewHolder(binding.root)
+    class PurposesViewHolder(val binding: ItemGoalsHeroBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
 }

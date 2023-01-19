@@ -9,11 +9,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter.HeroesViewHolder
 import com.easyprog.genshin.databinding.ItemHeroBinding
-import com.easyprog.genshin.model.Heroes
-import com.squareup.picasso.Picasso
+import com.easyprog.genshin.utils.load
 
 class HeroesAdapter(
-    private val actionListener: HeroesActionListener
+    private val actionListener: HeroesActionListener<Int>
 ): RecyclerView.Adapter<HeroesViewHolder>(), OnClickListener {
 
     var mHeroesList: List<HeroesEntity> = emptyList()
@@ -35,7 +34,7 @@ class HeroesAdapter(
     override fun onBindViewHolder(holder: HeroesViewHolder, position: Int) {
         val hero = mHeroesList[position]
         with(holder.binding) {
-            Picasso.get().load(hero.avatar).centerCrop().fit().into(imageHeroAvatar)
+            imageHeroAvatar.load(hero.avatar)
             textHeroName.text = hero.name
             cardHero.tag = hero
         }
@@ -48,7 +47,7 @@ class HeroesAdapter(
 
     override fun onClick(view: View) {
         val idHero = view.tag as HeroesEntity
-        actionListener.onHeroesProfile(idHero.idHero)
+        actionListener.onHeroClick(idHero.idHero)
     }
 
 }

@@ -4,13 +4,12 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.easyprog.genshin.R
 import com.easyprog.genshin.adapters.artifacts.ArtifactsAdapter.ArtifactsViewHolder
 import com.easyprog.genshin.databinding.ItemArtifactBinding
 import com.easyprog.genshin.model.Artifacts
-import com.squareup.picasso.Picasso
+import com.easyprog.genshin.utils.load
 
-class ArtifactsAdapter: RecyclerView.Adapter<ArtifactsViewHolder>() {
+class ArtifactsAdapter : RecyclerView.Adapter<ArtifactsViewHolder>() {
 
     var mArtifactsList: List<Artifacts> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
@@ -29,13 +28,15 @@ class ArtifactsAdapter: RecyclerView.Adapter<ArtifactsViewHolder>() {
     override fun onBindViewHolder(holder: ArtifactsViewHolder, position: Int) {
         val artifact = mArtifactsList[position]
         with(holder.binding) {
-            Picasso.get().load(artifact.imageFlower).resize(400,400).centerInside().into(artifactImage)
+            artifactImage.load(artifact.imageFlower)
+            //Picasso.get().load(artifact.imageFlower).resize(400,400).centerInside().into(artifactImage)
             textViewNameArtifactSet.text = artifact.nameSet
         }
     }
 
     override fun getItemCount(): Int = mArtifactsList.size
 
-    class ArtifactsViewHolder(var binding: ItemArtifactBinding): RecyclerView.ViewHolder(binding.root)
+    class ArtifactsViewHolder(var binding: ItemArtifactBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
 }
