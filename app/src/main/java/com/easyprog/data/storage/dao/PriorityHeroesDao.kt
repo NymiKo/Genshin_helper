@@ -13,7 +13,7 @@ import com.easyprog.data.storage.model.PriorityHeroesEntity
 
 @Dao
 interface PriorityHeroesDao {
-//WHERE elevationPriority <> 0 OR talentPriority <> 0 OR artifactPriority <> 0
+
     @Transaction
     @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE elevationPriority <> 0 OR talentPriority <> 0 OR artifactPriority <> 0")
     fun getPriorityHeroWithHeroes(): LiveData<List<PriorityWithHero>>

@@ -34,11 +34,11 @@ class MainActivityViewModel @Inject constructor(private val repositoryMainActivi
 
     fun createWeaponsData(): List<WeaponsEntity> {
         val mockData: MutableList<WeaponsEntity> = mutableListOf()
-        mockData.add(WeaponsEntity(1, "Аква Симулякрум", R.drawable.weapon_akva_simulyakrum, "Крит.урон", 0))
-        mockData.add(WeaponsEntity(2, "Караснорогий Камнеруб", R.drawable.weapon_krasnorogiy_kamnerub, "Крит.урон", 3))
-        mockData.add(WeaponsEntity(3, "Нефритовый Коршун", R.drawable.weapon_nefritovyy_korshun, "Шанс крита", 5))
-        mockData.add(WeaponsEntity(4, "Посох Хомы", R.drawable.weapon_posoh_homy, "Крит.урон", 1))
-        mockData.add(WeaponsEntity(5, "Волчья Погибель", R.drawable.weapon_volchya_pogibel, "Сила атаки", 8))
+        mockData.add(WeaponsEntity(1, "Аква Симулякрум", R.drawable.weapon_akva_simulyakrum, "55-509", "Крит.урон", 0))
+        mockData.add(WeaponsEntity(2, "Караснорогий Камнеруб", R.drawable.weapon_krasnorogiy_kamnerub, "80-480", "Крит.урон", 3))
+        mockData.add(WeaponsEntity(3, "Нефритовый Коршун", R.drawable.weapon_nefritovyy_korshun, "20-607", "Шанс крита", 5))
+        mockData.add(WeaponsEntity(4, "Посох Хомы", R.drawable.weapon_posoh_homy, "50-490", "Крит.урон", 1))
+        mockData.add(WeaponsEntity(5, "Волчья Погибель", R.drawable.weapon_volchya_pogibel, "30-708", "Сила атаки", 8))
 
         return mockData
     }

@@ -15,8 +15,7 @@ class RoomContract {
         const val tableWeapon = "weapon"
         const val tableMaterialsWeapons = "materials_weapons"
         const val tableDungeonsWeaponMaterial = "dungeons_weapon_material"
-        const val tableBuildsHeroes = "builds_heroes"
-
+        const val tableBuildsHeroesArtifacts = "builds_heroes_artifacts"
+        const val tableBuildsHeroesWeapons = "builds_heroes_weapons"
     }
-
 }

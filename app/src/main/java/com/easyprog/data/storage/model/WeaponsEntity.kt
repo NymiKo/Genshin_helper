@@ -10,6 +10,7 @@ data class WeaponsEntity(
     val idWeapon: Int,
     val name: String,
     val imageWeapon: Int,
+    val attackPower: String,
     val mainStat: String,
-    val idWeaponMaterials: Int
+    val weaponMaterialsId: Int
 )
