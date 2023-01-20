@@ -17,5 +17,6 @@ data class BuildsHeroesArtifactsEntity(
     val cup: Int,
     val statCup: String,
     val cap: Int,
-    val statCap: String
+    val statCap: String,
+    val idHero: Int
 )

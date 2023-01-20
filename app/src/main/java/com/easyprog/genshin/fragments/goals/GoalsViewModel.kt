@@ -8,10 +8,10 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class GoalsViewModel @Inject constructor(private val repositoryGoals: GoalsRepository) : ViewModel() {
+class GoalsViewModel @Inject constructor(private val repositoryGoals: GoalsRepository) :
+    ViewModel() {
 
     fun getGoalsHeroes(): LiveData<List<PriorityWithHero>> {
         return repositoryGoals.getPriorityWithHeroesList()
     }
-
 }

@@ -5,6 +5,6 @@ import com.easyprog.data.storage.model.HeroesEntity
 
 interface HeroesRepository {
 
-    fun getHeroes(): LiveData<List<HeroesEntity>>
+    suspend fun getHeroes(): List<HeroesEntity>
 
 }

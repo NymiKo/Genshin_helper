@@ -37,7 +37,7 @@ class HeroProfileFragment :
 
     @SuppressLint("SetTextI18n")
     private fun setupView() {
-        viewModel.getHero(idHero).observe(viewLifecycleOwner) {
+        viewModel.hero.observe(viewLifecycleOwner) {
             with(binding) {
                 imageProfileHeroAvatar.load(it.avatar)
                 textHeroInfo.text =

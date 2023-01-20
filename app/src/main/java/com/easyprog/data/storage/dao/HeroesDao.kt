@@ -12,10 +12,10 @@ import com.easyprog.data.storage.model.HeroesEntity
 interface HeroesDao {
 
     @Query("SELECT * FROM ${RoomContract.tableHeroes}")
-    fun getHeroes(): LiveData<List<HeroesEntity>>
+    suspend fun getHeroes(): List<HeroesEntity>
 
     @Query("SELECT * FROM ${RoomContract.tableHeroes} WHERE idHero = :id")
-    fun getHero(id: Int): LiveData<HeroesEntity>
+    suspend fun getHero(id: Int): HeroesEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertHeroes(heroesEntity: List<HeroesEntity>)

@@ -16,7 +16,7 @@ import org.junit.runner.RunWith
 abstract class BaseTest {
 
     @get:Rule
-    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    protected var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     protected fun ViewInteraction.click(): ViewInteraction = perform(ViewActions.click())
 

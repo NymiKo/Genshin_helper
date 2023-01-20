@@ -5,6 +5,8 @@ import org.junit.Test
 
 class HeroesFragmentTest : BaseTest() {
 
+
+
     private val heroesFragmentView = HeroesFragmentView()
 
     @Test

@@ -6,8 +6,8 @@ import com.easyprog.data.storage.contract.RoomContract
 
 @Entity(tableName = RoomContract.tableArtifacts)
 data class ArtifactsEntity(
-    @PrimaryKey
-    val idSetArtifacts: Int,
+    @PrimaryKey(autoGenerate = true)
+    val idSetArtifacts: Int = 0,
     val nameSet: String,
     val nameFlower: String,
     val imageFlower: Int,

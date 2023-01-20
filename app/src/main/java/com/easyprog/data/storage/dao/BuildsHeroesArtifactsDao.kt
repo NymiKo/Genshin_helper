@@ -3,6 +3,8 @@ package com.easyprog.data.storage.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.easyprog.data.storage.contract.RoomContract
 import com.easyprog.data.storage.model.BuildsHeroesArtifactsEntity
 
 @Dao
@@ -10,5 +12,8 @@ interface BuildsHeroesArtifactsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertBuildsHeroes(buildsHeroesEntity: List<BuildsHeroesArtifactsEntity>)
+
+    @Query("SELECT * FROM ${RoomContract.tableBuildsHeroesArtifacts} WHERE idHero = :idHero")
+    fun getBuildsArtifactsHero(idHero: Int): List<BuildsHeroesArtifactsEntity>
 
 }

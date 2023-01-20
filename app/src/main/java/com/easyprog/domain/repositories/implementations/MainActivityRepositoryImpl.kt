@@ -1,6 +1,7 @@
 package com.easyprog.domain.repositories.implementations
 
 import com.easyprog.data.storage.RoomDatabaseApp
+import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
 import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.data.storage.model.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
@@ -23,6 +24,12 @@ class MainActivityRepositoryImpl @Inject constructor(
     override fun insertWeaponsList(weaponsList: List<WeaponsEntity>) {
         CoroutineScope(dispatchersList.io()).launch {
             localDataSource.weaponsDao().insertWeapon(weaponsList)
+        }
+    }
+
+    override fun insertBuildsHeroesWeaponsList(weaponsList: List<BuildsHeroesWeaponsEntity>) {
+        CoroutineScope(dispatchersList.io()).launch {
+            localDataSource.buildsHeroesWeaponsDao().insertBuildsHeroesWeapons(weaponsList)
         }
     }
 }

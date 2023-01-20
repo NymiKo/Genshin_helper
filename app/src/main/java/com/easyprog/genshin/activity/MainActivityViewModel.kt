@@ -1,6 +1,7 @@
 package com.easyprog.genshin.activity
 
 import androidx.lifecycle.ViewModel
+import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
 import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.data.storage.model.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
@@ -19,6 +20,7 @@ class MainActivityViewModel @Inject constructor(private val repositoryMainActivi
     fun insertHeroesList() {
         repositoryMainActivity.insertHeroesList(createHeroesData())
         repositoryMainActivity.insertWeaponsList(createWeaponsData())
+        repositoryMainActivity.insertBuildsHeroesWeaponsList(createBuildsHeroesWeaponsData())
     }
 
     fun createHeroesData(): List<HeroesEntity> {
@@ -39,6 +41,17 @@ class MainActivityViewModel @Inject constructor(private val repositoryMainActivi
         mockData.add(WeaponsEntity(3, "Нефритовый Коршун", R.drawable.weapon_nefritovyy_korshun, "20-607", "Шанс крита", 5))
         mockData.add(WeaponsEntity(4, "Посох Хомы", R.drawable.weapon_posoh_homy, "50-490", "Крит.урон", 1))
         mockData.add(WeaponsEntity(5, "Волчья Погибель", R.drawable.weapon_volchya_pogibel, "30-708", "Сила атаки", 8))
+
+        return mockData
+    }
+
+    fun createBuildsHeroesWeaponsData(): List<BuildsHeroesWeaponsEntity> {
+        val mockData: MutableList<BuildsHeroesWeaponsEntity> = mutableListOf()
+        mockData.add(BuildsHeroesWeaponsEntity(1, "Описание1", 2, 1))
+        mockData.add(BuildsHeroesWeaponsEntity(2, "Описание2", 1, 2))
+        mockData.add(BuildsHeroesWeaponsEntity(3, "Описание3", 3, 3))
+        mockData.add(BuildsHeroesWeaponsEntity(4, "Описание4", 2, 4))
+        mockData.add(BuildsHeroesWeaponsEntity(5, "Описание5", 2, 5))
 
         return mockData
     }

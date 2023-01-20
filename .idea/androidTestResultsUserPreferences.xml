@@ -60,6 +60,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-145950126">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-68898950">
           <value>
             <AndroidTestResultsTableState>
@@ -83,6 +97,34 @@
                   <entry key="192.168.56.103:5555" value="120" />
                   <entry key="Duration" value="90" />
                   <entry key="Genymobile" value="120" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="809580123">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1221634687">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
                   <entry key="Genymobile&#10; Phone" value="120" />
                   <entry key="Tests" value="360" />
                 </map>
