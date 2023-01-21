@@ -15,9 +15,9 @@ interface BuildsHeroesWeaponsDao {
 
     @Transaction
     @Query("SELECT idBuildsHeroesWeapons, description, weaponId FROM ${RoomContract.tableBuildsHeroesWeapons} WHERE idHero = :heroId")
-    fun getBuildsHeroesWeapons(heroId: Int): LiveData<List<BuildsHeroesWeapons>>
+    suspend fun getBuildsHeroesWeapons(heroId: Int): List<BuildsHeroesWeapons>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertBuildsHeroesWeapons(buildsHeroesWeapons: List<BuildsHeroesWeaponsEntity>)
+    suspend fun insertBuildsHeroesWeapons(buildsHeroesWeapons: List<BuildsHeroesWeaponsEntity>)
 
 }

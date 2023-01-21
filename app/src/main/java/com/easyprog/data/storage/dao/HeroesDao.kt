@@ -18,6 +18,6 @@ interface HeroesDao {
     suspend fun getHero(id: Int): HeroesEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertHeroes(heroesEntity: List<HeroesEntity>)
+    suspend fun insertHeroes(heroesEntity: List<HeroesEntity>)
 
 }

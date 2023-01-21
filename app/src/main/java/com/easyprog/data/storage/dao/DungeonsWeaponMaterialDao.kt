@@ -9,6 +9,6 @@ import com.easyprog.data.storage.model.DungeonsTalentMaterialEntity
 interface DungeonsWeaponMaterialDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertDungeonsWeaponMaterial(dungeonsTalentMaterialEntity: List<DungeonsTalentMaterialEntity>)
+    suspend fun insertDungeonsWeaponMaterial(dungeonsTalentMaterialEntity: List<DungeonsTalentMaterialEntity>)
 
 }

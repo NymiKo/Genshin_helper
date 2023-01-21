@@ -10,6 +10,6 @@ import com.easyprog.data.storage.model.WeaponsEntity
 interface WeaponsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWeapon(weaponsEntity: List<WeaponsEntity>)
+    suspend fun insertWeapon(weaponsEntity: List<WeaponsEntity>)
 
 }

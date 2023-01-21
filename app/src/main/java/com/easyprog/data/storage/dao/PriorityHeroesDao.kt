@@ -16,18 +16,18 @@ interface PriorityHeroesDao {
 
     @Transaction
     @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE elevationPriority <> 0 OR talentPriority <> 0 OR artifactPriority <> 0")
-    fun getPriorityHeroWithHeroes(): LiveData<List<PriorityWithHero>>
+    suspend fun getPriorityHeroWithHeroes(): List<PriorityWithHero>
 
     @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE id_hero = :id")
     fun getPriorityHeroLiveData(id: Int): LiveData<PriorityHeroesEntity>
 
     @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE id_hero = :id")
-    fun getPriorityHero(id: Int): PriorityHeroesEntity
+    suspend fun getPriorityHero(id: Int): PriorityHeroesEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPriorityHero(priorityHeroesEntity: PriorityHeroesEntity)
+    suspend fun insertPriorityHero(priorityHeroesEntity: PriorityHeroesEntity)
 
     @Update
-    fun updatePriorityHero(priorityHeroesEntity: PriorityHeroesEntity)
+    suspend fun updatePriorityHero(priorityHeroesEntity: PriorityHeroesEntity)
 
 }

@@ -27,9 +27,7 @@ class MainActivityRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun insertBuildsHeroesWeaponsList(weaponsList: List<BuildsHeroesWeaponsEntity>) {
-        CoroutineScope(dispatchersList.io()).launch {
-            localDataSource.buildsHeroesWeaponsDao().insertBuildsHeroesWeapons(weaponsList)
-        }
+    override suspend fun insertBuildsHeroesWeaponsList(weaponsList: List<BuildsHeroesWeaponsEntity>) {
+        localDataSource.buildsHeroesWeaponsDao().insertBuildsHeroesWeapons(weaponsList)
     }
 }

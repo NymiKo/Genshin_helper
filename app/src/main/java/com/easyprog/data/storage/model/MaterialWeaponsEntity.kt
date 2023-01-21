@@ -13,5 +13,7 @@ data class MaterialWeaponsEntity(
     val nameBlueMaterial: String,
     val imageBlueMaterial: String,
     val namePurpleMaterial: String,
-    val imagePurpleMaterial: String
+    val imagePurpleMaterial: String,
+    val description: String,
+    val weaponDungeonId: Int,
 )

@@ -8,6 +8,6 @@ import com.easyprog.data.storage.contract.RoomContract
 data class DungeonsTalentMaterialEntity(
     @PrimaryKey
     val idTalentDungeon: Int,
-    val idTalentMaterial: Int,
-    val numberDayOfWeek: Int
+    val imageDungeonOnMap: Int,
+    val descriptionDungeon: String
 )

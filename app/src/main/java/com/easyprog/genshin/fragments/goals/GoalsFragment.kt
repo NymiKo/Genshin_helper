@@ -1,6 +1,7 @@
 package com.easyprog.genshin.fragments.goals
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,6 +16,11 @@ class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::i
     private val viewModel: GoalsViewModel by viewModels()
     private lateinit var mAdapter: GoalsAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getGoalsHeroes()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupAdapter()
@@ -28,12 +34,13 @@ class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::i
     private fun setupRecyclerView() {
         binding.recyclerGoals.layoutManager = LinearLayoutManager(requireActivity())
         binding.recyclerGoals.adapter = mAdapter.apply {
-            viewModel.getGoalsHeroes().observe(viewLifecycleOwner) {
+            viewModel.goalsHeroesList.observe(viewLifecycleOwner) {
                 if (it.isEmpty()) binding.textNoGoals.visibility = View.VISIBLE
                 else {
                     mAdapter.mGoalsList = it
                     binding.recyclerGoals.visibility = View.VISIBLE
                 }
+                Log.e("CHECK_PRIORITY", it.toString())
             }
         }
     }

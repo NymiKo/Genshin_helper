@@ -16,8 +16,8 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideHeroSettingsRepository(roomDatabaseApp: RoomDatabaseApp, dispatchersList: DispatchersList): HeroSettingsRepository {
-        return HeroSettingsRepositoryImpl(localDataSource = roomDatabaseApp, dispatchersList = dispatchersList)
+    fun provideHeroSettingsRepository(roomDatabaseApp: RoomDatabaseApp): HeroSettingsRepository {
+        return HeroSettingsRepositoryImpl(localDataSource = roomDatabaseApp)
     }
 
     @Singleton
@@ -28,7 +28,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun providePurposeRepository(roomDatabaseApp: RoomDatabaseApp): GoalsRepository {
+    fun provideGoalsRepository(roomDatabaseApp: RoomDatabaseApp): GoalsRepository {
         return GoalsRepositoryImpl(localDataSource = roomDatabaseApp)
     }
 

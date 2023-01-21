@@ -2,6 +2,7 @@ package com.easyprog.data.storage.dao
 
 import com.easyprog.data.BaseTestDao
 import com.easyprog.data.storage.dao.helpers.BuildsHeroesArtifactsDaoTestHelper
+import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 import org.junit.Test
 
@@ -11,7 +12,7 @@ class BuildsHeroesArtifactsDaoTest : BaseTestDao() {
 
     @Test
     @Throws(Exception::class)
-    fun insertAndGetById() {
+    fun insertBuildsHeroesArtifactsAndGetThemById() = runBlocking {
         val buildsHeroesArtifacts =
             BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(5, true)
         buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)
@@ -21,7 +22,7 @@ class BuildsHeroesArtifactsDaoTest : BaseTestDao() {
 
     @Test
     @Throws(Exception::class)
-    fun insertAndGet() {
+    fun insertBuildsHeroesArtifactsAndGetThem() = runBlocking {
         val buildsHeroesArtifacts =
             BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(1, true)
         buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)
@@ -31,7 +32,7 @@ class BuildsHeroesArtifactsDaoTest : BaseTestDao() {
 
     @Test
     @Throws(Exception::class)
-    fun insertALotOfAndGet() {
+    fun insertALotOfBuildsHeroesArtifactsAndGetThem() = runBlocking {
         val buildsHeroesArtifacts =
             BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(10, false)
         buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)

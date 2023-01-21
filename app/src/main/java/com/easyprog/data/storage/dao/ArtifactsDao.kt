@@ -11,11 +11,11 @@ import com.easyprog.data.storage.model.ArtifactsEntity
 interface ArtifactsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertArtifacts(artifactsEntity: List<ArtifactsEntity>)
+    suspend fun insertArtifacts(artifactsEntity: List<ArtifactsEntity>)
 
     @Query("SELECT * FROM ${RoomContract.tableArtifacts} WHERE idSetArtifacts = :idSetArtifact")
-    fun getSetArtifact(idSetArtifact: Int): ArtifactsEntity
+    suspend fun getSetArtifact(idSetArtifact: Int): ArtifactsEntity
 
     @Query("SELECT * FROM ${RoomContract.tableArtifacts}")
-    fun getSetArtifacts(): List<ArtifactsEntity>
+    suspend fun getSetArtifacts(): List<ArtifactsEntity>
 }

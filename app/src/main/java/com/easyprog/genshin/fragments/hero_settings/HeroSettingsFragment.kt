@@ -1,6 +1,7 @@
 package com.easyprog.genshin.fragments.hero_settings
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
@@ -25,13 +26,8 @@ class HeroSettingsFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getArgumentsFromBundle()
         setupView()
         changeHeroSettings()
-    }
-
-    private fun getArgumentsFromBundle() {
-        //idHero = arguments?.getInt(HERO_ID_KEY)
     }
 
     private fun setupView() {
@@ -51,13 +47,13 @@ class HeroSettingsFragment :
                     switchElevationPriority.isChecked = it.elevationPriority
                     switchTalentPriority.isChecked = it.talentPriority
                     switchArtifactPriority.isChecked = it.artifactPriority
+                    Log.e("CHECK_PRIORITY", it.toString())
                 }
             }
         }
     }
 
     private fun changeHeroSettings() {
-
         binding.switchElevationPriority.setOnCheckedChangeListener { button, isChecked ->
             insertHeroSetting(
                 isChecked,

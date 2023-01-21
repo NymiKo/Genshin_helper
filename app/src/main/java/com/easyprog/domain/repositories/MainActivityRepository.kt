@@ -8,6 +8,6 @@ interface MainActivityRepository {
 
     fun insertHeroesList(heroesList: List<HeroesEntity>)
     fun insertWeaponsList(weaponsList: List<WeaponsEntity>)
-    fun insertBuildsHeroesWeaponsList(weaponsList: List<BuildsHeroesWeaponsEntity>)
+    suspend fun insertBuildsHeroesWeaponsList(weaponsList: List<BuildsHeroesWeaponsEntity>)
 
 }

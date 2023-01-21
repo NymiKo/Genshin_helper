@@ -4,21 +4,20 @@ import androidx.lifecycle.LiveData
 import com.easyprog.data.storage.RoomDatabaseApp
 import com.easyprog.data.storage.model.PriorityHeroesEntity
 import com.easyprog.domain.repositories.HeroSettingsRepository
-import com.easyprog.genshin.DispatchersList
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HeroSettingsRepositoryImpl @Inject constructor(
-    private val localDataSource: RoomDatabaseApp,
-    private val dispatchersList: DispatchersList
+    private val localDataSource: RoomDatabaseApp
 ) : HeroSettingsRepository {
 
     override fun getSettingsHeroAsync(idHero: Int): LiveData<PriorityHeroesEntity> {
         return localDataSource.priorityHeroesDao().getPriorityHeroLiveData(idHero)
     }
 
-    override fun checkInsertORUpdateSetting(
+    override suspend fun checkInsertORUpdateSetting(
         idPriority: Int,
         elevationPriority: Boolean,
         talentPriority: Boolean,
@@ -32,24 +31,22 @@ class HeroSettingsRepositoryImpl @Inject constructor(
             artifactPriority = artifactPriority,
             idHero = idHero
         )
-        insertSettingsHero(priorityHeroEntity)
+        localDataSource.priorityHeroesDao().insertPriorityHero(priorityHeroesEntity = priorityHeroEntity)
     }
 
-    override fun insertSettingsHero(
+    override suspend fun insertSettingsHero(
         priorityHeroesEntity: PriorityHeroesEntity
     ) {
-        CoroutineScope(dispatchersList.io()).launch {
+        CoroutineScope(Dispatchers.IO).launch {
             localDataSource.priorityHeroesDao()
                 .insertPriorityHero(priorityHeroesEntity = priorityHeroesEntity)
         }
     }
 
-    override fun updateSettingsHero(
+    override suspend fun updateSettingsHero(
         priorityHeroesEntity: PriorityHeroesEntity
     ) {
-        CoroutineScope(dispatchersList.io()).launch {
-            localDataSource.priorityHeroesDao()
-                .updatePriorityHero(priorityHeroesEntity = priorityHeroesEntity)
-        }
+        localDataSource.priorityHeroesDao()
+            .updatePriorityHero(priorityHeroesEntity = priorityHeroesEntity)
     }
 }

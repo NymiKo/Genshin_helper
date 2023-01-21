@@ -6,8 +6,8 @@ import com.easyprog.data.storage.contract.RoomContract
 
 @Entity(tableName = RoomContract.tableDungeonsWeaponMaterial)
 data class DungeonsWeaponMaterialEntity(
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     val idWeaponDungeon: Int,
-    val idWeaponMaterial: Int,
-    val numberDayOfWeek: Int
+    val imageDungeonOnMap: Int,
+    val descriptionDungeon: String
 )

@@ -1,12 +1,14 @@
 package com.easyprog.genshin.activity
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
 import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.data.storage.model.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
 import com.easyprog.genshin.R
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,7 +22,9 @@ class MainActivityViewModel @Inject constructor(private val repositoryMainActivi
     fun insertHeroesList() {
         repositoryMainActivity.insertHeroesList(createHeroesData())
         repositoryMainActivity.insertWeaponsList(createWeaponsData())
-        repositoryMainActivity.insertBuildsHeroesWeaponsList(createBuildsHeroesWeaponsData())
+        viewModelScope.launch {
+            repositoryMainActivity.insertBuildsHeroesWeaponsList(createBuildsHeroesWeaponsData())
+        }
     }
 
     fun createHeroesData(): List<HeroesEntity> {
