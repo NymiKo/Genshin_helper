@@ -1,16 +1,15 @@
 package com.easyprog.data.storage.dao.helpers
 
-import com.easyprog.data.storage.model.MaterialWeaponsEntity
 import com.easyprog.data.storage.model.PriorityHeroesEntity
 import kotlin.random.Random
 
 class PriorityHeroesDaoTestHelper {
 
     fun createRandomListOfPriorityHeroes(
-        count: Int
+        count: Int,
+        randomPriorityFlag: Boolean
     ): List<PriorityHeroesEntity> {
         val priorityHeroes = mutableListOf<PriorityHeroesEntity>()
-        val randomNumber = Random.nextInt(1, 100)
         val randomPriority = Random.nextBoolean()
 
         for (i in 1..count) {
@@ -18,7 +17,7 @@ class PriorityHeroesDaoTestHelper {
                 PriorityHeroesEntity(
                     i,
                     randomPriority,
-                    randomPriority,
+                    if (randomPriorityFlag) randomPriority else true,
                     randomPriority,
                     i
                 )

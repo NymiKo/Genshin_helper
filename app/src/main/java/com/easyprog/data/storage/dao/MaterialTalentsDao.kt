@@ -17,6 +17,6 @@ interface MaterialTalentsDao {
 
     @Transaction
     @Query("SELECT * FROM ${RoomContract.tableMaterialTalents} WHERE idTalentMaterial = :talentsMaterialId")
-    suspend fun getMaterialTalentsWithDungeons(talentsMaterialId: Int): List<MaterialTalentsWithDungeons>
+    suspend fun getMaterialTalentsWithDungeons(talentsMaterialId: Int): MaterialTalentsWithDungeons
 
 }
