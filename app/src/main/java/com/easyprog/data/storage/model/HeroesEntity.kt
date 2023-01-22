@@ -13,5 +13,5 @@ data class HeroesEntity(
     val birthday: String,
     val element: String,
     val region: String,
-    val idTalentMaterial: Int
+    val talentMaterialId: Int
 )

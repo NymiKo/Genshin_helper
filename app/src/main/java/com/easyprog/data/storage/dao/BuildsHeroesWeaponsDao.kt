@@ -14,7 +14,7 @@ import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
 interface BuildsHeroesWeaponsDao {
 
     @Transaction
-    @Query("SELECT idBuildsHeroesWeapons, description, weaponId FROM ${RoomContract.tableBuildsHeroesWeapons} WHERE idHero = :heroId")
+    @Query("SELECT idBuildsHeroesWeapons, description, weaponId FROM ${RoomContract.tableBuildsHeroesWeapons} WHERE heroId = :heroId")
     suspend fun getBuildsHeroesWeapons(heroId: Int): List<BuildsHeroesWeapons>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

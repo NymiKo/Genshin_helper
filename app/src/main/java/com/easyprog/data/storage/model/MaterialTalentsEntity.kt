@@ -9,11 +9,11 @@ data class MaterialTalentsEntity(
     @PrimaryKey
     val idTalentMaterial: Int,
     val nameGreenMaterial: String,
-    val imageGreenMaterial: String,
+    val imageGreenMaterial: Int,
     val nameBlueMaterial: String,
-    val imageBlueMaterial: String,
+    val imageBlueMaterial: Int,
     val namePurpleMaterial: String,
-    val imagePurpleMaterial: String,
+    val imagePurpleMaterial: Int,
     val description: String,
     val talentDungeonId: Int
 )

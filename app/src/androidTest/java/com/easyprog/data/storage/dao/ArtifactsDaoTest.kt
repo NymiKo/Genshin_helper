@@ -36,6 +36,7 @@ class ArtifactsDaoTest : BaseTestDao() {
         artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(7)
         artifactsDao.insertArtifacts(artifacts)
         assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
+        assertTrue(artifacts == artifactsDao.getSetArtifacts())
     }
 
 }

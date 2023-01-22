@@ -3,6 +3,8 @@ package com.easyprog.data.storage.dao
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import com.easyprog.data.storage.contract.RoomContract
 import com.easyprog.data.storage.model.MaterialWeaponsEntity
 import com.easyprog.data.storage.model.WeaponsEntity
 
@@ -11,5 +13,8 @@ interface WeaponsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeapon(weaponsEntity: List<WeaponsEntity>)
+
+    @Query("SELECT * FROM ${RoomContract.tableWeapon} WHERE idWeapon = :idWeapon")
+    suspend fun getWeapon(idWeapon: Int): WeaponsEntity
 
 }
