@@ -7,7 +7,7 @@
     tools:context=".fragments.goals.GoalsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_goals"
+        android:id="@+id/recyclerGoals"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margin_small"
@@ -20,7 +20,7 @@
         android:text="@string/no_goals_added"
         android:textColor="?attr/colorOnPrimary"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="@dimen/text_size_large"
         android:visibility="gone" />
 
 </FrameLayout>

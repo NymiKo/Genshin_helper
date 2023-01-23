@@ -17,7 +17,7 @@ class NavigationContainerFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val nestedNavHostFragment =
-            childFragmentManager.findFragmentById(R.id.bottom_nav_host_fragment) as NavHostFragment
+            childFragmentManager.findFragmentById(R.id.bottomNavHostFragment) as NavHostFragment
         val navController = nestedNavHostFragment.navController
         binding.bottomNavView.setupWithNavController(navController)
         setupStyleBottomNavigationView(binding.bottomNavView)

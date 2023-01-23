@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_medium"
-        android:textSize="24sp"
+        android:textSize="@dimen/text_very_large"
         android:text="@string/today"
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold"

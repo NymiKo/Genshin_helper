@@ -7,29 +7,30 @@
     android:background="@color/dark_gray"
     tools:context=".fragments.hero_profile.HeroProfileFragment">
 
-    <ImageView
-        android:id="@+id/image_settings"
+    <ImageButton
+        android:id="@+id/buttonSettingsHero"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_margin="@dimen/margin_small"
         android:contentDescription="@string/hero_setting"
         android:src="@drawable/ic_setting"
+        android:background="?selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_profile_hero_avatar"
+        android:id="@+id/cardProfileHeroAvatar"
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:layout_marginTop="40dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/image_profile_hero_avatar"
+            android:id="@+id/imageProfileHeroAvatar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:src="@drawable/itto" />
@@ -37,19 +38,19 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/text_hero_info"
+        android:id="@+id/textHeroInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="@dimen/margin_medium"
         android:textColor="?attr/colorOnPrimary"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/card_profile_hero_avatar"
-        app:layout_constraintStart_toEndOf="@+id/card_profile_hero_avatar"
-        app:layout_constraintTop_toTopOf="@+id/card_profile_hero_avatar"
+        android:textSize="@dimen/text_medium"
+        app:layout_constraintBottom_toBottomOf="@+id/cardProfileHeroAvatar"
+        app:layout_constraintStart_toEndOf="@+id/cardProfileHeroAvatar"
+        app:layout_constraintTop_toTopOf="@+id/cardProfileHeroAvatar"
         tools:text="Имя: Аратаки Итто\n\nДата Рождения: 06.02\n\nЭлемент: Гео\n\nРегион: Инадзума" />
 
     <LinearLayout
-        android:id="@+id/section_group_1"
+        android:id="@+id/sectionGroupOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_small"
@@ -58,21 +59,21 @@
         android:weightSum="9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_profile_hero_avatar">
+        app:layout_constraintTop_toBottomOf="@+id/cardProfileHeroAvatar">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/section_weapons"
+            android:id="@+id/sectionWeapons"
             style="@style/card_view_sections"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
-            app:layout_constraintEnd_toStartOf="@id/section_skills"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@id/sectionSkills"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_sections">
 
                 <ImageView
-                    android:id="@+id/imageView_weapons"
+                    android:id="@+id/imageWeapons"
                     style="@style/image_view_sections"
                     android:src="@drawable/section_weapon"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -80,30 +81,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    style="@style/text_view_sections"
+                    style="@style/text_sections"
                     android:text="@string/weapon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView_weapons" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageWeapons" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/section_skills"
+            android:id="@+id/sectionSkills"
             style="@style/card_view_sections"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
-            app:layout_constraintEnd_toStartOf="@id/section_constellations"
-            app:layout_constraintStart_toEndOf="@id/section_weapons"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@id/sectionConstellations"
+            app:layout_constraintStart_toEndOf="@id/sectionWeapons"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_sections">
 
                 <ImageView
-                    android:id="@+id/imageView_skills"
+                    android:id="@+id/imageSkills"
                     style="@style/image_view_sections"
                     android:src="@drawable/section_skills"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -111,30 +112,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    style="@style/text_view_sections"
+                    style="@style/text_sections"
                     android:text="@string/skills"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView_skills" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageSkills" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/section_constellations"
+            android:id="@+id/sectionConstellations"
             style="@style/card_view_sections"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/section_skills"
+            app:layout_constraintStart_toEndOf="@id/sectionSkills"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_sections">
 
                 <ImageView
-                    android:id="@+id/imageView_constellations"
+                    android:id="@+id/imageConstellations"
                     style="@style/image_view_sections"
                     android:src="@drawable/section_constellations"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -142,12 +143,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    style="@style/text_view_sections"
+                    style="@style/text_sections"
                     android:text="@string/constellations"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView_constellations" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageConstellations" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -156,7 +157,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/section_group_2"
+        android:id="@+id/sectionGroupTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_small"
@@ -165,21 +166,21 @@
         android:weightSum="9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/section_group_1">
+        app:layout_constraintTop_toBottomOf="@+id/sectionGroupOne">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/section_artifacts"
+            android:id="@+id/sectionArtifacts"
             style="@style/card_view_sections"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
-            app:layout_constraintEnd_toStartOf="@id/section_skills"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
+            app:layout_constraintEnd_toStartOf="@id/sectionSkills"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_sections">
 
                 <ImageView
-                    android:id="@+id/imageView_artifacts"
+                    android:id="@+id/imageArtifacts"
                     style="@style/image_view_sections"
                     android:src="@drawable/section_artifacts"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -187,30 +188,30 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    style="@style/text_view_sections"
+                    style="@style/text_sections"
                     android:text="@string/artifacts"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView_artifacts" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageArtifacts" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/section_groups"
+            android:id="@+id/sectionGroups"
             style="@style/card_view_sections"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp"
+            app:cardCornerRadius="@dimen/card_corner_radius"
+            app:cardElevation="@dimen/card_elevation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/section_skills"
+            app:layout_constraintStart_toEndOf="@id/sectionSkills"
             app:layout_constraintTop_toTopOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout style="@style/constraint_sections">
 
                 <ImageView
-                    android:id="@+id/imageView_groups"
+                    android:id="@+id/imageGroups"
                     style="@style/image_view_sections"
                     android:src="@drawable/section_team"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -218,12 +219,12 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    style="@style/text_view_sections"
+                    style="@style/text_sections"
                     android:text="@string/groups"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView_groups" />
+                    app:layout_constraintTop_toBottomOf="@+id/imageGroups" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

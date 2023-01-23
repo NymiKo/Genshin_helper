@@ -51,7 +51,7 @@ class HeroProfileFragment :
     }
 
     private fun goToSettings() {
-        binding.imageSettings.setOnClickListener {
+        binding.buttonSettingsHero.setOnClickListener {
             findNavController().navigate(
                 R.id.action_heroProfileFragment_to_heroSettingsFragment,
                 HeroSettingsFragment.newArgument(idHero = idHero)

@@ -29,7 +29,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         binding.buttonOpenGoals.setOnClickListener {
             findNavController(
                 requireActivity(),
-                R.id.nav_host_fragment
+                R.id.navHostFragment
             ).navigate(R.id.purposesFragment)
         }
     }

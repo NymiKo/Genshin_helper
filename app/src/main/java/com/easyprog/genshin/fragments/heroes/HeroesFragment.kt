@@ -1,10 +1,7 @@
 package com.easyprog.genshin.fragments.heroes
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
@@ -56,7 +53,7 @@ class HeroesFragment : BaseFragment<FragmentHeroesBinding>(FragmentHeroesBinding
             override fun onHeroClick(idHero: Int) {
                 findNavController(
                     requireActivity(),
-                    R.id.nav_host_fragment
+                    R.id.navHostFragment
                 ).navigate(
                     R.id.action_navigationContainerFragment_to_heroProfileFragment,
                     HeroProfileFragment.newArgument(idHero = idHero)

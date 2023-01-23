@@ -8,34 +8,30 @@
     android:orientation="vertical"
     tools:context=".fragments.artifacts.ArtifactsFragment">
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:backgroundTint="@color/gray"
-        app:cardCornerRadius="7dp"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:layout_marginTop="@dimen/margin_medium">
+        android:layout_marginVertical="@dimen/margin_small"
+        android:textColorHint="@color/light_gray"
+        app:boxBackgroundColor="@color/gray">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/gray"
-            android:layout_marginHorizontal="10dp"
-            android:fontFamily="@font/genshin_impact"
             android:hint="@string/hint_search_hero"
-            android:textCursorDrawable="@drawable/cursor_edittext"
             android:lines="1"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textColorHint="@color/light_gray" />
+            android:textSize="@dimen/text_small" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_artifacts_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margin_small"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
 
 </LinearLayout>

@@ -6,7 +6,7 @@ import com.easyprog.genshin.fragments.FragmentsView
 class HeroesFragmentView: FragmentsView() {
 
     val heroesItemBottomNavigation = R.id.heroesFragment.view()
-    val viewPagerHeroes = R.id.view_pager_heroes.view()
+    val viewPagerHeroes = R.id.viewPagerHeroes.view()
     val artifactsItemBottomNavigation = R.id.artifactsFragment.view()
 
 }

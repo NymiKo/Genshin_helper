@@ -11,31 +11,31 @@
         android:layout_height="wrap_content"
         android:text="@string/hero_priority"
         android:layout_margin="@dimen/margin_medium"
-        android:textSize="18sp"
+        android:textSize="@dimen/text_size_18"
         android:textColor="?attr/colorOnPrimary"/>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_elevation_priority"
+        android:id="@+id/switchElevationPriority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/elevation_priority"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:textSize="14sp"/>
+        android:textSize="@dimen/text_small"/>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_talent_priority"
+        android:id="@+id/switchTalentPriority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/talent_priority"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:textSize="14sp"/>
+        android:textSize="@dimen/text_small"/>
 
     <com.google.android.material.switchmaterial.SwitchMaterial
-        android:id="@+id/switch_artifact_priority"
+        android:id="@+id/switchArtifactPriority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/artifact_priority"
         android:layout_marginHorizontal="@dimen/margin_medium"
-        android:textSize="14sp"/>
+        android:textSize="@dimen/text_small"/>
 
 </LinearLayout>
