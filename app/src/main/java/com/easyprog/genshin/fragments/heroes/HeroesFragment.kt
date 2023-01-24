@@ -22,7 +22,7 @@ class HeroesFragment : BaseFragment<FragmentHeroesBinding>(FragmentHeroesBinding
 
     private lateinit var mAdapter: HeroesAdapter
 
-    private val viewModel by viewModels<HeroesViewModel>()
+    private val viewModel by viewModels<HeroesViewModelImpl>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -37,7 +37,6 @@ class HeroesFragment : BaseFragment<FragmentHeroesBinding>(FragmentHeroesBinding
     private fun setupViewPager() {
 
         binding.viewPagerHeroes.apply {
-
             setPageTransformer(ZoomOutPageTransformer())
 
             adapter = mAdapter.apply {

@@ -9,13 +9,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter.HeroesViewHolder
 import com.easyprog.genshin.databinding.ItemHeroBinding
+import com.easyprog.genshin.model.Heroes
 import com.easyprog.genshin.utils.load
 
 class HeroesAdapter(
     private val actionListener: HeroesActionListener<Int>
-): RecyclerView.Adapter<HeroesViewHolder>(), OnClickListener {
+) : RecyclerView.Adapter<HeroesViewHolder>(), OnClickListener {
 
-    var mHeroesList: List<HeroesEntity> = emptyList()
+    var mHeroesList: List<Heroes> = emptyList()
         @SuppressLint("NotifyDataSetChanged")
         set(newValue) {
             field = newValue

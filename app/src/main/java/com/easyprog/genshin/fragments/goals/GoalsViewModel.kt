@@ -19,7 +19,7 @@ class GoalsViewModel @Inject constructor(private val repositoryGoals: GoalsRepos
 
     fun getGoalsHeroes() {
         viewModelScope.launch {
-            _goalsHeroesList.value = repositoryGoals.getPriorityWithHeroesList()
+            _goalsHeroesList.postValue(repositoryGoals.getPriorityWithHeroesList())
         }
     }
 }

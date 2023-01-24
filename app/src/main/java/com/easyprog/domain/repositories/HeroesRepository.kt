@@ -1,10 +1,9 @@
 package com.easyprog.domain.repositories
 
-import androidx.lifecycle.LiveData
-import com.easyprog.data.storage.model.HeroesEntity
+import com.easyprog.genshin.model.Heroes
 
 interface HeroesRepository {
 
-    suspend fun getHeroes(): List<HeroesEntity>
+    suspend fun getHeroes(): List<Heroes>
 
 }

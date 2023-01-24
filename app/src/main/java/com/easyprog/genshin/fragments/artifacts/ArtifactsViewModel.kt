@@ -16,7 +16,7 @@ class ArtifactsViewModel : ViewModel() {
     }
 
     private fun getData() {
-        _artifactsList.value = createArtifactsData()
+        _artifactsList.postValue(createArtifactsData())
     }
 
     private fun createArtifactsData(): List<Artifacts> {

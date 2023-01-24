@@ -11,15 +11,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HeroProfileViewModel @Inject constructor(private val heroProfileRepository: HeroProfileRepository) : ViewModel() {
+class HeroProfileViewModel @Inject constructor(private val heroProfileRepository: HeroProfileRepository) :
+    ViewModel() {
 
     private val _hero = MutableLiveData<HeroesEntity>()
     val hero: LiveData<HeroesEntity> = _hero
 
     fun getHero(id: Int) {
         viewModelScope.launch {
-            _hero.value = heroProfileRepository.getHero(id)
+            _hero.postValue(heroProfileRepository.getHero(id))
         }
     }
-
 }

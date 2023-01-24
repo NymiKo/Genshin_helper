@@ -10,9 +10,9 @@ import org.junit.runner.RunWith
 import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
-abstract class BaseTestDao {
+open class BaseTestDao {
 
-    protected val db: RoomDatabaseApp = Room.inMemoryDatabaseBuilder(
+    val db: RoomDatabaseApp = Room.inMemoryDatabaseBuilder(
         InstrumentationRegistry.getInstrumentation().targetContext,
         RoomDatabaseApp::class.java
     ).build()
