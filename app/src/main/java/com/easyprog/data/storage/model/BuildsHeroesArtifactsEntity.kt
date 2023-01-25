@@ -2,10 +2,22 @@ package com.easyprog.data.storage.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
 
-@Entity(tableName = RoomContract.tableBuildsHeroesArtifacts)
+@Entity(
+    tableName = RoomContract.tableBuildsHeroesArtifacts,
+    foreignKeys = [
+        ForeignKey(
+            entity = HeroesEntity::class,
+            parentColumns = ["id"],
+            childColumns = ["hero_id"],
+            onUpdate = ForeignKey.CASCADE,
+            onDelete = ForeignKey.CASCADE
+        )
+    ]
+)
 data class BuildsHeroesArtifactsEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
@@ -19,5 +31,5 @@ data class BuildsHeroesArtifactsEntity(
     @ColumnInfo(name = "stat_cup") val statCup: String,
     val cap: Int,
     @ColumnInfo(name = "stat_cap") val statCap: String,
-    @ColumnInfo(name = "hero_id") val heroId: Int
+    @ColumnInfo(name = "hero_id") val heroId: Int?
 )

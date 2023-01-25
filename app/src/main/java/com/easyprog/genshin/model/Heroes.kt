@@ -7,5 +7,5 @@ data class Heroes(
     val birthday: String,
     val element: String,
     val region: String,
-    val talentMaterialId: Int
+    val talentMaterialId: Int?
 )

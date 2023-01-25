@@ -47,7 +47,7 @@ class HeroesAdapter(
 
     override fun onClick(view: View) {
         val idHero = view.tag as Heroes
-        actionListener.onHeroClick(idHero.id)
+        actionListener.onClick(idHero.id)
     }
 
 }
