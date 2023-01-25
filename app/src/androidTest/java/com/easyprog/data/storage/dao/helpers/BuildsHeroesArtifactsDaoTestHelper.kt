@@ -12,7 +12,7 @@ class BuildsHeroesArtifactsDaoTestHelper {
         for (i in 1..count) {
             buildsHeroesArtifacts.add(
                 BuildsHeroesArtifactsEntity(
-                    idBuildHeroesArtifacts = i,
+                    id = i,
                     flower = i,
                     statFlower = "$randomNumber",
                     stylus = i,
@@ -23,7 +23,7 @@ class BuildsHeroesArtifactsDaoTestHelper {
                     statCup = "$randomNumber",
                     cap = i,
                     statCap = "$randomNumber",
-                    idHero = if (randomIdHero) i else 1
+                    heroId = if (randomIdHero) i else 1
                 )
             )
         }

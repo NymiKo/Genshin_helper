@@ -1,15 +1,16 @@
 package com.easyprog.data.storage.additional_models
 
+import androidx.room.ColumnInfo
 import androidx.room.Relation
 import com.easyprog.data.storage.additional_models.weapon.Weapons
 import com.easyprog.data.storage.model.WeaponsEntity
 
 data class BuildsHeroesWeapons(
-    val idBuildsHeroesWeapons: Int,
+    val id: Int,
     val description: String,
-    val weaponId: Int,
+    @ColumnInfo(name = "weapon_id") val weaponId: Int,
 
-    @Relation(parentColumn = "weaponId", entityColumn = "idWeapon", entity = WeaponsEntity::class)
+    @Relation(parentColumn = "weapon_id", entityColumn = "id", entity = WeaponsEntity::class)
     val weapon: Weapons
 
 )

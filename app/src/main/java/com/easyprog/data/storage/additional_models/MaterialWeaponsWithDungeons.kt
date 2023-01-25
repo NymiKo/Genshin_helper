@@ -10,7 +10,7 @@ data class MaterialWeaponsWithDungeons(
     @Embedded
     val materialWeapons: MaterialWeaponsEntity,
 
-    @Relation(parentColumn = "weaponMaterialDungeonId", entityColumn = "idWeaponMaterialDungeon")
+    @Relation(parentColumn = "weapon_material_dungeon_id", entityColumn = "id")
     val dungeonsWeaponMaterial: DungeonsWeaponMaterialEntity
 
 )

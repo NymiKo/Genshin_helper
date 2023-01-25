@@ -15,14 +15,14 @@ import com.easyprog.data.storage.model.PriorityHeroesEntity
 interface PriorityHeroesDao {
 
     @Transaction
-    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE elevationPriority <> 0 OR talentPriority <> 0 OR artifactPriority <> 0")
+    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE elevation_priority <> 0 OR talent_priority <> 0 OR artifact_priority <> 0")
     suspend fun getPriorityHeroWithHeroes(): List<PriorityWithHero>
 
-    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE id_hero = :id")
-    fun getPriorityHeroLiveData(id: Int): LiveData<PriorityHeroesEntity>
+    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE hero_id = :idHero")
+    fun getPriorityHeroLiveData(idHero: Int): LiveData<PriorityHeroesEntity>
 
-    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE id_hero = :id")
-    suspend fun getPriorityHero(id: Int): PriorityHeroesEntity
+    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE hero_id = :idHero")
+    suspend fun getPriorityHero(idHero: Int): PriorityHeroesEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPriorityHero(priorityHeroesEntity: PriorityHeroesEntity)

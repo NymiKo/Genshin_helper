@@ -1,22 +1,23 @@
 package com.easyprog.data.storage.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
 
 @Entity(tableName = RoomContract.tableBuildsHeroesArtifacts)
 data class BuildsHeroesArtifactsEntity(
-    @PrimaryKey
-    val idBuildHeroesArtifacts: Int,
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
     val flower: Int,
-    val statFlower: String,
+    @ColumnInfo(name = "stat_flower") val statFlower: String,
     val stylus: Int,
-    val statStylus: String,
+    @ColumnInfo(name = "stat_stylus") val statStylus: String,
     val watch: Int,
-    val statWatch: String,
+    @ColumnInfo(name = "stat_watch") val statWatch: String,
     val cup: Int,
-    val statCup: String,
+    @ColumnInfo(name = "stat_cup") val statCup: String,
     val cap: Int,
-    val statCap: String,
-    val idHero: Int
+    @ColumnInfo(name = "stat_cap") val statCap: String,
+    @ColumnInfo(name = "hero_id") val heroId: Int
 )

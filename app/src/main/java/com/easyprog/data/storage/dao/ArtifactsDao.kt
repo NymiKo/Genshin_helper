@@ -13,7 +13,7 @@ interface ArtifactsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertArtifacts(artifactsEntity: List<ArtifactsEntity>)
 
-    @Query("SELECT * FROM ${RoomContract.tableArtifacts} WHERE idSetArtifacts = :idSetArtifact")
+    @Query("SELECT * FROM ${RoomContract.tableArtifacts} WHERE id = :idSetArtifact")
     suspend fun getSetArtifact(idSetArtifact: Int): ArtifactsEntity
 
     @Query("SELECT * FROM ${RoomContract.tableArtifacts}")

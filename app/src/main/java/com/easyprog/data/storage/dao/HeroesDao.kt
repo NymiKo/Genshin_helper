@@ -13,8 +13,8 @@ interface HeroesDao {
     @Query("SELECT * FROM ${RoomContract.tableHeroes}")
     suspend fun getHeroes(): List<HeroesEntity>
 
-    @Query("SELECT * FROM ${RoomContract.tableHeroes} WHERE idHero = :id")
-    suspend fun getHero(id: Int): HeroesEntity
+    @Query("SELECT * FROM ${RoomContract.tableHeroes} WHERE id = :idHero")
+    suspend fun getHero(idHero: Int): HeroesEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHeroes(heroesEntity: List<HeroesEntity>)

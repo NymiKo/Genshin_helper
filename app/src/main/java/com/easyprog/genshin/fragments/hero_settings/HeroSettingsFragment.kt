@@ -43,7 +43,7 @@ class HeroSettingsFragment :
                     switchTalentPriority.isChecked = false
                     switchArtifactPriority.isChecked = false
                 } else {
-                    idSettings = it.idPriority
+                    idSettings = it.id
                     switchElevationPriority.isChecked = it.elevationPriority
                     switchTalentPriority.isChecked = it.talentPriority
                     switchArtifactPriority.isChecked = it.artifactPriority

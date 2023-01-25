@@ -14,7 +14,7 @@ interface WeaponsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeapon(weaponsEntity: List<WeaponsEntity>)
 
-    @Query("SELECT * FROM ${RoomContract.tableWeapon} WHERE idWeapon = :idWeapon")
+    @Query("SELECT * FROM ${RoomContract.tableWeapon} WHERE id = :idWeapon")
     suspend fun getWeapon(idWeapon: Int): WeaponsEntity
 
 }

@@ -13,7 +13,7 @@ interface BuildsHeroesArtifactsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertBuildsHeroes(buildsHeroesEntity: List<BuildsHeroesArtifactsEntity>)
 
-    @Query("SELECT * FROM ${RoomContract.tableBuildsHeroesArtifacts} WHERE idHero = :idHero")
+    @Query("SELECT * FROM ${RoomContract.tableBuildsHeroesArtifacts} WHERE hero_id = :idHero")
     suspend fun getBuildsArtifactsHero(idHero: Int): List<BuildsHeroesArtifactsEntity>
 
 }

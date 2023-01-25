@@ -31,7 +31,7 @@ class HeroesViewModelImplTest {
     fun `get hero`() = runTest {
         val heroesList = listOf(
             HeroesEntity(
-                idHero = 1,
+                id = 1,
                 name = "Итто",
                 avatar = 1,
                 birthday = "06.02",
@@ -43,7 +43,7 @@ class HeroesViewModelImplTest {
         repository.setHeroes(heroesList)
         val expectedHeroesList = listOf(
             Heroes(
-                idHero = 1,
+                id = 1,
                 name = "Итто",
                 avatar = 1,
                 birthday = "06.02",

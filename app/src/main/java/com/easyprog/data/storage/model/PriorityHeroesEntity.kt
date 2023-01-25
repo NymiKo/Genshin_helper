@@ -8,11 +8,9 @@ import com.easyprog.data.storage.contract.RoomContract
 @Entity(tableName = RoomContract.tablePriorityHeroes)
 data class PriorityHeroesEntity(
     @PrimaryKey(autoGenerate = true)
-    val idPriority: Int = 0,
-    val elevationPriority: Boolean,
-    val talentPriority: Boolean,
-    val artifactPriority: Boolean,
-
-    @ColumnInfo(name = "id_hero")
-    val idHero: Int
+    val id: Int = 0,
+    @ColumnInfo(name = "elevation_priority") val elevationPriority: Boolean,
+    @ColumnInfo(name = "talent_priority") val talentPriority: Boolean,
+    @ColumnInfo(name = "artifact_priority") val artifactPriority: Boolean,
+    @ColumnInfo(name = "hero_id") val heroId: Int
 )

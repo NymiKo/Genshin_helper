@@ -11,6 +11,6 @@ data class PriorityWithHero(
     @Embedded
     val priority: PriorityHeroesEntity,
 
-    @Relation(parentColumn = "id_hero", entityColumn = "idHero", entity = HeroesEntity::class)
+    @Relation(parentColumn = "hero_id", entityColumn = "id", entity = HeroesEntity::class)
     val heroAvatar: HeroAvatar?
 )

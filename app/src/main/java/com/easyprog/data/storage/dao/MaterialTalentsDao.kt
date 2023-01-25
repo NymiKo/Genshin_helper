@@ -16,7 +16,7 @@ interface MaterialTalentsDao {
     suspend fun insertMaterialTalents(materialTalentsEntity: List<MaterialTalentsEntity>)
 
     @Transaction
-    @Query("SELECT * FROM ${RoomContract.tableMaterialTalents} WHERE idTalentMaterial = :talentsMaterialId")
-    suspend fun getMaterialTalentsWithDungeons(talentsMaterialId: Int): MaterialTalentsWithDungeons
+    @Query("SELECT * FROM ${RoomContract.tableMaterialTalents} WHERE id = :idTalentsMaterial")
+    suspend fun getMaterialTalentsWithDungeons(idTalentsMaterial: Int): MaterialTalentsWithDungeons
 
 }

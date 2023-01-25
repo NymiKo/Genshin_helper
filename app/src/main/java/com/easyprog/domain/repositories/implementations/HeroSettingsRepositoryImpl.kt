@@ -25,11 +25,11 @@ class HeroSettingsRepositoryImpl @Inject constructor(
         idHero: Int
     ) {
         val priorityHeroEntity = PriorityHeroesEntity(
-            idPriority = idPriority,
+            id = idPriority,
             elevationPriority = elevationPriority,
             talentPriority = talentPriority,
             artifactPriority = artifactPriority,
-            idHero = idHero
+            heroId = idHero
         )
         localDataSource.priorityHeroesDao().insertPriorityHero(priorityHeroesEntity = priorityHeroEntity)
     }

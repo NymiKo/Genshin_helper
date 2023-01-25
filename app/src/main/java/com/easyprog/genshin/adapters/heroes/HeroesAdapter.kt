@@ -6,7 +6,6 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.genshin.adapters.heroes.HeroesAdapter.HeroesViewHolder
 import com.easyprog.genshin.databinding.ItemHeroBinding
 import com.easyprog.genshin.model.Heroes
@@ -47,8 +46,8 @@ class HeroesAdapter(
         RecyclerView.ViewHolder(binding.root)
 
     override fun onClick(view: View) {
-        val idHero = view.tag as HeroesEntity
-        actionListener.onHeroClick(idHero.idHero)
+        val idHero = view.tag as Heroes
+        actionListener.onHeroClick(idHero.id)
     }
 
 }

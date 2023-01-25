@@ -1,5 +1,6 @@
 package com.easyprog.data.storage.model
 
+import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
@@ -8,16 +9,16 @@ import com.easyprog.genshin.model.Heroes
 @Entity(tableName = RoomContract.tableHeroes)
 data class HeroesEntity(
     @PrimaryKey(autoGenerate = true)
-    val idHero: Int,
+    val id: Int,
     val name: String,
     val avatar: Int,
     val birthday: String,
     val element: String,
     val region: String,
-    val talentMaterialId: Int
+    @ColumnInfo(name = "talent_material_id") val talentMaterialId: Int
 ) {
     fun toHeroes(): Heroes = Heroes(
-            idHero = idHero,
+            id = id,
             name = name,
             avatar = avatar,
             birthday = birthday,

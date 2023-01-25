@@ -10,6 +10,6 @@ data class MaterialTalentsWithDungeons(
     @Embedded
     val materialTalents: MaterialTalentsEntity,
 
-    @Relation(parentColumn = "talentDungeonId", entityColumn = "idTalentDungeon")
+    @Relation(parentColumn = "talent_dungeon_id", entityColumn = "id")
     val dungeonsTalentMaterial: DungeonsTalentMaterialEntity
 )

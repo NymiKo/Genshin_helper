@@ -1,7 +1,7 @@
 package com.easyprog.genshin.model
 
 data class Artifacts(
-    val idSetArtifacts: Int,
+    val id: Int,
     val nameSet: String,
     val nameFlower: String,
     val imageFlower: Int,

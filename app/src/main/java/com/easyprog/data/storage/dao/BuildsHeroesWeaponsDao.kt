@@ -1,11 +1,6 @@
 package com.easyprog.data.storage.dao
 
-import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import com.easyprog.data.storage.additional_models.BuildsHeroesWeapons
 import com.easyprog.data.storage.contract.RoomContract
 import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
@@ -14,8 +9,8 @@ import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
 interface BuildsHeroesWeaponsDao {
 
     @Transaction
-    @Query("SELECT idBuildsHeroesWeapons, description, weaponId FROM ${RoomContract.tableBuildsHeroesWeapons} WHERE heroId = :heroId")
-    suspend fun getBuildsHeroesWeapons(heroId: Int): List<BuildsHeroesWeapons>
+    @Query("SELECT id, description, weapon_id FROM ${RoomContract.tableBuildsHeroesWeapons} WHERE hero_id = :idHero")
+    suspend fun getBuildsHeroesWeapons(idHero: Int): List<BuildsHeroesWeapons>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertBuildsHeroesWeapons(buildsHeroesWeapons: List<BuildsHeroesWeaponsEntity>)
