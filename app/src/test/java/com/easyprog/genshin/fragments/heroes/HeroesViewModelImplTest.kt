@@ -41,17 +41,8 @@ class HeroesViewModelImplTest {
             )
         )
         repository.setHeroes(heroesList)
-        val expectedHeroesList = listOf(
-            Heroes(
-                id = 1,
-                name = "Итто",
-                avatar = 1,
-                birthday = "06.02",
-                element = "Гео",
-                region = "Инадзума",
-                talentMaterialId = 0
-            )
-        )
+
+        val expectedHeroesList = heroesList.map { it.toHeroes() }
 
         advanceUntilIdle()
         assertEquals(expectedHeroesList, viewModel.heroesList.value)

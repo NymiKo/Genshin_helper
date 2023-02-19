@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
+import com.easyprog.genshin.model.MaterialTalents
 
 @Entity(
     tableName = RoomContract.tableMaterialTalents,
@@ -29,4 +30,31 @@ data class MaterialTalentsEntity(
     @ColumnInfo(name = "image_purple_material") val imagePurpleMaterial: Int,
     val description: String,
     @ColumnInfo(name = "talent_dungeon_id") val talentDungeonId: Int?
-)
+) {
+
+    companion object {
+        fun toMaterialTalentsEntity(materialTalents: MaterialTalents) = MaterialTalents(
+            id = materialTalents.id,
+            nameGreenMaterial = materialTalents.nameGreenMaterial,
+            imageGreenMaterial = materialTalents.imageGreenMaterial,
+            nameBlueMaterial = materialTalents.nameBlueMaterial,
+            imageBlueMaterial = materialTalents.imageBlueMaterial,
+            namePurpleMaterial = materialTalents.namePurpleMaterial,
+            imagePurpleMaterial = materialTalents.imagePurpleMaterial,
+            description = materialTalents.description,
+            talentDungeonId = materialTalents.talentDungeonId
+        )
+    }
+
+    fun toMaterialTalents() = MaterialTalents(
+        id = id,
+        nameGreenMaterial = nameGreenMaterial,
+        imageGreenMaterial = imageGreenMaterial,
+        nameBlueMaterial = nameBlueMaterial,
+        imageBlueMaterial = imageBlueMaterial,
+        namePurpleMaterial = namePurpleMaterial,
+        imagePurpleMaterial = imagePurpleMaterial,
+        description = description,
+        talentDungeonId = talentDungeonId
+    )
+}

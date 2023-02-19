@@ -5,6 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
+import com.easyprog.genshin.model.BuildsHeroesArtifacts
 
 @Entity(
     tableName = RoomContract.tableBuildsHeroesArtifacts,
@@ -32,4 +33,38 @@ data class BuildsHeroesArtifactsEntity(
     val cap: Int,
     @ColumnInfo(name = "stat_cap") val statCap: String,
     @ColumnInfo(name = "hero_id") val heroId: Int?
-)
+) {
+
+    companion object {
+        fun toBuildsHeroesArtifactsEntity(buildsHeroesArtifacts: BuildsHeroesArtifacts) = BuildsHeroesArtifactsEntity(
+            id = buildsHeroesArtifacts.id,
+            flower = buildsHeroesArtifacts.flower,
+            statFlower = buildsHeroesArtifacts.statFlower,
+            stylus = buildsHeroesArtifacts.stylus,
+            statStylus = buildsHeroesArtifacts.statStylus,
+            watch = buildsHeroesArtifacts.watch,
+            statWatch = buildsHeroesArtifacts.statWatch,
+            cup = buildsHeroesArtifacts.cup,
+            statCup = buildsHeroesArtifacts.statCup,
+            cap = buildsHeroesArtifacts.cap,
+            statCap = buildsHeroesArtifacts.statCap,
+            heroId = buildsHeroesArtifacts.heroId
+        )
+    }
+
+    fun toBuildsHeroesArtifacts() = BuildsHeroesArtifacts(
+        id = id,
+        flower = flower,
+        statFlower = statFlower,
+        stylus = stylus,
+        statStylus = statStylus,
+        watch = watch,
+        statWatch = statWatch,
+        cup = cup,
+        statCup = statCup,
+        cap = cap,
+        statCap = statCap,
+        heroId = heroId
+    )
+
+}

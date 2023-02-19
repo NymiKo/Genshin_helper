@@ -29,7 +29,20 @@ data class HeroesEntity(
     val region: String,
     @ColumnInfo(name = "talent_material_id") val talentMaterialId: Int?
 ) {
-    fun toHeroes(): Heroes = Heroes(
+
+    companion object {
+        fun toHeroesEntity(heroes: Heroes) = Heroes(
+            id = heroes.id,
+            name = heroes.name,
+            avatar = heroes.avatar,
+            birthday = heroes.birthday,
+            element = heroes.element,
+            region = heroes.region,
+            talentMaterialId = heroes.talentMaterialId
+        )
+    }
+
+    fun toHeroes() = Heroes(
             id = id,
             name = name,
             avatar = avatar,
