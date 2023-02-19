@@ -13,13 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::inflate) {
 
-    private val viewModel: GoalsViewModel by viewModels()
+    private val viewModel: GoalsViewModelImpl by viewModels()
     private lateinit var mAdapter: GoalsAdapter
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        viewModel.getGoalsHeroes()
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

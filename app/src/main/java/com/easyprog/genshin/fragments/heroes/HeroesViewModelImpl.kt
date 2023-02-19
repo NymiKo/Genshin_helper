@@ -13,7 +13,7 @@ import javax.inject.Inject
 class HeroesViewModelImpl @Inject constructor(private val heroesRepository: HeroesRepository) :
     HeroesViewModel() {
 
-    override var heroesList = MutableLiveData<List<Heroes>>()
+    override val heroesList = MutableLiveData<List<Heroes>>()
 
     init {
         getHeroes()

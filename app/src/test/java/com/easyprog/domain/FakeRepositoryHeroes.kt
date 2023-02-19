@@ -4,7 +4,7 @@ import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.domain.repositories.HeroesRepository
 import com.easyprog.genshin.model.Heroes
 
-class StubRepositoryHeroes : HeroesRepository {
+class FakeRepositoryHeroes : HeroesRepository {
 
     private var heroesList = emptyList<HeroesEntity>()
 

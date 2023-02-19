@@ -1,8 +1,7 @@
 package com.easyprog.genshin.fragments.heroes
 
 import com.easyprog.data.storage.model.HeroesEntity
-import com.easyprog.domain.StubRepositoryHeroes
-import com.easyprog.genshin.model.Heroes
+import com.easyprog.domain.FakeRepositoryHeroes
 import com.easyprog.genshin.utils.viewModelTestingRules
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -18,7 +17,7 @@ class HeroesViewModelImplTest {
     @get:Rule
     val viewModelRule = viewModelTestingRules()
 
-    private val repository = StubRepositoryHeroes()
+    private val repository = FakeRepositoryHeroes()
 
     private lateinit var viewModel: HeroesViewModel
 
@@ -38,6 +37,15 @@ class HeroesViewModelImplTest {
                 element = "Гео",
                 region = "Инадзума",
                 talentMaterialId = 0
+            ),
+            HeroesEntity(
+                id = 2,
+                name = "Чжун Ли",
+                avatar = 2,
+                birthday = "07.02",
+                element = "Гео",
+                region = "Ли Юэ",
+                talentMaterialId = 1
             )
         )
         repository.setHeroes(heroesList)
