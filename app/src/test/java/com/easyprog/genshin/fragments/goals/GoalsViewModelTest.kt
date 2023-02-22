@@ -2,10 +2,8 @@ package com.easyprog.genshin.fragments.goals
 
 import com.easyprog.data.storage.additional_models.PriorityWithHero
 import com.easyprog.data.storage.additional_models.hero.HeroAvatar
-import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.data.storage.model.PriorityHeroesEntity
-import com.easyprog.domain.FakeRepositoryGoals
-import com.easyprog.genshin.model.PriorityHeroes
+import com.easyprog.domain.FakeGoalsRepository
 import com.easyprog.genshin.utils.viewModelTestingRules
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -21,7 +19,7 @@ class GoalsViewModelTest {
     @get:Rule
     val viewModelRule = viewModelTestingRules()
 
-    private val repository = FakeRepositoryGoals()
+    private val repository = FakeGoalsRepository()
 
     private lateinit var viewModel: GoalsViewModel
 

@@ -1,6 +1,6 @@
 package com.easyprog.genshin.model
 
-data class Heroes(
+data class Hero(
     val id: Int,
     val name: String,
     val avatar: Int,

@@ -3,7 +3,7 @@ package com.easyprog.domain
 import com.easyprog.data.storage.additional_models.PriorityWithHero
 import com.easyprog.domain.repositories.GoalsRepository
 
-class FakeRepositoryGoals: GoalsRepository {
+class FakeGoalsRepository: GoalsRepository {
 
     private var priorityHeroesList = emptyList<PriorityWithHero>()
 

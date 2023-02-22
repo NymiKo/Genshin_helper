@@ -6,7 +6,6 @@ import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.data.storage.model.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
 import com.easyprog.genshin.DispatchersList
-import com.easyprog.genshin.model.Heroes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject

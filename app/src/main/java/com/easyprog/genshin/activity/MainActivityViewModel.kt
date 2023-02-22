@@ -7,9 +7,6 @@ import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.data.storage.model.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
 import com.easyprog.genshin.R
-import com.easyprog.genshin.model.BuildsHeroesWeapons
-import com.easyprog.genshin.model.Heroes
-import com.easyprog.genshin.model.Weapons
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

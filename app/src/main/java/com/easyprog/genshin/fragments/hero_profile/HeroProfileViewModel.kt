@@ -1,25 +1,11 @@
 package com.easyprog.genshin.fragments.hero_profile
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.easyprog.data.storage.model.HeroesEntity
-import com.easyprog.domain.repositories.HeroProfileRepository
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import javax.inject.Inject
+import com.easyprog.genshin.model.Hero
 
-@HiltViewModel
-class HeroProfileViewModel @Inject constructor(private val heroProfileRepository: HeroProfileRepository) :
-    ViewModel() {
+abstract class HeroProfileViewModel: ViewModel() {
+    abstract val hero: LiveData<Hero>
 
-    private val _hero = MutableLiveData<HeroesEntity>()
-    val hero: LiveData<HeroesEntity> = _hero
-
-    fun getHero(id: Int) {
-        viewModelScope.launch {
-            _hero.postValue(heroProfileRepository.getHero(id))
-        }
-    }
+    abstract fun getHero(id: Int)
 }

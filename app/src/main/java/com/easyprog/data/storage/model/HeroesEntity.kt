@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.genshin.model.Heroes
+import com.easyprog.genshin.model.Hero
 
 @Entity(
     tableName = RoomContract.tableHeroes,
@@ -31,18 +31,18 @@ data class HeroesEntity(
 ) {
 
     companion object {
-        fun toHeroesEntity(heroes: Heroes) = Heroes(
-            id = heroes.id,
-            name = heroes.name,
-            avatar = heroes.avatar,
-            birthday = heroes.birthday,
-            element = heroes.element,
-            region = heroes.region,
-            talentMaterialId = heroes.talentMaterialId
+        fun toHeroesEntity(hero: Hero) = Hero(
+            id = hero.id,
+            name = hero.name,
+            avatar = hero.avatar,
+            birthday = hero.birthday,
+            element = hero.element,
+            region = hero.region,
+            talentMaterialId = hero.talentMaterialId
         )
     }
 
-    fun toHeroes() = Heroes(
+    fun toHeroes() = Hero(
             id = id,
             name = name,
             avatar = avatar,
