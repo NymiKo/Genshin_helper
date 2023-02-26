@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.easyprog.data.storage.RoomDatabaseApp
 import com.easyprog.data.storage.model.PriorityHeroesEntity
 import com.easyprog.domain.repositories.HeroSettingsRepository
+import com.easyprog.genshin.model.PriorityHeroes
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,20 +18,8 @@ class HeroSettingsRepositoryImpl @Inject constructor(
         return localDataSource.priorityHeroesDao().getPriorityHeroLiveData(idHero)
     }
 
-    override suspend fun checkInsertORUpdateSetting(
-        idPriority: Int,
-        elevationPriority: Boolean,
-        talentPriority: Boolean,
-        artifactPriority: Boolean,
-        idHero: Int
-    ) {
-        val priorityHeroEntity = PriorityHeroesEntity(
-            id = idPriority,
-            elevationPriority = elevationPriority,
-            talentPriority = talentPriority,
-            artifactPriority = artifactPriority,
-            heroId = idHero
-        )
+    override suspend fun checkInsertORUpdateSetting(priorityHeroes: PriorityHeroes) {
+        val priorityHeroEntity = PriorityHeroesEntity.toPriorityHeroesEntity(priorityHeroes)
         localDataSource.priorityHeroesDao().insertPriorityHero(priorityHeroesEntity = priorityHeroEntity)
     }
 

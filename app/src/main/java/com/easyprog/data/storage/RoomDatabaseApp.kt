@@ -9,7 +9,7 @@ import com.easyprog.data.storage.model.*
     entities = [ArtifactsEntity::class, BuildsHeroesArtifactsEntity::class, BuildsHeroesWeaponsEntity::class, DungeonsTalentMaterialEntity::class, DungeonsWeaponMaterialEntity::class, HeroesEntity::class,
         MaterialTalentsEntity::class, MaterialWeaponsEntity::class, PriorityHeroesEntity::class, WeaponsEntity::class],
     version = 1,
-    exportSchema = false
+    exportSchema = true
 )
 abstract class RoomDatabaseApp : RoomDatabase() {
 

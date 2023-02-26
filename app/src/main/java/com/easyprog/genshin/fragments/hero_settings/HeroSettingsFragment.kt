@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.core.view.ViewCompat.jumpDrawablesToCurrentState
 import androidx.fragment.app.viewModels
 import com.easyprog.genshin.databinding.FragmentHeroSettingsBinding
 import com.easyprog.genshin.fragments.BaseFragment
+import com.easyprog.genshin.model.PriorityHeroes
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,10 +46,12 @@ class HeroSettingsFragment :
                     switchArtifactPriority.isChecked = false
                 } else {
                     idSettings = it.id
-                    switchElevationPriority.isChecked = it.elevationPriority
+                    switchElevationPriority.apply {
+                        isChecked = it.elevationPriority
+                        jumpDrawablesToCurrentState()
+                    }
                     switchTalentPriority.isChecked = it.talentPriority
                     switchArtifactPriority.isChecked = it.artifactPriority
-                    Log.e("CHECK_PRIORITY", it.toString())
                 }
             }
         }
@@ -84,12 +88,13 @@ class HeroSettingsFragment :
         talentPriority: Boolean,
         artifactPriority: Boolean
     ) {
-        viewModel.insertHeroSettings(
+        val priorityHeroes = PriorityHeroes(
             idSettings!!,
             elevationPriority,
             talentPriority,
             artifactPriority,
             idHero
         )
+        viewModel.insertHeroSettings(priorityHeroes)
     }
 }

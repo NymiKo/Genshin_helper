@@ -13,9 +13,8 @@ import com.easyprog.genshin.model.PriorityHeroes
         ForeignKey(
             entity = HeroesEntity::class,
             parentColumns = ["id"],
-            childColumns = ["hero_id"],
-            onDelete = ForeignKey.CASCADE,
-            onUpdate = ForeignKey.CASCADE
+            childColumns = ["hero_id"]
+            //TODO после заполнения таблицы героев добавить onDelete и onUpdate
         )
     ]
 )
@@ -29,7 +28,7 @@ data class PriorityHeroesEntity(
 ) {
 
     companion object {
-        fun toPriorityHeroesEntity(priorityHeroes: PriorityHeroes) = PriorityHeroes(
+        fun toPriorityHeroesEntity(priorityHeroes: PriorityHeroes) = PriorityHeroesEntity(
             id = priorityHeroes.id,
             elevationPriority = priorityHeroes.elevationPriority,
             talentPriority = priorityHeroes.talentPriority,

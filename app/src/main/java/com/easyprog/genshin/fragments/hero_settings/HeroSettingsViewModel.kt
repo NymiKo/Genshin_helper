@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.easyprog.data.storage.model.PriorityHeroesEntity
 import com.easyprog.domain.repositories.HeroSettingsRepository
+import com.easyprog.genshin.model.PriorityHeroes
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,21 +18,9 @@ class HeroSettingsViewModel @Inject constructor(private val repositoryHeroSettin
     private var _heroSettings = MutableLiveData<PriorityHeroesEntity>()
     val heroSettings: LiveData<PriorityHeroesEntity> = _heroSettings
 
-    fun insertHeroSettings(
-        idSettings: Int,
-        elevationPriority: Boolean,
-        talentPriority: Boolean,
-        artifactPriority: Boolean,
-        idHero: Int
-    ) {
+    fun insertHeroSettings(priorityHeroes: PriorityHeroes) {
         viewModelScope.launch {
-            repositoryHeroSettings.checkInsertORUpdateSetting(
-                idSettings,
-                elevationPriority,
-                talentPriority,
-                artifactPriority,
-                idHero
-            )
+            repositoryHeroSettings.checkInsertORUpdateSetting(priorityHeroes)
         }
     }
 
