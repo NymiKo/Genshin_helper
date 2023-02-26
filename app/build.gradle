@@ -82,6 +82,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
+    def ditsIndicatorVersion = "4.3"
+    implementation "com.tbuonomo:dotsindicator:$ditsIndicatorVersion"
+
     //Tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
