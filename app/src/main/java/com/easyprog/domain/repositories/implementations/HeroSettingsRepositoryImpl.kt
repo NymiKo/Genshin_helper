@@ -10,8 +10,8 @@ class HeroSettingsRepositoryImpl @Inject constructor(
     private val localDataSource: RoomDatabaseApp
 ) : HeroSettingsRepository {
 
-    override suspend fun getSettingsHeroAsync(idHero: Int): PriorityHeroesEntity {
-        return localDataSource.priorityHeroesDao().getPriorityHero(idHero)
+    override suspend fun getSettingsHeroAsync(idHero: Int): PriorityHeroes {
+        return localDataSource.priorityHeroesDao().getPriorityHero(idHero).toPriorityHeroes()
     }
 
     override suspend fun insertHeroSetting(priorityHeroes: PriorityHeroes) {

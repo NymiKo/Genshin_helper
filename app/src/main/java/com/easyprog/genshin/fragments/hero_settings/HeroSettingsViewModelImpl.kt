@@ -14,8 +14,7 @@ import javax.inject.Inject
 class HeroSettingsViewModelImpl @Inject constructor(private val repositoryHeroSettings: HeroSettingsRepository) :
     HeroSettingsViewModel() {
 
-    private var _heroSettings = MutableLiveData<PriorityHeroesEntity>()
-    val heroSettings: LiveData<PriorityHeroesEntity> = _heroSettings
+    override val heroSettings = MutableLiveData<PriorityHeroes>()
 
     fun insertHeroSettings(priorityHeroes: PriorityHeroes) {
         viewModelScope.launch {
@@ -25,7 +24,7 @@ class HeroSettingsViewModelImpl @Inject constructor(private val repositoryHeroSe
 
     override fun getHeroSettings(idHero: Int) {
         viewModelScope.launch {
-            _heroSettings.value = repositoryHeroSettings.getSettingsHeroAsync(idHero)
+            heroSettings.value = repositoryHeroSettings.getSettingsHeroAsync(idHero)
         }
     }
 }

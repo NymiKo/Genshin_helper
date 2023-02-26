@@ -32,18 +32,16 @@ class GoalsViewModelTest {
     fun `get goals heroes`() = runTest {
         val priorityHeroesList = listOf(
             PriorityHeroesEntity(
-                id = 1,
+                heroId = 1,
                 elevationPriority = true,
                 talentPriority = false,
-                artifactPriority = true,
-                heroId = 1
+                artifactPriority = true
             ),
             PriorityHeroesEntity(
-                id = 2,
+                heroId = 2,
                 elevationPriority = false,
                 talentPriority = true,
-                artifactPriority = false,
-                heroId = 2
+                artifactPriority = false
             )
         )
 

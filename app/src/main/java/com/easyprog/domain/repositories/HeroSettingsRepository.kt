@@ -5,7 +5,7 @@ import com.easyprog.genshin.model.PriorityHeroes
 
 interface HeroSettingsRepository {
 
-    suspend fun getSettingsHeroAsync(idHero: Int): PriorityHeroesEntity
+    suspend fun getSettingsHeroAsync(idHero: Int): PriorityHeroes
     suspend fun insertHeroSetting(priorityHeroes: PriorityHeroes)
 
 }
