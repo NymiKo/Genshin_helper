@@ -5,8 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.data.storage.model.MaterialWeaponsEntity
-import com.easyprog.data.storage.model.WeaponsEntity
+import com.easyprog.data.storage.entities.WeaponsEntity
 
 @Dao
 interface WeaponsDao {

@@ -96,11 +96,13 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             binding.viewPagerBanner.setCurrentItem(currentPage++, true)
         }
 
-        Timer().schedule(object : TimerTask() {
-            override fun run() {
-                Handler(Looper.getMainLooper()).post(update)
-            }
-        }, 3500, 3500)
+        //Handler(Looper.getMainLooper()).postDelayed(update, 3500)
+
+//        Timer().schedule(object : TimerTask() {
+//            override fun run() {
+//                Handler(Looper.getMainLooper()).post(update)
+//            }
+//        }, 3500, 3500)
     }
 
     private fun setRandomImageEmblem() {
@@ -117,7 +119,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
         binding.viewPagerBanner.unregisterOnPageChangeCallback(slidingCallback)
+        super.onDestroyView()
     }
 }

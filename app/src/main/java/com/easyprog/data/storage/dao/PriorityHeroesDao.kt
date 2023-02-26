@@ -9,7 +9,7 @@ import androidx.room.Transaction
 import androidx.room.Update
 import com.easyprog.data.storage.additional_models.PriorityWithHero
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.data.storage.model.PriorityHeroesEntity
+import com.easyprog.data.storage.entities.PriorityHeroesEntity
 
 @Dao
 interface PriorityHeroesDao {

@@ -1,30 +1,7 @@
 package com.easyprog.genshin.fragments.hero_settings
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.easyprog.data.storage.model.PriorityHeroesEntity
-import com.easyprog.domain.repositories.HeroSettingsRepository
-import com.easyprog.genshin.model.PriorityHeroes
-import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
-import javax.inject.Inject
 
-@HiltViewModel
-class HeroSettingsViewModel @Inject constructor(private val repositoryHeroSettings: HeroSettingsRepository) :
-    ViewModel() {
-
-    private var _heroSettings = MutableLiveData<PriorityHeroesEntity>()
-    val heroSettings: LiveData<PriorityHeroesEntity> = _heroSettings
-
-    fun insertHeroSettings(priorityHeroes: PriorityHeroes) {
-        viewModelScope.launch {
-            repositoryHeroSettings.checkInsertORUpdateSetting(priorityHeroes)
-        }
-    }
-
-    fun getHeroSettings(idHero: Int): LiveData<PriorityHeroesEntity> {
-        return repositoryHeroSettings.getSettingsHeroAsync(idHero)
-    }
+abstract class HeroSettingsViewModel: ViewModel() {
+    abstract fun getHeroSettings(idHero: Int)
 }

@@ -1,4 +1,4 @@
-package com.easyprog.data.storage.model
+package com.easyprog.data.storage.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

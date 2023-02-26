@@ -1,6 +1,6 @@
 package com.easyprog.genshin.fragments.heroes
 
-import com.easyprog.data.storage.model.HeroesEntity
+import com.easyprog.data.storage.entities.HeroesEntity
 import com.easyprog.domain.FakeHeroesRepository
 import com.easyprog.genshin.utils.viewModelTestingRules
 import kotlinx.coroutines.ExperimentalCoroutinesApi

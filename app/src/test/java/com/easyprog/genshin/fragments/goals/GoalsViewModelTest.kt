@@ -2,7 +2,7 @@ package com.easyprog.genshin.fragments.goals
 
 import com.easyprog.data.storage.additional_models.PriorityWithHero
 import com.easyprog.data.storage.additional_models.hero.HeroAvatar
-import com.easyprog.data.storage.model.PriorityHeroesEntity
+import com.easyprog.data.storage.entities.PriorityHeroesEntity
 import com.easyprog.domain.FakeGoalsRepository
 import com.easyprog.genshin.utils.viewModelTestingRules
 import kotlinx.coroutines.ExperimentalCoroutinesApi

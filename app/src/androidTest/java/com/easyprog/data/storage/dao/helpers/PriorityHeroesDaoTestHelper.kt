@@ -1,6 +1,6 @@
 package com.easyprog.data.storage.dao.helpers
 
-import com.easyprog.data.storage.model.PriorityHeroesEntity
+import com.easyprog.data.storage.entities.PriorityHeroesEntity
 import kotlin.random.Random
 
 class PriorityHeroesDaoTestHelper {

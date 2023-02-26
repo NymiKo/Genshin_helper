@@ -1,6 +1,6 @@
 package com.easyprog.data.storage.dao.helpers
 
-import com.easyprog.data.storage.model.BuildsHeroesArtifactsEntity
+import com.easyprog.data.storage.entities.BuildsHeroesArtifactsEntity
 import kotlin.random.Random
 
 class BuildsHeroesArtifactsDaoTestHelper {

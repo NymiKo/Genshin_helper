@@ -3,7 +3,7 @@ package com.easyprog.data.storage
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.easyprog.data.storage.dao.*
-import com.easyprog.data.storage.model.*
+import com.easyprog.data.storage.entities.*
 
 @Database(
     entities = [ArtifactsEntity::class, BuildsHeroesArtifactsEntity::class, BuildsHeroesWeaponsEntity::class, DungeonsTalentMaterialEntity::class, DungeonsWeaponMaterialEntity::class, HeroesEntity::class,

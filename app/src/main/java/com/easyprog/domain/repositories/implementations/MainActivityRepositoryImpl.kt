@@ -1,9 +1,9 @@
 package com.easyprog.domain.repositories.implementations
 
 import com.easyprog.data.storage.RoomDatabaseApp
-import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
-import com.easyprog.data.storage.model.HeroesEntity
-import com.easyprog.data.storage.model.WeaponsEntity
+import com.easyprog.data.storage.entities.BuildsHeroesWeaponsEntity
+import com.easyprog.data.storage.entities.HeroesEntity
+import com.easyprog.data.storage.entities.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
 import com.easyprog.genshin.DispatchersList
 import kotlinx.coroutines.CoroutineScope

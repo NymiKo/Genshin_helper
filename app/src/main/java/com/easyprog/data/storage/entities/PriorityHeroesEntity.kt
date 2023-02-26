@@ -1,4 +1,4 @@
-package com.easyprog.data.storage.model
+package com.easyprog.data.storage.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -6,6 +6,7 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
 import com.easyprog.genshin.model.PriorityHeroes
+import org.jetbrains.annotations.NotNull
 
 @Entity(
     tableName = RoomContract.tablePriorityHeroes,
@@ -19,29 +20,26 @@ import com.easyprog.genshin.model.PriorityHeroes
     ]
 )
 data class PriorityHeroesEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    @PrimaryKey
+    @ColumnInfo(name = "hero_id") val heroId: Int,
     @ColumnInfo(name = "elevation_priority") val elevationPriority: Boolean,
     @ColumnInfo(name = "talent_priority") val talentPriority: Boolean,
     @ColumnInfo(name = "artifact_priority") val artifactPriority: Boolean,
-    @ColumnInfo(name = "hero_id") val heroId: Int?
 ) {
 
     companion object {
         fun toPriorityHeroesEntity(priorityHeroes: PriorityHeroes) = PriorityHeroesEntity(
-            id = priorityHeroes.id,
+            heroId = priorityHeroes.heroId,
             elevationPriority = priorityHeroes.elevationPriority,
             talentPriority = priorityHeroes.talentPriority,
-            artifactPriority = priorityHeroes.artifactPriority,
-            heroId = priorityHeroes.heroId
+            artifactPriority = priorityHeroes.artifactPriority
         )
     }
 
     fun toPriorityHeroes() = PriorityHeroes(
-        id = id,
+        heroId = heroId,
         elevationPriority = elevationPriority,
         talentPriority = talentPriority,
         artifactPriority = artifactPriority,
-        heroId = heroId
     )
 }

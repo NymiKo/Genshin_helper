@@ -1,6 +1,6 @@
 package com.easyprog.domain
 
-import com.easyprog.data.storage.model.HeroesEntity
+import com.easyprog.data.storage.entities.HeroesEntity
 import com.easyprog.domain.repositories.HeroesRepository
 import com.easyprog.genshin.model.Hero
 
