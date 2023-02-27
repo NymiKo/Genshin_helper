@@ -23,7 +23,6 @@ open class BaseTestDao {
     }
 
     @After
-    @Throws(IOException::class)
     fun closeDB() {
         db.close()
     }

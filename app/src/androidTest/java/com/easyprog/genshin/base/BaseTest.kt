@@ -16,12 +16,14 @@ import org.junit.runner.RunWith
 abstract class BaseTest {
 
     @get:Rule
-    protected var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    var activityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     protected fun ViewInteraction.click(): ViewInteraction = perform(ViewActions.click())
 
     protected fun viewIsDisplayed(): ViewAssertion =
         matches(ViewMatchers.isDisplayed())
+
+    protected fun ViewInteraction.swipeLeft(): ViewInteraction = perform(ViewActions.swipeLeft())
 
     protected fun viewNotIsDisplayed(): ViewAssertion =
         matches(not(ViewMatchers.isDisplayed()))
