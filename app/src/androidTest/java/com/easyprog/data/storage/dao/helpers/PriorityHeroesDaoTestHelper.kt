@@ -18,8 +18,7 @@ class PriorityHeroesDaoTestHelper {
                     i,
                     randomPriority,
                     if (randomPriorityFlag) randomPriority else true,
-                    randomPriority,
-                    i
+                    randomPriority
                 )
             )
         }

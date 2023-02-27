@@ -19,10 +19,7 @@ interface PriorityHeroesDao {
     suspend fun getPriorityHeroWithHeroes(): List<PriorityWithHero>
 
     @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE hero_id = :idHero")
-    fun getPriorityHeroLiveData(idHero: Int): LiveData<PriorityHeroesEntity>
-
-    @Query("SELECT * FROM ${RoomContract.tablePriorityHeroes} WHERE hero_id = :idHero")
-    suspend fun getPriorityHero(idHero: Int): PriorityHeroesEntity
+    suspend fun getPriorityHero(idHero: Int): PriorityHeroesEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertPriorityHero(priorityHeroesEntity: PriorityHeroesEntity)

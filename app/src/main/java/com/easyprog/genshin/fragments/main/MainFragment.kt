@@ -1,6 +1,5 @@
 package com.easyprog.genshin.fragments.main
 
-import android.widget.ImageView
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
@@ -20,8 +19,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
 
     private val viewModel by viewModels<MainViewModel>()
     private lateinit var mAdapterViewPager: ViewPagerBannersAdapter
-    private lateinit var slidingImageDots: Array<ImageView?>
-    private var currentBanner = 0
 
     override fun onResume() {
         super.onResume()
@@ -55,12 +52,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             enableAutoScroll(slidingDotsCount)
         }
         binding.dotsIndicator.attachTo(binding.viewPagerBanner)
-
-//        Timer().schedule(object : TimerTask() {
-//            override fun run() {
-//                Handler(Looper.getMainLooper()).post(update)
-//            }
-//        }, 3500, 3500)
     }
 
     private fun setRandomImageEmblem() {
