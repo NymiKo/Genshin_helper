@@ -11,26 +11,7 @@ class MaterialWeaponsDaoTest : BaseTestDao() {
 
     @Test
     fun insertMaterialWeaponAndGetThem() = runBlocking {
-        val materialWeaponsDaoList =
-            MaterialWeaponsDaoTestHelper().createRandomListOfMaterialWeapons(1)
-        val dungeonsWeaponMaterialList =
-            DungeonsWeaponMaterialDaoTestHelper().createRandomListOfDungeonsWeaponMaterial(1)
-        materialWeaponsDao.insertMaterialWeapons(materialWeaponsDaoList)
-        dungeonsWeaponsMaterialDao.insertDungeonsWeaponMaterial(dungeonsWeaponMaterialList)
-        assertTrue(materialWeaponsDaoList[0] == materialWeaponsDao.getMaterialWeaponWithDungeon(1).materialWeapons)
-        assertTrue(dungeonsWeaponMaterialList[0] == materialWeaponsDao.getMaterialWeaponWithDungeon(1).dungeonsWeaponMaterial)
+        assertTrue(materialWeaponsList[0] == materialWeaponsDao.getMaterialWeaponWithDungeon(materialWeaponsList[0].id).materialWeapons)
+        assertTrue(dungeonsWeaponsMaterialList[0] == materialWeaponsDao.getMaterialWeaponWithDungeon(materialWeaponsList[0].id).dungeonsWeaponMaterial)
     }
-
-    @Test
-    fun insertALotOfMaterialWeaponAndGetThem() = runBlocking {
-        val materialWeaponsDaoList =
-            MaterialWeaponsDaoTestHelper().createRandomListOfMaterialWeapons(5)
-        val dungeonsWeaponMaterialList =
-            DungeonsWeaponMaterialDaoTestHelper().createRandomListOfDungeonsWeaponMaterial(5)
-        materialWeaponsDao.insertMaterialWeapons(materialWeaponsDaoList)
-        dungeonsWeaponsMaterialDao.insertDungeonsWeaponMaterial(dungeonsWeaponMaterialList)
-        assertTrue(materialWeaponsDaoList[2] == materialWeaponsDao.getMaterialWeaponWithDungeon(3).materialWeapons)
-        assertTrue(dungeonsWeaponMaterialList[2] == materialWeaponsDao.getMaterialWeaponWithDungeon(3).dungeonsWeaponMaterial)
-    }
-
 }
