@@ -36,7 +36,7 @@ open class BaseTestDao {
     val weaponsDao = db.weaponsDao()
 
     var artifactsList = emptyList<ArtifactsEntity>()
-    var buildsHeroesArtifacts = emptyList<BuildsHeroesArtifactsEntity>()
+    var buildsHeroesArtifactsList = emptyList<BuildsHeroesArtifactsEntity>()
     var buildsHeroesWeaponsList = emptyList<BuildsHeroesWeaponsEntity>()
     var dungeonsTalentsMaterialList = emptyList<DungeonsTalentMaterialEntity>()
     var dungeonsWeaponsMaterialList = emptyList<DungeonsWeaponMaterialEntity>()
@@ -51,7 +51,7 @@ open class BaseTestDao {
         db
         runBlocking {
             artifactsList = ArtifactsTestHelper().createRandomListOfArtifacts(SIZE_LIST)
-            buildsHeroesArtifacts = BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(SIZE_LIST)
+            buildsHeroesArtifactsList = BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(SIZE_LIST)
             buildsHeroesWeaponsList = BuildsHeroesWeaponsDaoTestHelper().createRandomListOfBuildsHeroesWeapons(SIZE_LIST)
             dungeonsTalentsMaterialList = DungeonsTalentMaterialDaoTestHelper().createRandomListOfDungeonsTalentMaterial(SIZE_LIST)
             dungeonsWeaponsMaterialList = DungeonsWeaponMaterialDaoTestHelper().createRandomListOfDungeonsWeaponMaterial(SIZE_LIST)
@@ -68,7 +68,7 @@ open class BaseTestDao {
             artifactsDao.insertArtifacts(artifactsList)
             weaponsDao.insertWeapon(weaponsList)
             heroesDao.insertHeroes(heroesList)
-            buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)
+            buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifactsList)
             buildsHeroesWeaponsDao.insertBuildsHeroesWeapons(buildsHeroesWeaponsList)
             priorityHeroesList.forEach { priorityHeroesDao.insertPriorityHero(it) }
         }

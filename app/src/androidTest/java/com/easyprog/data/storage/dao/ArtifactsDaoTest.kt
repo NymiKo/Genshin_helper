@@ -10,15 +10,13 @@ class ArtifactsDaoTest : BaseTestDao() {
 
     @Test
     @Throws(Exception::class)
-    fun testReadArtifacts() = runBlocking {
-        assertEquals(10, artifactsDao.getSetArtifacts().size)
+    fun testGetArtifacts() = runBlocking {
         assertTrue(artifactsList == artifactsDao.getSetArtifacts())
     }
 
     @Test
     @Throws(Exception::class)
-    fun testReadArtifactsById() = runBlocking {
-        assertEquals(artifactsList[0], artifactsDao.getSetArtifact(artifactsList[0].id))
+    fun testGetArtifactsById() = runBlocking {
         assertTrue(artifactsList[0] == artifactsDao.getSetArtifact(artifactsList[0].id))
     }
 
@@ -27,7 +25,6 @@ class ArtifactsDaoTest : BaseTestDao() {
     fun testReplaceArtifacts() = runBlocking {
         val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(15)
         artifactsDao.insertArtifacts(artifacts)
-        assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
         assertTrue(artifacts == artifactsDao.getSetArtifacts())
     }
 

@@ -11,26 +11,7 @@ class MaterialTalentsDaoTest : BaseTestDao() {
 
     @Test
     fun insertMaterialTalentsAndGetThemById() = runBlocking {
-        val materialTalentsList =
-            MaterialTalentsDaoTestHelper().createRandomListOfMaterialTalents(1)
-        val dungeonsTalentMaterialList =
-            DungeonsTalentMaterialDaoTestHelper().createRandomListOfDungeonsTalentMaterial(1)
-        materialTalentsDao.insertMaterialTalents(materialTalentsList)
-        dungeonsTalentsMaterialDao.insertDungeonsTalentMaterial(dungeonsTalentMaterialList)
-        assertTrue(materialTalentsList[0] == materialTalentsDao.getMaterialTalentsWithDungeons(1).materialTalents)
-        assertTrue(dungeonsTalentMaterialList[0] == materialTalentsDao.getMaterialTalentsWithDungeons(1).dungeonsTalentMaterial)
+        assertTrue(materialTalentsList[0] == materialTalentsDao.getMaterialTalentsWithDungeons(materialTalentsList[0].id).materialTalents)
+        assertTrue(dungeonsTalentsMaterialList[0] == materialTalentsDao.getMaterialTalentsWithDungeons(materialTalentsList[0].id).dungeonsTalentMaterial)
     }
-
-    @Test
-    fun insertALotOfMaterialTalentsAndGetThemById() = runBlocking {
-        val materialTalentsList =
-            MaterialTalentsDaoTestHelper().createRandomListOfMaterialTalents(5)
-        val dungeonsTalentMaterialList =
-            DungeonsTalentMaterialDaoTestHelper().createRandomListOfDungeonsTalentMaterial(5)
-        materialTalentsDao.insertMaterialTalents(materialTalentsList)
-        dungeonsTalentsMaterialDao.insertDungeonsTalentMaterial(dungeonsTalentMaterialList)
-        assertTrue(materialTalentsList[2] == materialTalentsDao.getMaterialTalentsWithDungeons(3).materialTalents)
-        assertTrue(dungeonsTalentMaterialList[2] == materialTalentsDao.getMaterialTalentsWithDungeons(3).dungeonsTalentMaterial)
-    }
-
 }
