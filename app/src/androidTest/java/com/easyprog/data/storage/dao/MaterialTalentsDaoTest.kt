@@ -10,7 +10,7 @@ import org.junit.Test
 class MaterialTalentsDaoTest : BaseTestDao() {
 
     @Test
-    fun insertMaterialTalentsAndGetThemById() = runBlocking {
+    fun testGetMaterialTalentsById() = runBlocking {
         assertTrue(materialTalentsList[0] == materialTalentsDao.getMaterialTalentsWithDungeons(materialTalentsList[0].id).materialTalents)
         assertTrue(dungeonsTalentsMaterialList[0] == materialTalentsDao.getMaterialTalentsWithDungeons(materialTalentsList[0].id).dungeonsTalentMaterial)
     }

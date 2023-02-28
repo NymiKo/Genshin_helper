@@ -1,6 +1,8 @@
 package com.easyprog.data.storage.dao
 
 import com.easyprog.data.BaseTestDao
+import com.easyprog.data.storage.additional_models.PriorityWithHero
+import com.easyprog.data.storage.additional_models.hero.HeroAvatar
 import com.easyprog.data.storage.dao.helpers.HeroesDaoTestHelper
 import com.easyprog.data.storage.dao.helpers.PriorityHeroesDaoTestHelper
 import kotlinx.coroutines.runBlocking
@@ -10,47 +12,25 @@ import org.junit.Test
 class PriorityHeroesDaoTest : BaseTestDao() {
 
     @Test
-    fun insertPriorityHeroesAndGetThem() = runBlocking {
-        val priorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(1, true)
-        priorityHeroesDao.insertPriorityHero(priorityHeroesList[0])
-        assertEquals(priorityHeroesList[0], priorityHeroesDao.getPriorityHero(1))
+    fun testGetPriorityHeroById() = runBlocking {
+        assertEquals(priorityHeroesList[0], priorityHeroesDao.getPriorityHero(priorityHeroesList[0].heroId))
     }
 
     @Test
-    fun insertALotOfPriorityHeroesAndGetOneById() = runBlocking {
-        val priorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(5, true)
-        priorityHeroesList.forEach {
-            priorityHeroesDao.insertPriorityHero(it)
-        }
-        assertEquals(priorityHeroesList[2], priorityHeroesDao.getPriorityHero(3))
-        assertNotEquals(1, priorityHeroesDao.getPriorityHero(6))
+    fun testReplacePriorityHeroes() = runBlocking {
+        val newPriorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(10, false)
+        newPriorityHeroesList.forEach { priorityHeroesDao.insertPriorityHero(it) }
+        assertFalse(priorityHeroesList[4] == priorityHeroesDao.getPriorityHero(priorityHeroesList[4].heroId))
+        assertTrue(newPriorityHeroesList[2] == priorityHeroesDao.getPriorityHero(newPriorityHeroesList[2].heroId))
+        assertTrue(newPriorityHeroesList.size == priorityHeroesDao.getPriorityHeroWithHeroes().size)
     }
 
     @Test
-    fun insertALotOfPriorityHeroesReplaceAndGetThem() = runBlocking {
-        val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(5)
-        val priorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(5, false)
-        priorityHeroesList.forEach {
-            priorityHeroesDao.insertPriorityHero(it)
+    fun testGetPriorityWithHeroes() = runBlocking {
+        val priorityWithHeroes = mutableListOf<PriorityWithHero>()
+        for (i in 0..9) {
+            priorityWithHeroes.add(PriorityWithHero(priorityHeroesList[i], HeroAvatar(heroesList[i].avatar)))
         }
-        val priorityHeroesList2 = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(5, true)
-        priorityHeroesList2.forEach {
-            priorityHeroesDao.insertPriorityHero(it)
-        }
-        heroesDao.insertHeroes(heroesList)
-        assertNotEquals(priorityHeroesList[4], priorityHeroesDao.getPriorityHero(5))
-        assertEquals(priorityHeroesList2[2], priorityHeroesDao.getPriorityHero(3))
-        assertEquals(priorityHeroesList2.size, priorityHeroesDao.getPriorityHeroWithHeroes().size)
-    }
-
-    @Test
-    fun insertALotOfPriorityHeroesAndGetThemWithHero() = runBlocking {
-        val priorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(5, false)
-        val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(5)
-        priorityHeroesList.forEach {
-            priorityHeroesDao.insertPriorityHero(it)
-        }
-        heroesDao.insertHeroes(heroesList)
-        assertEquals(priorityHeroesList.size, priorityHeroesDao.getPriorityHeroWithHeroes().size)
+        assertTrue(priorityWithHeroes == priorityHeroesDao.getPriorityHeroWithHeroes())
     }
 }

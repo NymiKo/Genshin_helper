@@ -16,9 +16,9 @@ class PriorityHeroesDaoTestHelper {
             priorityHeroes.add(
                 PriorityHeroesEntity(
                     i,
-                    randomPriority,
                     if (randomPriorityFlag) randomPriority else true,
-                    randomPriority
+                    if (randomPriorityFlag) randomPriority else true,
+                    if (randomPriorityFlag) randomPriority else true
                 )
             )
         }

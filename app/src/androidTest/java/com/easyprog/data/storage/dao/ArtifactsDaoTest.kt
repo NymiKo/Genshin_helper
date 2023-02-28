@@ -25,6 +25,8 @@ class ArtifactsDaoTest : BaseTestDao() {
     fun testReplaceArtifacts() = runBlocking {
         val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(15)
         artifactsDao.insertArtifacts(artifacts)
+        assertFalse(artifacts[4] == artifactsDao.getSetArtifact(5))
+        assertTrue(artifacts[2] == artifactsDao.getSetArtifact(3))
         assertTrue(artifacts == artifactsDao.getSetArtifacts())
     }
 

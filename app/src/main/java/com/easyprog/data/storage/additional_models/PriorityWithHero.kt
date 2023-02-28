@@ -12,5 +12,5 @@ data class PriorityWithHero(
     val priority: PriorityHeroesEntity,
 
     @Relation(parentColumn = "hero_id", entityColumn = "id", entity = HeroesEntity::class)
-    val heroAvatar: HeroAvatar?
+    val heroAvatar: HeroAvatar
 )
