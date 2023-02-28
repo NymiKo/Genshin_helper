@@ -1,26 +1,22 @@
 package com.easyprog.genshin.fragments.artifacts
 
-import com.easyprog.genshin.base.BaseTest
+import com.easyprog.genshin.base.BaseView
 import org.junit.Test
 
-class ArtifactsFragmentTest : BaseTest() {
-
-    private val artifactsFragmentView = ArtifactsFragmentView()
+class ArtifactsFragmentTest : BaseView() {
 
     @Test
     fun testOpenArtifactsFragmentFromMainFragmentOnBottomNavigationView() {
-        artifactsFragmentView.run {
-            artifactsItemBottomNavigation.click()
-            recyclerViewArtifacts.check(viewIsDisplayed())
-        }
+        mainFragmentView.artifactsItemBottomNavigation.click()
+        artifactsFragmentView.recyclerViewArtifacts.check(viewIsDisplayed())
     }
 
     @Test
     fun testOpenArtifactsFragmentFromHeroesFragmentOnBottomNavigationView() {
-        artifactsFragmentView.run {
+        mainFragmentView.run {
             heroesItemBottomNavigation.click()
             artifactsItemBottomNavigation.click()
-            recyclerViewArtifacts.check(viewIsDisplayed())
         }
+        artifactsFragmentView.recyclerViewArtifacts.check(viewIsDisplayed())
     }
 }

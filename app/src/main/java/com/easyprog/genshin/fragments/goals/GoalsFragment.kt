@@ -35,7 +35,6 @@ class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::i
                     mAdapter.mGoalsList = it
                     binding.recyclerGoals.visibility = View.VISIBLE
                 }
-                Log.e("CHECK_PRIORITY", it.toString())
             }
         }
     }

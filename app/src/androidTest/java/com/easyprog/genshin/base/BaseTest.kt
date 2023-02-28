@@ -23,6 +23,9 @@ abstract class BaseTest {
     protected fun viewIsDisplayed(): ViewAssertion =
         matches(ViewMatchers.isDisplayed())
 
+    protected fun viewIsChecked(): ViewAssertion =
+        matches(ViewMatchers.isChecked())
+
     protected fun ViewInteraction.swipeLeft(): ViewInteraction = perform(ViewActions.swipeLeft())
 
     protected fun viewNotIsDisplayed(): ViewAssertion =

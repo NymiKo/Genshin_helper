@@ -1,15 +1,13 @@
 package com.easyprog.genshin.fragments.main
 
-import com.easyprog.genshin.base.BaseTest
+import com.easyprog.genshin.base.BaseView
 import org.junit.Test
 
-class MainFragmentTest : BaseTest() {
-
-    private val maimFragmentView = MainFragmentView()
+class MainFragmentTest : BaseView() {
 
     @Test
     fun testOpenMainFragmentFromHeroesFragmentOnBottomNavigationView() {
-        maimFragmentView.run {
+        mainFragmentView.run {
             heroesItemBottomNavigation.click()
             mainItemBottomNavigation.click()
             imageViewEmblem.check(viewIsDisplayed())
@@ -18,7 +16,7 @@ class MainFragmentTest : BaseTest() {
 
     @Test
     fun testOpenMainFragmentFromArtifactsFragmentOnBottomNavigationView() {
-        maimFragmentView.run {
+        mainFragmentView.run {
             artifactsItemBottomNavigation.click()
             mainItemBottomNavigation.click()
             imageViewEmblem.check(viewIsDisplayed())

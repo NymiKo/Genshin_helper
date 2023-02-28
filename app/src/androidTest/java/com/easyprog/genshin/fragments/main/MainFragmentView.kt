@@ -9,5 +9,6 @@ class MainFragmentView: FragmentsView() {
     val artifactsItemBottomNavigation = R.id.artifactsFragment.view()
     val mainItemBottomNavigation = R.id.mainFragment.view()
     val imageViewEmblem = R.id.image_emblem.view()
+    val buttonOpenGoals = R.id.buttonOpenGoals.view()
 
 }

@@ -76,6 +76,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="-1505478150">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="-1483631181">
           <value>
             <AndroidTestResultsTableState>
@@ -246,6 +260,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="162043905">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="355188721">
           <value>
             <AndroidTestResultsTableState>
@@ -373,6 +401,34 @@
           </value>
         </entry>
         <entry key="1598947593">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1764025254">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
+        <entry key="1806609248">
           <value>
             <AndroidTestResultsTableState>
               <option name="preferredColumnWidths">

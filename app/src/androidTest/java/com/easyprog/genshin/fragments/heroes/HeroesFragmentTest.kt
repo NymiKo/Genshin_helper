@@ -1,52 +1,37 @@
 package com.easyprog.genshin.fragments.heroes
 
 import androidx.test.filters.LargeTest
-import com.easyprog.genshin.base.BaseTest
+import com.easyprog.genshin.base.BaseView
 import org.junit.Before
 import org.junit.Test
 
 @LargeTest
-class HeroesFragmentTest : BaseTest() {
-
-    private val heroesFragmentView = HeroesFragmentView()
+class HeroesFragmentTest : BaseView() {
 
     @Before
     fun openHeroesFragment() {
-        heroesFragmentView.run {
-            heroesItemBottomNavigation.click()
-        }
+        mainFragmentView.heroesItemBottomNavigation.click()
     }
 
     @Test
     fun testOpenHeroesFragmentFromMainFragmentOnBottomNavigationView() {
-        heroesFragmentView.run {
-            viewPagerHeroes.check(viewIsDisplayed())
-        }
+        heroesFragmentView.viewPagerHeroes.check(viewIsDisplayed())
     }
 
     @Test
     fun testOpenHeroesFragmentFromArtifactsFragmentOnBottomNavigationView() {
-        heroesFragmentView.run {
-            artifactsItemBottomNavigation.click()
-            heroesItemBottomNavigation.click()
-            viewPagerHeroes.check(viewIsDisplayed())
-        }
-    }
-
-    @Test
-    fun testOpenHeroProfileFragment() {
-        heroesFragmentView.run {
-            itemHeroProfile.click()
-            imageProfileHeroAvatar.check(viewIsDisplayed())
-        }
+        mainFragmentView.artifactsItemBottomNavigation.click()
+        mainFragmentView.heroesItemBottomNavigation.click()
+        heroesFragmentView.viewPagerHeroes.check(viewIsDisplayed())
     }
 
     @Test
     fun testSwipeViewPagerAndOpenHeroProfileFragment() {
         heroesFragmentView.run {
             viewPagerHeroes.swipeLeft()
+            Thread.sleep(1000)
             itemHeroProfile.click()
-            imageProfileHeroAvatar.check(viewIsDisplayed())
         }
+        heroProfileFragmentView.buttonSettingsHero.check(viewIsDisplayed())
     }
 }
