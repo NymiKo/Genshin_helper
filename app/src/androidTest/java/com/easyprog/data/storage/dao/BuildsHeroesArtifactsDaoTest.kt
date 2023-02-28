@@ -1,9 +1,7 @@
 package com.easyprog.data.storage.dao
 
 import com.easyprog.data.BaseTestDao
-import com.easyprog.data.storage.dao.helpers.BuildsHeroesArtifactsDaoTestHelper
-import com.easyprog.data.storage.dao.helpers.HeroesDaoTestHelper
-import com.easyprog.data.storage.dao.helpers.MaterialTalentsDaoTestHelper
+import com.easyprog.data.storage.dao.helpers.*
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 import org.junit.Before
@@ -14,11 +12,14 @@ class BuildsHeroesArtifactsDaoTest : BaseTestDao() {
     private val buildsHeroesArtifactsDao = db.buildsHeroesArtifactsDao()
     private val heroesDao = db.heroesDao()
     private val materialTalentsDao = db.materialTalentsDao()
+    private val dungeonsTalentsMaterialDao = db.dungeonsTalentMaterialDao()
 
     @Before
-    fun addHeroesList() = runBlocking {
+    fun addNecessaryDataToDatabase() = runBlocking {
         val materialTalentsList = MaterialTalentsDaoTestHelper().createRandomListOfMaterialTalents(5)
         val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(5)
+        val dungeonsTalentsMaterialList = DungeonsTalentMaterialDaoTestHelper().createRandomListOfDungeonsTalentMaterial(5)
+        dungeonsTalentsMaterialDao.insertDungeonsTalentMaterial(dungeonsTalentsMaterialList)
         materialTalentsDao.insertMaterialTalents(materialTalentsList)
         heroesDao.insertHeroes(heroesList)
     }
