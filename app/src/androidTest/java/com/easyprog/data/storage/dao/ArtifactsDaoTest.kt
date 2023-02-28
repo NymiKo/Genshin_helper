@@ -23,11 +23,11 @@ class ArtifactsDaoTest : BaseTestDao() {
     @Test
     @Throws(Exception::class)
     fun testReplaceArtifacts() = runBlocking {
-        val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(15)
-        artifactsDao.insertArtifacts(artifacts)
-        assertFalse(artifacts[4] == artifactsDao.getSetArtifact(artifacts[4].id))
-        assertTrue(artifacts[2] == artifactsDao.getSetArtifact(artifacts[2].id))
-        assertTrue(artifacts == artifactsDao.getSetArtifacts())
+        val newArtifactsList = ArtifactsTestHelper().createRandomListOfArtifacts(10)
+        artifactsDao.insertArtifacts(newArtifactsList)
+        assertFalse(artifactsList[4] == artifactsDao.getSetArtifact(artifactsList[4].id))
+        assertTrue(newArtifactsList[2] == artifactsDao.getSetArtifact(newArtifactsList[2].id))
+        assertTrue(newArtifactsList == artifactsDao.getSetArtifacts())
     }
 
 }

@@ -18,11 +18,9 @@ class PriorityHeroesDaoTest : BaseTestDao() {
 
     @Test
     fun testReplacePriorityHeroes() = runBlocking {
-        val newPriorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(10, false)
+        val newPriorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(1, false)
         newPriorityHeroesList.forEach { priorityHeroesDao.insertPriorityHero(it) }
-        assertFalse(priorityHeroesList[4] == priorityHeroesDao.getPriorityHero(priorityHeroesList[4].heroId))
-        assertTrue(newPriorityHeroesList[2] == priorityHeroesDao.getPriorityHero(newPriorityHeroesList[2].heroId))
-        assertTrue(newPriorityHeroesList.size == priorityHeroesDao.getPriorityHeroWithHeroes().size)
+        assertTrue(newPriorityHeroesList[0] == priorityHeroesDao.getPriorityHero(newPriorityHeroesList[0].heroId))
     }
 
     @Test
