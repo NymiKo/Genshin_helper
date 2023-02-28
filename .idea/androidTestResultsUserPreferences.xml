@@ -330,6 +330,20 @@
             </AndroidTestResultsTableState>
           </value>
         </entry>
+        <entry key="1302797724">
+          <value>
+            <AndroidTestResultsTableState>
+              <option name="preferredColumnWidths">
+                <map>
+                  <entry key="192.168.56.103:5555" value="120" />
+                  <entry key="Duration" value="90" />
+                  <entry key="Genymobile&#10; Phone" value="120" />
+                  <entry key="Tests" value="360" />
+                </map>
+              </option>
+            </AndroidTestResultsTableState>
+          </value>
+        </entry>
         <entry key="1532812192">
           <value>
             <AndroidTestResultsTableState>
