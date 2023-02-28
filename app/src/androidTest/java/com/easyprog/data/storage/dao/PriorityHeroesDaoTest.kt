@@ -9,9 +9,6 @@ import org.junit.Test
 
 class PriorityHeroesDaoTest : BaseTestDao() {
 
-    private val priorityHeroesDao = db.priorityHeroesDao()
-    private val heroesDao = db.heroesDao()
-
     @Test
     fun insertPriorityHeroesAndGetThem() = runBlocking {
         val priorityHeroesList = PriorityHeroesDaoTestHelper().createRandomListOfPriorityHeroes(1, true)

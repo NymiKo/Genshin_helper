@@ -7,7 +7,7 @@ class PriorityHeroesDaoTestHelper {
 
     fun createRandomListOfPriorityHeroes(
         count: Int,
-        randomPriorityFlag: Boolean
+        randomPriorityFlag: Boolean = true
     ): List<PriorityHeroesEntity> {
         val priorityHeroes = mutableListOf<PriorityHeroesEntity>()
         val randomPriority = Random.nextBoolean()

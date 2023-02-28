@@ -8,8 +8,6 @@ import org.junit.Test
 
 class WeaponsDaoTest : BaseTestDao() {
 
-    private val weaponsDao = db.weaponsDao()
-
     @Test
     fun insertWeaponAndGetThemById() = runBlocking {
         val weaponsList = WeaponsDaoTestHelper().createRandomListOfWeapons(1)

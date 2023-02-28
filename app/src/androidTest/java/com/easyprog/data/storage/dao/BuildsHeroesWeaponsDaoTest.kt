@@ -10,14 +10,6 @@ import org.junit.Test
 
 class BuildsHeroesWeaponsDaoTest: BaseTestDao() {
 
-    private val buildsHeroesWeaponsDao = db.buildsHeroesWeaponsDao()
-    private val weaponsDao = db.weaponsDao()
-    private val heroesDao = db.heroesDao()
-    private val materialWeaponsDao = db.materialWeaponsDao()
-    private val dungeonsWeaponsMaterialDao = db.dungeonsWeaponMaterialDao()
-    private val materialTalentsDao = db.materialTalentsDao()
-    private val dungeonsTalentsMaterialDao = db.dungeonsTalentMaterialDao()
-
     @Before
     fun addNecessaryDataToDatabase() = runBlocking {
         val materialTalentsList = MaterialTalentsDaoTestHelper().createRandomListOfMaterialTalents(10)

@@ -9,8 +9,6 @@ import org.junit.Test
 
 class HeroesDaoTest : BaseTestDao() {
 
-    private val heroesDao = db.heroesDao()
-
     @Test
     fun insertHeroAndGetHis() = runBlocking {
         val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(1)

@@ -7,7 +7,7 @@ class BuildsHeroesWeaponsDaoTestHelper {
 
     fun createRandomListOfBuildsHeroesWeapons(
         count: Int,
-        randomIdHero: Boolean
+        randomIdHero: Boolean = true
     ): List<BuildsHeroesWeaponsEntity> {
         val buildsHeroesWeapons = mutableListOf<BuildsHeroesWeaponsEntity>()
         val randomNumber = Random.nextInt(1, 100)

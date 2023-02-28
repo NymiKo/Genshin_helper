@@ -8,32 +8,24 @@ import org.junit.Test
 
 class ArtifactsDaoTest : BaseTestDao() {
 
-    private val artifactsDao = db.artifactsDao()
-
     @Test
     @Throws(Exception::class)
-    fun whenInsertOneArtifactsThenRead() = runBlocking {
-        val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(1)
-        artifactsDao.insertArtifacts(artifacts)
-
-        assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
-        assertTrue(artifacts[0] == artifactsDao.getSetArtifact(1))
+    fun testReadArtifacts() = runBlocking {
+        assertEquals(10, artifactsDao.getSetArtifacts().size)
+        assertTrue(artifactsList == artifactsDao.getSetArtifacts())
     }
 
     @Test
     @Throws(Exception::class)
-    fun whenInsertALotOfArtifactsThenReadThem() = runBlocking {
-        val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(5)
-        artifactsDao.insertArtifacts(artifacts)
-        assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
+    fun testReadArtifactsById() = runBlocking {
+        assertEquals(artifactsList[0], artifactsDao.getSetArtifact(artifactsList[0].id))
+        assertTrue(artifactsList[0] == artifactsDao.getSetArtifact(artifactsList[0].id))
     }
 
     @Test
     @Throws(Exception::class)
-    fun whenInsertALotOfArtifactsThenReplaceThem() = runBlocking {
-        var artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(5)
-        artifactsDao.insertArtifacts(artifacts)
-        artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(7)
+    fun testReplaceArtifacts() = runBlocking {
+        val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(15)
         artifactsDao.insertArtifacts(artifacts)
         assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
         assertTrue(artifacts == artifactsDao.getSetArtifacts())

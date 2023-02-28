@@ -5,7 +5,7 @@ import kotlin.random.Random
 
 class BuildsHeroesArtifactsDaoTestHelper {
 
-    fun createRandomListOfBuildsHeroesArtifacts(count: Int, randomIdHero: Boolean): List<BuildsHeroesArtifactsEntity> {
+    fun createRandomListOfBuildsHeroesArtifacts(count: Int, randomIdHero: Boolean = true): List<BuildsHeroesArtifactsEntity> {
         val buildsHeroesArtifacts = mutableListOf<BuildsHeroesArtifactsEntity>()
         val randomNumber = Random.nextInt(1, 100)
 
