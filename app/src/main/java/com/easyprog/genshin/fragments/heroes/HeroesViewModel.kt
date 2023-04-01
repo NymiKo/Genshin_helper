@@ -8,4 +8,6 @@ abstract class HeroesViewModel: ViewModel() {
 
     abstract val heroesList: LiveData<List<Hero>>
 
+    abstract fun getHeroes()
+
 }

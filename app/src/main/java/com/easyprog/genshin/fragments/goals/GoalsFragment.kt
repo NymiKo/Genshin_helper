@@ -16,6 +16,11 @@ class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::i
     private val viewModel: GoalsViewModelImpl by viewModels()
     private lateinit var mAdapter: GoalsAdapter
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.getGoalsHeroes()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupAdapter()

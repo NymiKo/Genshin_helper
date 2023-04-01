@@ -2,6 +2,7 @@ package com.easyprog.genshin.fragments.hero_profile
 
 import com.easyprog.domain.FakeHeroProfileRepository
 import com.easyprog.genshin.model.Hero
+import com.easyprog.genshin.utils.TestDispatchersList
 import com.easyprog.genshin.utils.viewModelTestingRules
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -11,7 +12,6 @@ import org.junit.Rule
 import org.junit.Test
 import kotlin.test.assertEquals
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class HeroProfileViewModelTest {
 
     @get:Rule
@@ -21,7 +21,7 @@ class HeroProfileViewModelTest {
 
     @Before
     fun initViewModel() {
-        viewModel = HeroProfileViewModelImpl(repository)
+        viewModel = HeroProfileViewModelImpl(repository, TestDispatchersList())
     }
 
     @Test
@@ -37,7 +37,6 @@ class HeroProfileViewModelTest {
         )
         repository.setHero(expectedHero)
         viewModel.getHero(1)
-        advanceUntilIdle()
         val actualHero = viewModel.hero.value
         assertEquals(expectedHero, actualHero)
     }

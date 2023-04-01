@@ -4,6 +4,9 @@ import com.easyprog.data.storage.additional_models.PriorityWithHero
 import com.easyprog.data.storage.additional_models.hero.HeroAvatar
 import com.easyprog.data.storage.entities.PriorityHeroesEntity
 import com.easyprog.domain.FakeGoalsRepository
+import com.easyprog.genshin.DispatchersList
+import com.easyprog.genshin.utils.MainCoroutineDispatcherRule
+import com.easyprog.genshin.utils.TestDispatchersList
 import com.easyprog.genshin.utils.viewModelTestingRules
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -13,7 +16,6 @@ import org.junit.Rule
 import org.junit.Test
 import kotlin.test.assertEquals
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class GoalsViewModelTest {
 
     @get:Rule
@@ -25,7 +27,7 @@ class GoalsViewModelTest {
 
     @Before
     fun initViewModel() {
-        viewModel = GoalsViewModelImpl(repository)
+        viewModel = GoalsViewModelImpl(repository, TestDispatchersList())
     }
 
     @Test
@@ -55,8 +57,7 @@ class GoalsViewModelTest {
             priorityWithHero.add(PriorityWithHero(priority = priorityHeroesList[i], heroAvatar = heroesAvatarsList[i]))
         }
         repository.setPriorityWithHeroesList(priorityWithHero)
-
-        advanceUntilIdle()
+        viewModel.getGoalsHeroes()
         assertEquals(priorityWithHero, viewModel.goalsHeroesList.value)
     }
 

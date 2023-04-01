@@ -13,6 +13,6 @@ object DispatchersModule {
 
     @Singleton
     @Provides
-    fun dispatchersListFun(): DispatchersList = DispatchersList.Base()
+    fun provideDispatchersList(): DispatchersList = DispatchersList.Base()
 
 }
