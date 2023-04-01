@@ -1,6 +1,6 @@
 package com.easyprog.data.storage.dao.helpers
 
-import com.easyprog.data.storage.model.ArtifactsEntity
+import com.easyprog.data.storage.entities.ArtifactsEntity
 import kotlin.random.Random
 
 class ArtifactsTestHelper {

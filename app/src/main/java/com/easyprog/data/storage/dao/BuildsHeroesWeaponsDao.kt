@@ -3,7 +3,7 @@ package com.easyprog.data.storage.dao
 import androidx.room.*
 import com.easyprog.data.storage.additional_models.BuildsHeroesWeapons
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
+import com.easyprog.data.storage.entities.BuildsHeroesWeaponsEntity
 
 @Dao
 interface BuildsHeroesWeaponsDao {

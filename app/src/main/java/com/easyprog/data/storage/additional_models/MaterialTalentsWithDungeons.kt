@@ -2,8 +2,8 @@ package com.easyprog.data.storage.additional_models
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.easyprog.data.storage.model.DungeonsTalentMaterialEntity
-import com.easyprog.data.storage.model.MaterialTalentsEntity
+import com.easyprog.data.storage.entities.DungeonsTalentMaterialEntity
+import com.easyprog.data.storage.entities.MaterialTalentsEntity
 
 data class MaterialTalentsWithDungeons(
 

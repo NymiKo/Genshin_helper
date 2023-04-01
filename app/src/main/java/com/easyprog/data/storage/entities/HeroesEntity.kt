@@ -1,11 +1,11 @@
-package com.easyprog.data.storage.model
+package com.easyprog.data.storage.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.genshin.model.Heroes
+import com.easyprog.genshin.model.Hero
 
 @Entity(
     tableName = RoomContract.tableHeroes,
@@ -29,7 +29,20 @@ data class HeroesEntity(
     val region: String,
     @ColumnInfo(name = "talent_material_id") val talentMaterialId: Int?
 ) {
-    fun toHeroes(): Heroes = Heroes(
+
+    companion object {
+        fun toHeroesEntity(hero: Hero) = Hero(
+            id = hero.id,
+            name = hero.name,
+            avatar = hero.avatar,
+            birthday = hero.birthday,
+            element = hero.element,
+            region = hero.region,
+            talentMaterialId = hero.talentMaterialId
+        )
+    }
+
+    fun toHeroes() = Hero(
             id = id,
             name = name,
             avatar = avatar,

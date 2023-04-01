@@ -1,7 +1,6 @@
 package com.easyprog.data.storage.dao.helpers
 
-import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
-import com.easyprog.data.storage.model.DungeonsTalentMaterialEntity
+import com.easyprog.data.storage.entities.DungeonsTalentMaterialEntity
 import kotlin.random.Random
 
 class DungeonsTalentMaterialDaoTestHelper {

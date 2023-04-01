@@ -25,7 +25,7 @@ class HeroProfileFragment :
         }
     }
 
-    private val viewModel by viewModels<HeroProfileViewModel>()
+    private val viewModel by viewModels<HeroProfileViewModelImpl>()
 
     private val idHero get() = requireArguments().getInt(HERO_ID_KEY)
 

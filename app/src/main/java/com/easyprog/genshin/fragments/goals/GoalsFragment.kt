@@ -13,7 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::inflate) {
 
-    private val viewModel: GoalsViewModel by viewModels()
+    private val viewModel: GoalsViewModelImpl by viewModels()
     private lateinit var mAdapter: GoalsAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,6 @@ class GoalsFragment : BaseFragment<FragmentGoalsBinding>(FragmentGoalsBinding::i
                     mAdapter.mGoalsList = it
                     binding.recyclerGoals.visibility = View.VISIBLE
                 }
-                Log.e("CHECK_PRIORITY", it.toString())
             }
         }
     }

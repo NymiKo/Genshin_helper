@@ -1,43 +1,31 @@
 package com.easyprog.data.storage.dao
 
 import com.easyprog.data.BaseTestDao
-import com.easyprog.data.storage.dao.helpers.BuildsHeroesArtifactsDaoTestHelper
+import com.easyprog.data.storage.dao.helpers.*
+import com.easyprog.data.storage.entities.BuildsHeroesArtifactsEntity
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
+import org.junit.Before
 import org.junit.Test
 
 class BuildsHeroesArtifactsDaoTest : BaseTestDao() {
 
-    private val buildsHeroesArtifactsDao = db.buildsHeroesArtifactsDao()
+    companion object {
+        private const val HERO_ID = 1
+    }
 
-    @Test
-    @Throws(Exception::class)
-    fun insertBuildsHeroesArtifactsAndGetThemById() = runBlocking {
-        val buildsHeroesArtifacts =
-            BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(5, true)
-        buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)
+    private val buildsHeroesArtifactsByHeroId = mutableListOf<BuildsHeroesArtifactsEntity>()
 
-        assertEquals(1, buildsHeroesArtifactsDao.getBuildsArtifactsHero(1).size)
+    @Before
+    fun countBuildsHeroesArtifactsWithHeroId() {
+        buildsHeroesArtifactsList.forEach {
+            if (it.heroId == HERO_ID) buildsHeroesArtifactsByHeroId.add(it)
+        }
     }
 
     @Test
     @Throws(Exception::class)
-    fun insertBuildsHeroesArtifactsAndGetThem() = runBlocking {
-        val buildsHeroesArtifacts =
-            BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(1, true)
-        buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)
-
-        assertEquals(1, buildsHeroesArtifactsDao.getBuildsArtifactsHero(1).size)
+    fun testGetBuildsHeroesArtifactsByHeroId() = runBlocking {
+        assertTrue(buildsHeroesArtifactsByHeroId == buildsHeroesArtifactsDao.getBuildsArtifactsHero(HERO_ID))
     }
-
-    @Test
-    @Throws(Exception::class)
-    fun insertALotOfBuildsHeroesArtifactsAndGetThem() = runBlocking {
-        val buildsHeroesArtifacts =
-            BuildsHeroesArtifactsDaoTestHelper().createRandomListOfBuildsHeroesArtifacts(10, false)
-        buildsHeroesArtifactsDao.insertBuildsHeroes(buildsHeroesArtifacts)
-
-        assertEquals(10, buildsHeroesArtifactsDao.getBuildsArtifactsHero(1).size)
-    }
-
 }

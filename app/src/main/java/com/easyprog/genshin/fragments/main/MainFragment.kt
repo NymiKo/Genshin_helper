@@ -3,21 +3,27 @@ package com.easyprog.genshin.fragments.main
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation.findNavController
 import com.easyprog.genshin.R
+import com.easyprog.genshin.adapters.view_pager_banners_adapter.ViewPagerBannersAdapter
 import com.easyprog.genshin.databinding.FragmentMainBinding
 import com.easyprog.genshin.fragments.BaseFragment
+import com.easyprog.genshin.utils.enableAutoScroll
 import com.easyprog.genshin.utils.load
 
 class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
 
-    private val viewModel by viewModels<MainViewModel>()
-
     companion object {
+        const val slidingDotsCount = 4
+
         fun newInstance() = MainFragment()
     }
+
+    private val viewModel by viewModels<MainViewModel>()
+    private lateinit var mAdapterViewPager: ViewPagerBannersAdapter
 
     override fun onResume() {
         super.onResume()
         setupView()
+        setupViewPager()
     }
 
     private fun setupView() {
@@ -34,6 +40,20 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
         }
     }
 
+    private fun setupViewPager() {
+        mAdapterViewPager = ViewPagerBannersAdapter()
+        binding.viewPagerBanner.apply {
+            adapter = mAdapterViewPager.apply {
+                viewModel.bannerList.observe(viewLifecycleOwner) {
+                    mBannerList = it
+                }
+            }
+            isUserInputEnabled = true
+            enableAutoScroll(slidingDotsCount)
+        }
+        binding.dotsIndicator.attachTo(binding.viewPagerBanner)
+    }
+
     private fun setRandomImageEmblem() {
         val emblemsArray = arrayOf(
             R.drawable.emblem_anemo,
@@ -45,5 +65,11 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
             R.drawable.emblem_thunder
         )
         binding.imageEmblem.load(emblemsArray[viewModel.numberImageEmblem.value ?: 0])
+    }
+
+    override fun onDestroyView() {
+        binding.viewPagerBanner.adapter = null
+        binding.viewPagerBanner.enableAutoScroll(slidingDotsCount).cancel()
+        super.onDestroyView()
     }
 }

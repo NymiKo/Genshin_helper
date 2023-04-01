@@ -2,25 +2,23 @@ package com.easyprog.genshin.fragments.heroes
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.easyprog.data.storage.model.HeroesEntity
 import com.easyprog.domain.repositories.HeroesRepository
-import com.easyprog.genshin.model.Heroes
+import com.easyprog.genshin.DispatchersList
+import com.easyprog.genshin.model.Hero
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HeroesViewModelImpl @Inject constructor(private val heroesRepository: HeroesRepository) :
-    HeroesViewModel() {
+class HeroesViewModelImpl @Inject constructor(
+    private val heroesRepository: HeroesRepository,
+    private val dispatchers: DispatchersList
+) : HeroesViewModel() {
 
-    override var heroesList = MutableLiveData<List<Heroes>>()
+    override val heroesList = MutableLiveData<List<Hero>>()
 
-    init {
-        getHeroes()
-    }
-
-    private fun getHeroes() {
-        viewModelScope.launch {
+    override fun getHeroes() {
+        viewModelScope.launch(dispatchers.io()) {
             heroesList.postValue(heroesRepository.getHeroes())
         }
     }

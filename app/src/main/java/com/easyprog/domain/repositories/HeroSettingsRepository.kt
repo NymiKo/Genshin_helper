@@ -1,20 +1,11 @@
 package com.easyprog.domain.repositories
 
-import androidx.lifecycle.LiveData
-import com.easyprog.data.storage.model.PriorityHeroesEntity
+import com.easyprog.data.storage.entities.PriorityHeroesEntity
+import com.easyprog.genshin.model.PriorityHeroes
 
 interface HeroSettingsRepository {
 
-    fun getSettingsHeroAsync(idHero: Int): LiveData<PriorityHeroesEntity>
-    suspend fun checkInsertORUpdateSetting(
-        idPriority: Int,
-        elevationPriority: Boolean,
-        talentPriority: Boolean,
-        artifactPriority: Boolean,
-        idHero: Int
-    )
-
-    suspend fun insertSettingsHero(priorityHeroesEntity: PriorityHeroesEntity)
-    suspend fun updateSettingsHero(priorityHeroesEntity: PriorityHeroesEntity)
+    suspend fun getSettingsHeroAsync(idHero: Int): PriorityHeroes?
+    suspend fun insertHeroSetting(priorityHeroes: PriorityHeroes)
 
 }

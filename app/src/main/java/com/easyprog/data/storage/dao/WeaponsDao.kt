@@ -5,8 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.data.storage.model.MaterialWeaponsEntity
-import com.easyprog.data.storage.model.WeaponsEntity
+import com.easyprog.data.storage.entities.WeaponsEntity
 
 @Dao
 interface WeaponsDao {
@@ -16,5 +15,8 @@ interface WeaponsDao {
 
     @Query("SELECT * FROM ${RoomContract.tableWeapon} WHERE id = :idWeapon")
     suspend fun getWeapon(idWeapon: Int): WeaponsEntity
+
+    @Query("SELECT * FROM ${RoomContract.tableWeapon}")
+    suspend fun getWeapons(): List<WeaponsEntity>
 
 }

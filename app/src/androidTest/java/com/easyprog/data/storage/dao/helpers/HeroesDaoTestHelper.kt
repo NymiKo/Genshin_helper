@@ -1,6 +1,6 @@
 package com.easyprog.data.storage.dao.helpers
 
-import com.easyprog.data.storage.model.HeroesEntity
+import com.easyprog.data.storage.entities.HeroesEntity
 import kotlin.random.Random
 
 class HeroesDaoTestHelper {
@@ -10,6 +10,7 @@ class HeroesDaoTestHelper {
     ): List<HeroesEntity> {
         val heroesList = mutableListOf<HeroesEntity>()
         val randomNumber = Random.nextInt(1, 100)
+        val randomTalentId = Random.nextInt(1, 10)
 
         for (i in 1..count) {
             heroesList.add(
@@ -20,7 +21,7 @@ class HeroesDaoTestHelper {
                     "Дата рождения: $randomNumber",
                     "Элемент $randomNumber",
                     "Регион: $randomNumber",
-                    i
+                    randomTalentId
                 )
             )
         }

@@ -2,9 +2,9 @@ package com.easyprog.genshin.activity
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.easyprog.data.storage.model.BuildsHeroesWeaponsEntity
-import com.easyprog.data.storage.model.HeroesEntity
-import com.easyprog.data.storage.model.WeaponsEntity
+import com.easyprog.data.storage.entities.BuildsHeroesWeaponsEntity
+import com.easyprog.data.storage.entities.HeroesEntity
+import com.easyprog.data.storage.entities.WeaponsEntity
 import com.easyprog.domain.repositories.MainActivityRepository
 import com.easyprog.genshin.R
 import dagger.hilt.android.lifecycle.HiltViewModel

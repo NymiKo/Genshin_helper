@@ -8,35 +8,26 @@ import org.junit.Test
 
 class ArtifactsDaoTest : BaseTestDao() {
 
-    private val artifactsDao = db.artifactsDao()
-
     @Test
     @Throws(Exception::class)
-    fun whenInsertOneArtifactsThenRead() = runBlocking {
-        val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(1)
-        artifactsDao.insertArtifacts(artifacts)
-
-        assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
-        assertTrue(artifacts[0] == artifactsDao.getSetArtifact(1))
+    fun testGetArtifacts() = runBlocking {
+        assertTrue(artifactsList == artifactsDao.getSetArtifacts())
     }
 
     @Test
     @Throws(Exception::class)
-    fun whenInsertALotOfArtifactsThenReadThem() = runBlocking {
-        val artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(5)
-        artifactsDao.insertArtifacts(artifacts)
-        assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
+    fun testGetArtifactsById() = runBlocking {
+        assertTrue(artifactsList[0] == artifactsDao.getSetArtifact(artifactsList[0].id))
     }
 
     @Test
     @Throws(Exception::class)
-    fun whenInsertALotOfArtifactsThenReplaceThem() = runBlocking {
-        var artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(5)
-        artifactsDao.insertArtifacts(artifacts)
-        artifacts = ArtifactsTestHelper().createRandomListOfArtifacts(7)
-        artifactsDao.insertArtifacts(artifacts)
-        assertEquals(artifacts.size, artifactsDao.getSetArtifacts().size)
-        assertTrue(artifacts == artifactsDao.getSetArtifacts())
+    fun testReplaceArtifacts() = runBlocking {
+        val newArtifactsList = ArtifactsTestHelper().createRandomListOfArtifacts(10)
+        artifactsDao.insertArtifacts(newArtifactsList)
+        assertFalse(artifactsList[4] == artifactsDao.getSetArtifact(artifactsList[4].id))
+        assertTrue(newArtifactsList[2] == artifactsDao.getSetArtifact(newArtifactsList[2].id))
+        assertTrue(newArtifactsList == artifactsDao.getSetArtifacts())
     }
 
 }

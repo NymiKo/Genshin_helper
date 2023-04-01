@@ -1,10 +1,10 @@
 package com.easyprog.domain
 
-import com.easyprog.data.storage.model.HeroesEntity
+import com.easyprog.data.storage.entities.HeroesEntity
 import com.easyprog.domain.repositories.HeroesRepository
-import com.easyprog.genshin.model.Heroes
+import com.easyprog.genshin.model.Hero
 
-class StubRepositoryHeroes : HeroesRepository {
+class FakeHeroesRepository : HeroesRepository {
 
     private var heroesList = emptyList<HeroesEntity>()
 
@@ -12,5 +12,5 @@ class StubRepositoryHeroes : HeroesRepository {
         heroesList = heroes
     }
 
-    override suspend fun getHeroes(): List<Heroes> = heroesList.map { it.toHeroes() }
+    override suspend fun getHeroes(): List<Hero> = heroesList.map { it.toHeroes() }
 }

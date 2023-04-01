@@ -7,7 +7,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import com.easyprog.data.storage.additional_models.MaterialTalentsWithDungeons
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.data.storage.model.MaterialTalentsEntity
+import com.easyprog.data.storage.entities.MaterialTalentsEntity
 
 @Dao
 interface MaterialTalentsDao {

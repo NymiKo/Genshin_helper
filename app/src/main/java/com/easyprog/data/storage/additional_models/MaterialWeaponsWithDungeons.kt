@@ -2,8 +2,8 @@ package com.easyprog.data.storage.additional_models
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.easyprog.data.storage.model.DungeonsWeaponMaterialEntity
-import com.easyprog.data.storage.model.MaterialWeaponsEntity
+import com.easyprog.data.storage.entities.DungeonsWeaponMaterialEntity
+import com.easyprog.data.storage.entities.MaterialWeaponsEntity
 
 data class MaterialWeaponsWithDungeons(
 

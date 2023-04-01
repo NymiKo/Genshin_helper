@@ -9,43 +9,20 @@ import org.junit.Test
 
 class HeroesDaoTest : BaseTestDao() {
 
-    private val heroesDao = db.heroesDao()
-
     @Test
-    fun insertHeroAndGetHis() = runBlocking {
-        val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(1)
-        heroesDao.insertHeroes(heroesList)
-
-        assertEquals(heroesList.size, heroesDao.getHeroes().size)
-        assertTrue(heroesList[0] == heroesDao.getHeroes()[0])
-    }
-
-    @Test
-    fun insertALotOfHeroesAndGEtThem() = runBlocking {
-        val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(5)
-        heroesDao.insertHeroes(heroesList)
-
-        assertEquals(heroesList.size, heroesDao.getHeroes().size)
+    fun testGetHeroes() = runBlocking {
         assertTrue(heroesList == heroesDao.getHeroes())
     }
 
     @Test
-    fun insertHeroAndGetById() = runBlocking {
-        val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(5)
-        heroesDao.insertHeroes(heroesList)
-
-        assertEquals(1, arrayOf(heroesDao.getHero(3)).size)
-        assertTrue(heroesList[2] == heroesDao.getHero(3))
+    fun testGetHeroById() = runBlocking {
+        assertTrue(heroesList[0] == heroesDao.getHero(heroesList[0].id))
     }
 
     @Test
-    fun insertHeroReplaceAndGetById() = runBlocking {
-        var heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(5)
+    fun testReplaceHeroes() = runBlocking {
+        val heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(15)
         heroesDao.insertHeroes(heroesList)
-        heroesList = HeroesDaoTestHelper().createRandomListOfHeroes(8)
-        heroesDao.insertHeroes(heroesList)
-
-        assertEquals(heroesList.size, heroesDao.getHeroes().size)
         assertTrue(heroesList == heroesDao.getHeroes())
     }
 

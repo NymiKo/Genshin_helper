@@ -7,7 +7,7 @@ import androidx.room.Query
 import androidx.room.Transaction
 import com.easyprog.data.storage.additional_models.MaterialWeaponsWithDungeons
 import com.easyprog.data.storage.contract.RoomContract
-import com.easyprog.data.storage.model.MaterialWeaponsEntity
+import com.easyprog.data.storage.entities.MaterialWeaponsEntity
 
 @Dao
 interface MaterialWeaponsDao {
